@@ -1,9 +1,0 @@
-create table cpu(
-cpu_id int auto_increment primary key,
-cpu_name varchar(45),
-cpu_core varchar(45),
-cpu_package varchar(2),
-cpu_image varchar(45),
-cpu_price int,
-cpu_date date
-);
