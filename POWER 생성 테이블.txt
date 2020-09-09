@@ -1,9 +1,0 @@
-create table Power(
-power_id int auto_increment primary key,
-power_brand varchar(45),
-power_name varchar(45),
-power_kind varchar(45),
-rated_output varchar(45),
-power_image varchar(45),
-power_price varchar(45),
-power_date date);
