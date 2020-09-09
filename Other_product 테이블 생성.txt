@@ -1,9 +1,0 @@
-create table other_product(
-other_id int auto_increment primary key,
-other_brand varchar(45),
-other_name varchar(45),
-other_kind varchar(45),
-other_image varchar(45),
-other_price varchar(45),
-other_content varchar(450),
-other_date date);
