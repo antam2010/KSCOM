@@ -1,0 +1,11 @@
+create table mainboard(
+mainboard_id int auto_increment primary key,
+mainboard_brand varchar(45),
+mainboard_name varchar(45),
+mainboard_kind varchar(45),
+socket varchar(15),
+chipset varchar(45),
+form_factor varchar(45),
+mainboard_image varchar(45),
+mainboard_price varchar(45),
+mainboard_date date);

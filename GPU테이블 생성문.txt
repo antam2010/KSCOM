@@ -1,0 +1,10 @@
+create table GPU(
+gpu_id int auto_increment primary key,
+gpu_brand varchar(45),
+gpu_chipset_maker varchar(45),
+gpu_detail_chipset varchar(45),
+gpu_vram varchar(45),
+gpu_image varchar(45),
+gpu_name varchar(45),
+gpu_price varchar(45),
+gpu_date date);

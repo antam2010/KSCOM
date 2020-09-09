@@ -1,0 +1,9 @@
+create table RAM(
+ram_id int auto_increment primary key,
+ram_brand varchar(45),
+ram_name varchar(45),
+ram_clock varchar(45),
+ram_capacity varchar(45),
+ram_image varchar(45),
+ram_price varchar(45),
+ram_date date);

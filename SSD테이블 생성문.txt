@@ -1,0 +1,8 @@
+create table SSD(
+ssd_id int auto_increment primary key,
+ssd_brand varchar(45),
+ssd_name varchar(45),
+ssd_capacity varchar(45),
+ssd_image varchar(45),
+ssd_price varchar(45),
+ssd_date date);
