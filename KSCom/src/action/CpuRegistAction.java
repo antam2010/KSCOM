@@ -37,7 +37,7 @@ public class CpuRegistAction implements Action {
 				image, 
 				Integer.parseInt(multi.getParameter("price")),
 				multi.getParameter("content"),
-				Integer.parseInt(multi.getParameter("readcount")));
+				0);
 		
 		boolean isRegistSuccess = CpuRegistService.registCpu(cpu);
 		ActionForward forward = null;

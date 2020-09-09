@@ -123,7 +123,7 @@ public class CpuDAO {
 		String sql = "";
 		
 		try {
-			sql = "insert into cpu(name,core,package,image,price,content,readcount)values(?,?,?,?,?,?,?)";
+			sql = "insert into cpu(name,core,cpu_package,image,price,content,readcount)values(?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, cpu.getName());
 			pstmt.setString(2, cpu.getCore());
