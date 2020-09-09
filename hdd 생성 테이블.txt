@@ -1,8 +1,0 @@
-create table hdd(
-hdd_id int auto_increment primary key,
-hdd_brand varchar(45),
-hdd_name varchar(45),
-hdd_capacity varchar(45),
-hdd_image varchar(45),
-hdd_price varchar(45),
-hdd_date date);
