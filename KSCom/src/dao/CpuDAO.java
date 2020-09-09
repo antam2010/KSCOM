@@ -54,7 +54,7 @@ public class CpuDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("cpulist 출력 부분 cpudao.java"+e);
+			System.out.println("cpulist 출력 부분"+e);
 			e.printStackTrace();
 		} finally {
 			close(rs);
@@ -71,7 +71,7 @@ public class CpuDAO {
 		Cpu cpu = null;
 		
 		try {
-			pstmt = con.prepareStatement("select * form cpu where cpu_id=?");
+			pstmt = con.prepareStatement("select * from cpu where id=?");
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			
@@ -88,7 +88,7 @@ public class CpuDAO {
 			}
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("selectCPU 부분 오류"+e);
 		} finally {
 			close(pstmt);
 			close(rs);
@@ -103,12 +103,12 @@ public class CpuDAO {
 		String sql = "";
 		
 		try {
-			sql = "update cpu set readcount = readcount + 1 where cpu_id=?";
+			sql = "update cpu set readcount = readcount + 1 where id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			updateCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("조회수업데이트 다오 부분"+e);
 		} finally {
 			close(pstmt);
 		}
@@ -123,17 +123,18 @@ public class CpuDAO {
 		String sql = "";
 		
 		try {
-			sql = "insert into cpu(cpu_name,cpu_core,cpu_package,cpu_image,cpu_price,cpu_date,readcount)values(?,?,?,?,?,?,now(),?)";
+			sql = "insert into cpu(name,core,package,image,price,content,readcount)values(?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, cpu.getName());
 			pstmt.setString(2, cpu.getCore());
 			pstmt.setString(3, cpu.getCpu_package());
 			pstmt.setString(4, cpu.getImage());
 			pstmt.setInt(5, cpu.getPrice());
-			pstmt.setInt(6, cpu.getReadcount());
+			pstmt.setString(6, cpu.getContent());
+			pstmt.setInt(7, cpu.getReadcount());
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("insertcpu 다오 부분"+e);
 		} finally {
 			close(pstmt);
 		}

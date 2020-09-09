@@ -79,9 +79,9 @@ table {
 		}
 	}
 	
-	function checkQty(kind,qty){
+	function checkQty(name,qty){
 		if(qty != 1){
-			location.href="cpuCartQtyDown.do?kind="+ encodeURIComponent(kind);
+			location.href="cpuCartQtyDown.do?name="+ encodeURIComponent(name);
 		}
 	}
 </script>
@@ -186,7 +186,7 @@ table {
         
         <tr>
         	<td>
-        		<input type="checkbox" id="remove" name="remove" value="${cart.kind }"/>
+        		<input type="checkbox" id="remove" name="remove" value="${cart.name }"/>
         	</td>
              <td>
              
@@ -196,17 +196,17 @@ table {
              <img src = "images/${cart.image }" id ="cartImage"/>
             </td>
              <td>
-             ${cart.kind }
+             ${cart.name }
             </td>
              <td>
              ${cart.price }
             </td>
              <td>
-             <a href="cpuCartQtyUp.do?kind=${cart.encodingKind }">
+             <a href="cpuCartQtyUp.do?name=${cart.name }">
              <img src="images/up.jpg" id = "upImage" border=0/>
              </a><br>
              ${cart.qty }<br>
-             <a href="javascript:checkQty('${cart.kind}',${cart.qty})">
+             <a href="javascript:checkQty('${cart.name}',${cart.qty})">
              <img src="images/down.jpg" id = "downImage" border=0/>
              </a>
             </td>

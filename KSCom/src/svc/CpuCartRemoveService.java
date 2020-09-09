@@ -7,15 +7,15 @@ import vo.Cart;
 
 public class CpuCartRemoveService {
 	
-	public void cartRemove(HttpServletRequest request, String[] kindArray) {
+	public void cartRemove(HttpServletRequest request, String[] NameArray) {
 		HttpSession session = request.getSession();
 		ArrayList<Cart> cartList = (ArrayList<Cart>)session.getAttribute("cartList");
 		
-		for (int i = 0; i < kindArray.length; i++) {
+		for (int i = 0; i < NameArray.length; i++) {
 			
 			for (int j = 0; j < cartList.size(); j++) {
 				
-				if(cartList.get(j).getKind().equals(kindArray[i])){
+				if(cartList.get(j).getName().equals(NameArray[i])){
 						cartList.remove(cartList.get(j));
 					
 				}

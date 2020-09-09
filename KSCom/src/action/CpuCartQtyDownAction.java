@@ -10,10 +10,10 @@ public class CpuCartQtyDownAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String kind = request.getParameter("kind");
-		System.out.println("kind = " + kind);
+		String name = request.getParameter("name");
+		System.out.println("name = " + name);
 		CpuCartQtyDownService cpuCartQtyDownService = new CpuCartQtyDownService();
-		cpuCartQtyDownService.downCartQty(kind,request);
+		cpuCartQtyDownService.downCartQty(name,request);
 		ActionForward forward = new ActionForward("cpuCartList.do",true);
 		return forward;
 	}

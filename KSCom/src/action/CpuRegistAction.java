@@ -21,7 +21,7 @@ public class CpuRegistAction implements Action {
 		
 		String saveFolder = "/images";
 		String encType = "UTF-8";
-		int maxSize = 5*1024*1024;
+		int maxSize = 10*1024*1024; //10mb 까지 업로드가능
 		
 		
 		ServletContext context = request.getServletContext();
@@ -30,16 +30,14 @@ public class CpuRegistAction implements Action {
 					realFolder, maxSize, encType,
 					new DefaultFileRenamePolicy());
 		String image = multi.getFilesystemName("image");
-		Cpu cpu = new Cpu(
-				0, 
-				multi.getParameter("kind"), 
-				Integer.parseInt(multi.getParameter("price")), 
+
+		Cpu cpu = new Cpu(0, multi.getParameter("name"),
+				multi.getParameter("core"),
+				multi.getParameter("cpu_package"),
 				image, 
-				multi.getParameter("nation"), 
-				Integer.parseInt(multi.getParameter("height")), 
-				Integer.parseInt(multi.getParameter("weight")), 
-				multi.getParameter("content"), 
-				0);
+				Integer.parseInt(multi.getParameter("price")),
+				multi.getParameter("content"),
+				Integer.parseInt(multi.getParameter("readcount")));
 		
 		boolean isRegistSuccess = CpuRegistService.registCpu(cpu);
 		ActionForward forward = null;
@@ -50,7 +48,7 @@ public class CpuRegistAction implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('더그리지스트');");
+			out.println("alert('등록실패');");
 			out.println("history.back();");
 			out.println("</script>");
 		}

@@ -42,20 +42,19 @@
 </head>
 <body>
 <section id = "listForm">
-<h2>${cpu.kind}의 상세정보</h2>
+<h2>${cpu.name}의 상세정보</h2>
 
 	<section id="content_main">
 		<section id = "content_left">
 			<img src="images/${cpu.image}"/>
 		</section>
 		<section id = "content_right">
-			<b>품종 : </b> ${cpu.kind}<br>
+			<b>이름 : </b> ${cpu.name}<br>
+			<b>코어 : </b> ${cpu.core}<br>
+			<b>패키지 유무: </b> ${cpu.cpu_package}<br>
 			<b>가격 : </b> ${cpu.price}<br>
-			<b>신장 : </b> ${cpu.height}<br>
-			<b>체중 : </b> ${cpu.weight}<br>
-			<b>원산지 : </b> ${cpu.country}<br>
 			<p id="desc">
-			<b>내용 : </b> ${cpu.content}<br>
+			<b>자세한 설명 : </b> ${cpu.content}<br>
 			</p>
 		</section>
 		<div style="clear:both"></div>

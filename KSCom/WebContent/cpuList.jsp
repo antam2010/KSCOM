@@ -53,7 +53,7 @@
 <nav>
 <section id = "listForm">
 <c:if test="${cpuList != null}">
-<h2>개 상품 목록  <a href="cpuRegistForm.do">개상품등록</a></h2>
+<h2>CPU 목록  <a href="cpuRegistForm.do">CPU등록</a></h2>
 <table>
 	<tr>
 		<c:forEach var = "cpu" items="${cpuList }" varStatus="status">
@@ -61,7 +61,7 @@
 			<a href="cpuView.do?id=${cpu.id}">
 			<img src="images/${cpu.image}" id="productImage"/>
 			</a>
-			상품명:${cpu.kind}<br>
+			상품명:${cpu.id}<br>
 			가격:${cpu.price}<br>
 		</td>
 		<c:if test="${((status.index+1) mod 4)==0 }">

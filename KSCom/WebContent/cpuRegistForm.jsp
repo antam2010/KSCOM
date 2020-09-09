@@ -38,11 +38,11 @@
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
-<nav>
+
 <section id = "registForm">
-   <header>
-      <h2>개정보등록</h2>
-   </header>
+   <nav>
+      <h2>CPU등록</h2>
+   </nav>
       <form action="cpuRegist.do" method="post" name = "writeForm" enctype="multipart/form-data">
       
    <table>
@@ -50,60 +50,35 @@
       <td colspan="2">
          <a href="cpuList.do">목록보기</a>
       </td>
-    
    </tr>
-   
    <tr>
       <td class = "td_left">
-         <label for = "kind">품종 : </label>
+         <label for = "name">제품 이름 : </label>
       </td>
       <td class = "td_right">
-         <input type = "text" name = "kind" id ="kind" required="required"/>
-      </td>
-   </tr>
-   
-   <tr>
-      <td class = "td_left">
-         <label for = "nation">원산지 : </label>
-      </td>
-      <td class = "td_right">
-         <input type = "text" name = "nation" id ="nation"/>
+         <input type = "text" name = "name" id ="name" required="required"/>
       </td>
    </tr>
    
    <tr>
       <td class = "td_left">
-         <label for = "price">가격 : </label>
+         <label for = "core">코어 : </label>
       </td>
       <td class = "td_right">
-         <input type = "text" name = "price" id ="price"/>
-      </td>
-   </tr>
-   <tr>
-      <td class = "td_left">
-         <label for = "height">신장 : </label>
-      </td>
-      <td class = "td_right">
-         <input type = "text" name = "height" id ="height"/>
-      </td>
-   </tr>
-   <tr>
-      <td class = "td_left">
-         <label for = "weight">체중 : </label>
-      </td>
-      <td class = "td_right">
-         <input type = "text" name = "weight" id ="weight"/>
+         <input type = "text" name = "core" id ="core"/>
       </td>
    </tr>
    
+   
    <tr>
       <td class = "td_left">
-         <label for = "content">글내용 : </label>
+         <label for = "cpu_package">패키지 유무 : </label>
       </td>
       <td class = "td_right">
-         <textarea name="content" id="content" rows="13" cols="40" wrap="off"></textarea>
+         <input type = "text" name = "cpu_package" id ="cpu_package"/>
       </td>
    </tr>
+   
    <tr>
       <td class = "td_left">
          <label for = "image">상품이미지 : </label>
@@ -113,16 +88,33 @@
       </td>
    </tr>
    <tr>
+      <td class = "td_left">
+         <label for = "price">가격 : </label>
+      </td>
+      <td class = "td_right">
+         <input type = "text" name = "price" id ="price" placeholder="숫자만 입력"/>
+      </td>
+   </tr>
+   
+    <tr>
+      <td class = "td_left">
+         <label for = "content">제품 정보 : </label>
+      </td>
+      <td class = "td_right">
+         <textarea name="content" id="content" rows="13" cols="40" wrap="off"></textarea>
+      </td>
+   </tr>
+   <tr>
       <td colspan="2" id = "commandCell"> 
-         <input type = "submit" value = "개상품등록"/>      
+         <input type = "submit" value = "상품등록"/>      
          <input type = "reset" value = "다시작성"/>      
-         <input type = "button" value = "개상품목록보기" onClick="window.location.href='cpuList.do'"/>      
+         <input type = "button" value = "상품목록보기" onClick="window.location.href='cpuList.do'"/>      
       </td>
    </tr>   
    </table>
    </form>
    
 </section>
-</nav>
+
 </body>
 </html>

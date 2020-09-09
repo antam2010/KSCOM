@@ -1,6 +1,8 @@
 package vo;
 
-import java.net.URLEncoder;
+
+
+
 
 public class Cpu {
 	
@@ -25,6 +27,14 @@ public class Cpu {
 		this.readcount=readcount;
 	}
 	
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -62,12 +72,9 @@ public class Cpu {
 		this.price = price;
 	}
 	
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
+	
+	
+
 	public int getReadcount() {
 		return readcount;
 	}

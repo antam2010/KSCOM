@@ -11,9 +11,9 @@ public class CpuCartQtyUpAction implements Action {
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		String kind = request.getParameter("kind");
+		String name = request.getParameter("name");
 		CpuCartQtyUpService cpuCartQtyUpService = new CpuCartQtyUpService();
-		cpuCartQtyUpService.upCartQty(kind,request);
+		cpuCartQtyUpService.upCartQty(name,request);
 		ActionForward forward = new ActionForward("cpuCartList.do", true);
 		return forward;
 	}

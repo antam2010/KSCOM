@@ -33,17 +33,18 @@ public class CpuCartAddService {
 		
 		
 		for (int i = 0; i < cartList.size(); i++) {
-			if(cartCpu.getKind().equals(cartList.get(i).getKind())){
+			if(cartCpu.getName().equals(cartList.get(i).getName())){
 				isNewCart = false;
 				cartList.get(i).setQty(cartList.get(i).getQty()+1);
 				break;
+				
 			}
 		}
 		
 		if(isNewCart){
 			Cart cart = new Cart();
 			cart.setImage(cartCpu.getImage());
-			cart.setKind(cartCpu.getKind());
+			cart.setName(cartCpu.getName());
 			cart.setPrice(cartCpu.getPrice());
 			cart.setQty(1);
 			cartList.add(cart);

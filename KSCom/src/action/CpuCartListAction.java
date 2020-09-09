@@ -14,7 +14,7 @@ public class CpuCartListAction implements Action {
 			HttpServletResponse response) throws Exception {
 		CpuCartListService cpuCartListService = new CpuCartListService();
 		ArrayList<Cart> cartList = cpuCartListService.getCartList(request);
-		//�ѱݾװ��
+		
 		int totalMoney = 0;
 		int money = 0 ;
 		
