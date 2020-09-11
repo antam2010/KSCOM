@@ -1,9 +1,5 @@
 package vo;
 
-
-
-
-
 public class Cpu {
 	
 	private int id;

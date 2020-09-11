@@ -9,25 +9,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/form.css">
-<title>cpu 리스트</title>
+<title>ram 리스트</title>
 
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
 <nav>
 <section id = "listForm">
-<c:if test="${cpuList != null}">
-<h2>cpu 정보</h2>	
+<c:if test="${ramList != null}">
+<h2>ram 정보</h2>	
  
 <table>
 	<tr>
-		<c:forEach var = "cpu" items="${cpuList }" varStatus="status">
+		<c:forEach var = "ram" items="${ramList }" varStatus="status">
 		<td>
-			<a href="cpuView.do?id=${cpu.id}">
-			<img src="images/${cpu.image}" id="productImage"/>
+			<a href="ramView.do?id=${ram.id}">
+			<img src="images/${ram.image}" id="productImage"/>
 			</a><br>
-			상품명:${cpu.name}<br>
-			가격:${cpu.price}<br>
+			상품명:${ram.name}<br>
+			가격:${ram.price}<br>
 		</td>
 		<c:if test="${((status.index+1) mod 4)==0 }">
 			</tr>
@@ -37,14 +37,16 @@
 	</tr>
 </table>
 </c:if>
-<c:if test="${cpuList==null }">
+<c:if test="${ramList==null }">
 	<div class="div_empty">
 	없음
 	</div>
 </c:if>
 <c:if test="${todayImageList !=null }">
 
-<a href="ramList.do"><div id="light_com">ram리스트 가기</div></a>
+
+<div id="light_com"><a href="cpuList.do">cpu리스트 가기</a></div>
+
 
 
 <div id ="todayImageList">

@@ -19,6 +19,18 @@ import action.CpuListAction;
 import action.CpuRegistAction;
 import action.CpuRegistFormAction;
 import action.CpuViewAction;
+import action.MainboardCartAddAction;
+import action.MainboardCartListAction;
+import action.MainboardListAction;
+import action.MainboardRegistAction;
+import action.MainboardRegistFormAction;
+import action.MainboardViewAction;
+import action.RamCartAddAction;
+import action.RamCartListAction;
+import action.RamListAction;
+import action.RamRegistAction;
+import action.RamRegistFormAction;
+import action.RamViewAction;
 
 
 @WebServlet("*.do")
@@ -48,7 +60,7 @@ public class CpuFrontController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 		
-		
+		//List.do
 		if(command.equals("/cpuList.do")){
 			action = new CpuListAction();
 		
@@ -58,6 +70,27 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/ramList.do")){
+			action = new RamListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/mainboardList.do")){
+			action = new MainboardListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		//View.do
 		else if(command.equals("/cpuView.do")){
 			action = new CpuViewAction();
 			
@@ -67,6 +100,25 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/ramView.do")){
+			action = new RamViewAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/mainboardView.do")){
+			action = new MainboardViewAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//CartAdd.do
 		else if(command.equals("/cpuCartAdd.do")){
 			action = new CpuCartAddAction();
 			
@@ -76,6 +128,25 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/ramCartAdd.do")){
+			action = new RamCartAddAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/mainboardCartAdd.do")){
+			action = new MainboardCartAddAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//CartList.do
 		else if(command.equals("/cpuCartList.do")){
 			action = new CpuCartListAction();
 			
@@ -85,6 +156,25 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/ramCartList.do")){
+			action = new RamCartListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/mainboardCartList.do")){
+			action = new MainboardCartListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//카트 찾기
 		else if(command.equals("/cpuCartSearch.do")){
 			action = new CpuCartSearchAction();
 			
@@ -121,6 +211,7 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		//regist 등록
 		else if(command.equals("/cpuRegist.do")){
 			action = new CpuRegistAction();
 			
@@ -130,8 +221,43 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/ramRegist.do")){
+			action = new RamRegistAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/mainboardRegist.do")){
+			action = new MainboardRegistAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//등록 폼 으로이동부분 regist
 		else if(command.equals("/cpuRegistForm.do")){
 			action = new CpuRegistFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/ramRegistForm.do")){
+			action = new RamRegistFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/mainboardRegistForm.do")){
+			action = new MainboardRegistFormAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

@@ -18,4 +18,5 @@ public class CpuListService {
 		return cpuList;
 	}
 	
+	
 }

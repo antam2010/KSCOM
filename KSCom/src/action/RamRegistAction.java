@@ -6,16 +6,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import svc.CpuRegistService;
-import vo.ActionForward;
-import vo.Cpu;
 
-public class CpuRegistAction implements Action {
+import svc.RamRegistService;
+import vo.ActionForward;
+import vo.Ram;
+
+
+
+
+public class RamRegistAction implements Action {
 //상품 등록 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		CpuRegistService cpuRegistService = new CpuRegistService();
+		RamRegistService ramRegistService = new RamRegistService();
 		String realFolder = "";
 		
 		
@@ -31,20 +35,24 @@ public class CpuRegistAction implements Action {
 					new DefaultFileRenamePolicy());
 		String image = multi.getFilesystemName("image");
 
-		Cpu cpu = new Cpu(0, multi.getParameter("name"),
-				multi.getParameter("core"),
-				multi.getParameter("cpu_package"),
+		Ram ram = new Ram(0, multi.getParameter("brand"),
+				multi.getParameter("name"),
+				multi.getParameter("clock"),
+				multi.getParameter("capacity"),
 				image, 
 				Integer.parseInt(multi.getParameter("price")),
 				multi.getParameter("content"),
 				0);
 		
-		boolean isRegistSuccess = cpuRegistService.registCpu(cpu);
+		boolean isRegistSuccess = ramRegistService.registRam(ram);
 		ActionForward forward = null;
 		
 		if(isRegistSuccess){
-			forward = new ActionForward("cpuList.do", true);
-		}else{
+			
+			forward = new ActionForward("ramList.do", true);
+			
+			
+		}else if(!isRegistSuccess){
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");

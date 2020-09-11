@@ -6,16 +6,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import svc.CpuRegistService;
-import vo.ActionForward;
-import vo.Cpu;
 
-public class CpuRegistAction implements Action {
+import svc.MainboardRegistService;
+import vo.ActionForward;
+import vo.Mainboard;
+
+
+
+
+public class MainboardRegistAction implements Action {
 //상품 등록 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		CpuRegistService cpuRegistService = new CpuRegistService();
+		MainboardRegistService mainboardRegistService = new MainboardRegistService();
 		String realFolder = "";
 		
 		
@@ -31,19 +35,22 @@ public class CpuRegistAction implements Action {
 					new DefaultFileRenamePolicy());
 		String image = multi.getFilesystemName("image");
 
-		Cpu cpu = new Cpu(0, multi.getParameter("name"),
-				multi.getParameter("core"),
-				multi.getParameter("cpu_package"),
+		Mainboard mainboard = new Mainboard(0, multi.getParameter("brand"),
+				multi.getParameter("name"),
+				multi.getParameter("kind"),
+				multi.getParameter("socket"),
+				multi.getParameter("chipset"),
+				multi.getParameter("form_factor"),
 				image, 
 				Integer.parseInt(multi.getParameter("price")),
 				multi.getParameter("content"),
 				0);
 		
-		boolean isRegistSuccess = cpuRegistService.registCpu(cpu);
+		boolean isRegistSuccess = mainboardRegistService.registMainboard(mainboard);
 		ActionForward forward = null;
 		
 		if(isRegistSuccess){
-			forward = new ActionForward("cpuList.do", true);
+			forward = new ActionForward("mainboardList.do", true);
 		}else{
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();

@@ -12,62 +12,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-#listForm {
-   width: 640px;
-   border: 1px red solid;
-   margin: auto;
-   
-}
-
-h2 {
-   text-align: center;
-}
-
-table {
-   width: 550px;
-   margin: auto;
-}
-
-.tr_top {
-   background-color: lime;
-}
-
-.div_empty {
-   text-align: center;
-   background-color:
-}
-
-.td_command {
-   text-align: right;
-}
-#todayImageList{
-   text-align: center;
-}
-#productImage{
-   width:150px;
-   height:150px;
-   border:none;
-}
-#cartImage{
-   width:70px;
-   height:70px;
-   border:none;
-}
-#select{
-	text-align: right;
-}
-#commandList{
-	text-align: center;
-}
-#upImage{
-	width: 15px;
-}
-#downImage{
-	width: 15px;
-}
-</style>
+<title>장바구니 목록</title>
+<link rel="stylesheet" href="css/form.css">
 <script>
 	function checkAll(theForm){
 		if(theForm.remove.length == undefined){
@@ -87,6 +33,8 @@ table {
 </script>
 </head>
 <body>
+<jsp:include page="template.jsp"></jsp:include>
+<nav>
 <c:if test="${startMoney !=null }">
 	<c:set var="startMoney" value="${startMoney}"></c:set>
 </c:if>
@@ -170,6 +118,8 @@ table {
     				</c:otherwise>
     			</c:choose>
     		</select>
+    		
+    		
     		<input type="submit" value="검색" formaction="cpuCartSearch.do"/>
     		</td>
     	</tr>
@@ -181,15 +131,14 @@ table {
              <td>가격</td>
              <td>수량</td>
          </tr>
+         
+<!-- 여기서 부터 값 들어가는 부분 -->
 
         <c:forEach var="cart" items="${cartList }" varStatus="status">
-        
         <tr>
-        	<td>
-        		<input type="checkbox" id="remove" name="remove" value="${cart.name }"/>
-        	</td>
+        		
+        	 <td><input type="checkbox" id="remove" name="remov	e" value="${cart.name }"/></td>
              <td>
-             
              ${status.index+1}<!-- 번호값계산 -->
             </td>
              <td>
@@ -203,11 +152,11 @@ table {
             </td>
              <td>
              <a href="cpuCartQtyUp.do?name=${cart.name }">
-             <img src="images/up.jpg" id = "upImage" border=0/>
+             <img src="images/up.jpg" id = "upImage"/>
              </a><br>
              ${cart.qty }<br>
-             <a href="javascript:checkQty('${cart.name}',${cart.qty})">
-             <img src="images/down.jpg" id = "downImage" border=0/>
+            <a href="javascript:checkQty('${cart.name}',${cart.qty})">
+            <img src="images/down.jpg" id = "downImage" />
              </a>
             </td>
          </tr>
@@ -227,13 +176,14 @@ table {
 	</c:if>
 	<c:if test="${cartList == null }">
       <section class="div_empty">
-      개정보가 없습니다.
+     컴퓨터 정보가 없습니다.
       </section>
 	</c:if>
-   <nav id="commandList">
-   		<a href="cpuList.do">쇼핑 계속하기</a>
-   </nav>
+ 
+   		<a href="comList.jsp">쇼핑 계속하기</a>
+ 
    
 </section>
+</nav>
 </body>
 </html> 
