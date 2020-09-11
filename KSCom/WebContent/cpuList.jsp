@@ -65,6 +65,9 @@
 </div>
 </c:if>
 </section>
+
+<!-- 관리자만 보이는 페이지 -->
+
 	<ul>
 		<div id="insertProduct">
 		<li><a href="cpuRegistForm.do">CPU등록</a></li>
