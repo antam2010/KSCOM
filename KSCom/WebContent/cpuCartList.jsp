@@ -30,6 +30,16 @@
 			location.href="cpuCartQtyDown.do?name="+ encodeURIComponent(name);
 		}
 	}
+	function checkQtyRam(name,qty){
+		if(qty != 1){
+			location.href="ramCartQtyDown.do?name="+ encodeURIComponent(name);
+		}
+	}
+	function checkQtyMainboard(name,qty){
+		if(qty != 1){
+			location.href="gpuCartQtyDown.do?name="+ encodeURIComponent(name);
+		}
+	}
 </script>
 </head>
 <body>
@@ -42,7 +52,7 @@
 	<c:set var="endMoney" value="${endMoney}"></c:set>
 </c:if>
 <section id="listForm">
-	<c:if test="${cartList !=null && cartList.size()>0 }">
+	<c:if test="${cartList !=null ||ramcartList !=null }">
    <h2>장바구니 목록</h2>
 <form method="post">
       <table>
@@ -133,11 +143,14 @@
          </tr>
          
 <!-- 여기서 부터 값 들어가는 부분 -->
-
+		<tr>
+			<td>CPU</td>
+		</tr>
+		
         <c:forEach var="cart" items="${cartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" id="remove" name="remov	e" value="${cart.name }"/></td>
+        	 <td><input type="checkbox" id="remove" name="remove" value="${cart.name }"/></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -159,6 +172,109 @@
             <img src="images/down.jpg" id = "downImage" />
              </a>
             </td>
+             <td style="text-align:center;">
+         	<input type="submit" value="삭제" formaction="cpuCartRemove.do"/>
+         </td>
+         </tr>
+        </c:forEach>
+        <tr>
+        	<td>RAM</td>
+        </tr>
+         <c:forEach var="ramcart" items="${ramcartList }" varStatus="status">
+        <tr>
+        		
+        	 <td><input type="checkbox" id="remove" name="remove" value="${ramcart.name }"/></td>
+             <td>
+             ${status.index+1}<!-- 번호값계산 -->
+            </td>
+             <td>
+             <img src = "images/${ramcart.image }" id ="cartImage"/>
+            </td>
+             <td>
+             ${ramcart.name }
+            </td>
+             <td>
+             ${ramcart.price }
+            </td>
+             <td>
+             <a href="ramCartQtyUp.do?name=${ramcart.name }">
+             <img src="images/up.jpg" id = "upImage"/>
+             </a><br>
+             ${ramcart.qty }<br>
+            <a href="javascript:checkQtyRam('${ramcart.name}',${ramcart.qty})">
+            <img src="images/down.jpg" id = "downImage" />
+             </a>
+            </td>
+             <td style="text-align:center;">
+         	<input type="submit" value="삭제" formaction="ramCartRemove.do"/>
+         </td>
+         </tr>
+        </c:forEach>
+         <tr>
+        	<td>MainBoard</td>
+        </tr>
+         <c:forEach var="mainboardcart" items="${mainboardcartList }" varStatus="status">
+        <tr>
+        		
+        	 <td><input type="checkbox" id="remove" name="remove" value="${mainboardcart.name }"/></td>
+             <td>
+             ${status.index+1}<!-- 번호값계산 -->
+            </td>
+             <td>
+             <img src = "images/${mainboardcart.image }" id ="cartImage"/>
+            </td>
+             <td>
+             ${mainboardcart.name }
+            </td>
+             <td>
+             ${mainboardcart.price }
+            </td>
+             <td>
+             <a href="mainboardCartQtyUp.do?name=${mainboardcart.name }">
+             <img src="images/up.jpg" id = "upImage"/>
+             </a><br>
+             ${mainboardcart.qty }<br>
+            <a href="javascript:checkQtyMainboard('${mainboardcart.name}',${mainboardcart.qty})">
+            <img src="images/down.jpg" id = "downImage" />
+             </a>
+            </td>
+             <td style="text-align:center;">
+         	<input type="submit" value="삭제" formaction="mainboardCartRemove.do"/>
+         </td>
+         </tr>
+        </c:forEach>
+        
+         <tr>
+        	<td>그래픽카드</td>
+        </tr>
+         <c:forEach var="gpucart" items="${gpucartList }" varStatus="status">
+        <tr>
+        		
+        	 <td><input type="checkbox" id="remove" name="remove" value="${gpucart.name }"/></td>
+             <td>
+             ${status.index+1}<!-- 번호값계산 -->
+            </td>
+             <td>
+             <img src = "images/${gpucart.image }" id ="cartImage"/>
+            </td>
+             <td>
+             ${gpucart.name }
+            </td>
+             <td>
+             ${gpucart.price }
+            </td>
+             <td>
+             <a href="gpuCartQtyUp.do?name=${gpucart.name }">
+             <img src="images/up.jpg" id = "upImage"/>
+             </a><br>
+             ${gpucart.qty }<br>
+            <a href="javascript:checkQtyMainboard('${gpucart.name}',${gpucart.qty})">
+            <img src="images/down.jpg" id = "downImage" />
+             </a>
+            </td>
+             <td style="text-align:center;">
+         	<input type="submit" value="삭제" formaction="gpuCartRemove.do"/>
+         </td>
          </tr>
         </c:forEach>
       <tr>

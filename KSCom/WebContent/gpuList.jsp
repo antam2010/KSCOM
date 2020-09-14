@@ -9,26 +9,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/form.css">
-<title>cpu 리스트</title>
+<title>gpu 리스트</title>
 
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
 <nav>
 <section id = "listForm">
-<c:if test="${cpuList != null}">
-<h2>cpu 정보</h2>	
+<c:if test="${gpuList != null}">
+<h2>gpu 정보</h2>	
  
 <table>
 	<tr>
-		<c:forEach var = "cpu" items="${cpuList }" varStatus="status">
+		<c:forEach var = "gpu" items="${gpuList }" varStatus="status">
 		<td>
-			<a href="cpuView.do?id=${cpu.id}">
-			<img src="images/${cpu.image}" id="productImage"/>
+			<a href="gpuView.do?id=${gpu.id}">
+			<img src="images/${gpu.image}" id="productImage"/>
 			</a><br>
-			상품명:${cpu.name}<br>
-			가격:${cpu.price}<br>
-			조회수:${cpu.readcount }<br>
+			상품명:${gpu.name}<br>
+			가격:${gpu.price}<br>
 		</td>
 		<c:if test="${((status.index+1) mod 4)==0 }">
 			</tr>
@@ -38,14 +37,16 @@
 	</tr>
 </table>
 </c:if>
-<c:if test="${cpuList==null }">
+<c:if test="${gpuList==null }">
 	<div class="div_empty">
 	없음
 	</div>
 </c:if>
 <c:if test="${todayImageList !=null }">
 
-<a href="ramList.do"><div id="light_com">ram리스트 가기</div></a>
+
+<div id="light_com"><a href="cpuList.do">cpu리스트 가기</a></div>
+
 
 
 <div id ="todayImageList">
@@ -66,15 +67,12 @@
 </div>
 </c:if>
 </section>
-
-<!-- 관리자만 보이는 페이지 -->
-
 	<ul>
 		<div id="insertProduct">
 		<li><a href="cpuRegistForm.do">CPU등록</a></li>
 		<li><a href="ramRegistForm.do">램 등록</a></li>
  		<li><a href="mainboardRegistForm.do">메인보드 등록</a></li>
- 		<li><a href="gpuRegistForm.do">그래픽카드 등록</a></li>
+ 		<li><a href="gpuRegistForm.do">GPU 등록</a></li>
  		</div>
  	</ul>
   

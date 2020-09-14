@@ -21,21 +21,21 @@ public class RamCartAddService {
 	}
 
 	public void addCart(HttpServletRequest request, Ram cartRam) {
-		HttpSession session = request.getSession();
-		ArrayList<Cart> cartList = (ArrayList<Cart>)session.getAttribute("cartList");
+		HttpSession session = request.getSession(); 
+		ArrayList<Cart> ramcartList = (ArrayList<Cart>)session.getAttribute("ramcartList");
 		
-		if(cartList == null){
-			cartList = new ArrayList<Cart>();
-			session.setAttribute("cartList", cartList);
+		if(ramcartList == null){
+			ramcartList = new ArrayList<Cart>();
+			session.setAttribute("ramcartList", ramcartList);
 		}
 		
 		boolean isNewCart = true;
 		
 		
-		for (int i = 0; i < cartList.size(); i++) {
-			if(cartRam.getName().equals(cartList.get(i).getName())){
+		for (int i = 0; i < ramcartList.size(); i++) {
+			if(cartRam.getName().equals(ramcartList.get(i).getName())){
 				isNewCart = false;
-				cartList.get(i).setQty(cartList.get(i).getQty()+1);
+				ramcartList.get(i).setQty(ramcartList.get(i).getQty()+1);
 				break;
 				
 			}
@@ -47,7 +47,7 @@ public class RamCartAddService {
 			cart.setName(cartRam.getName());
 			cart.setPrice(cartRam.getPrice());
 			cart.setQty(1);
-			cartList.add(cart);
+			ramcartList.add(cart);
 		}
 		
 	}

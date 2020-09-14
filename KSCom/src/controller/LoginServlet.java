@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import svc.LoginService;
-import vo.Member;
+
+import svc.MemberLoginService;
+import vo.MemberBean;
+
 
 /**
  * Servlet implementation class LoginServlet
@@ -32,17 +34,16 @@ public class LoginServlet extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id = request.getParameter("id");
-		String passwd = request.getParameter("passwd");
-		LoginService loginService = new LoginService();
-		Member loginMember = loginService.getLoginMember(id,passwd);
+		String MEMBER_ID = request.getParameter("MEMBER_ID");
+		String MEMBER_PW = request.getParameter("MEMBER_PW");
+		MemberLoginService memberLoginService = new MemberLoginService();
+		MemberBean memberLoginMember = memberLoginService.getLoginMember(MEMBER_ID,MEMBER_PW);
 
 		
-		if(loginMember != null){
+		if(memberLoginMember != null){
 			HttpSession session = request.getSession();
-			session.setAttribute("id", id);
-			session.setAttribute("grade", loginMember.getGrade());
-			session.setAttribute("member", loginMember);
+			session.setAttribute("id", MEMBER_ID);
+			session.setAttribute("member", memberLoginMember);
 			response.sendRedirect("template.jsp");
 		}
 		else{
@@ -56,3 +57,4 @@ public class LoginServlet extends HttpServlet {
 	}
 
 }
+

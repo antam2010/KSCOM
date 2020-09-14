@@ -27,20 +27,20 @@ public class MainboardCartAddService {
 
 	public void addCart(HttpServletRequest request, Mainboard cartMainboard) {
 		HttpSession session = request.getSession();
-		ArrayList<Cart> cartList = (ArrayList<Cart>)session.getAttribute("cartList");
+		ArrayList<Cart> mainboardcartList = (ArrayList<Cart>)session.getAttribute("mainboardcartList");
 		
-		if(cartList == null){
-			cartList = new ArrayList<Cart>();
-			session.setAttribute("cartList", cartList);
+		if(mainboardcartList == null){
+			mainboardcartList = new ArrayList<Cart>();
+			session.setAttribute("mainboardcartList", mainboardcartList);
 		}
 		
 		boolean isNewCart = true;
 		
 		
-		for (int i = 0; i < cartList.size(); i++) {
-			if(cartMainboard.getName().equals(cartList.get(i).getName())){
+		for (int i = 0; i < mainboardcartList.size(); i++) {
+			if(cartMainboard.getName().equals(mainboardcartList.get(i).getName())){
 				isNewCart = false;
-				cartList.get(i).setQty(cartList.get(i).getQty()+1);
+				mainboardcartList.get(i).setQty(mainboardcartList.get(i).getQty()+1);
 				break;
 				
 			}
@@ -52,7 +52,7 @@ public class MainboardCartAddService {
 			cart.setName(cartMainboard.getName());
 			cart.setPrice(cartMainboard.getPrice());
 			cart.setQty(1);
-			cartList.add(cart);
+			mainboardcartList.add(cart);
 		}
 		
 	}

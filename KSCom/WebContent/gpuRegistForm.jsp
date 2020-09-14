@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인보드 등록 폼</title>
+<title>그래픽카드 등록 폼</title>
 <link rel="stylesheet" href="css/form.css">
 
 </head>
@@ -13,9 +13,9 @@
 
 <section id = "registForm">
    <nav>
-      <h2>Mainboard등록</h2>
+      <h2>Gpu등록</h2>
    </nav>
-      <form action="mainboardRegist.do" method="post" name = "writeForm" enctype="multipart/form-data">
+      <form action="gpuRegist.do" method="post" name = "writeForm" enctype="multipart/form-data">
       
    <table>
     
@@ -36,17 +36,23 @@
       </td>
    </tr>
     <tr>
+    <tr>
       <td class = "td_left">
-         <label for = "name">제품 이름 : </label>
+         <label for = "chipset_maker">칩셋 제조사 : </label>
       </td>
       <td class = "td_right">
-         <input type = "text" name = "name" id ="name" required="required"/>
+         <select id="chipset_maker" name="chipset_maker">
+         <option value="NDVIA">NDVIA</option>
+         <option value="AMD">AMD</option>
+         <option value="MatroX">MatroX</option>
+          </select>
       </td>
    </tr>
+   
    <tr class="td_left">
-   	<td><label for ="clock">제품 시리즈 :</label></td>
+   	<td><label for ="detail_chipset">세부 칩셋 :</label></td>
    	<td class="td_right">
-   		<select id="kind" name="kind">
+   		<select id="detail_chipset" name="detail_chipset">
    		<optgroup label="geforce">
         <option value="geforceRTX30">지포스 RXT30</option>
         <option value="geforceRTX20">지포스 RXT20</option>
@@ -63,12 +69,20 @@
         </select>
    	</td>
    	</tr>
-   <tr>
+   	<tr>
       <td class = "td_left">
-         <label for = "capacity">용량 : </label>
+         <label for = "name">제품 이름 : </label>
       </td>
       <td class = "td_right">
-         <select id="capacity" name="capacity">
+         <input type = "text" name = "name" id ="name" required="required"/>
+      </td>
+   </tr>
+   <tr>
+      <td class = "td_left">
+         <label for = "vram">용량 : </label>
+      </td>
+      <td class = "td_right">
+         <select id="vram" name="vram">
          <option value="4GB">4GB</option>
          <option value="8GB">8GB</option>
          <option value="16GB">16GB</option>
@@ -107,7 +121,7 @@
       <td colspan="2" id = "commandCell"> 
          <input type = "submit" value = "상품등록"/>      
          <input type = "reset" value = "다시작성"/>      
-         <input type = "button" value = "상품목록보기" onClick="window.location.href='mainboardList.do'"/>      
+         <input type = "button" value = "상품목록보기" onClick="window.location.href='gpuList.do'"/>      
       </td>
    </tr>   
    </table>

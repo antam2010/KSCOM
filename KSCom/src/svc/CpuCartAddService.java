@@ -21,7 +21,7 @@ public class CpuCartAddService {
 	}
 
 	public void addCart(HttpServletRequest request, Cpu cartCpu) {
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(); 
 		ArrayList<Cart> cartList = (ArrayList<Cart>)session.getAttribute("cartList");
 		
 		if(cartList == null){
