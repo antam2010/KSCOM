@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import svc.MemberDeleteService;
 import vo.ActionForward_member;
 
-public class MemberDeleteAction implements Action{
+public class MemberDeleteAction implements Action_member{
 	public ActionForward_member execute(HttpServletRequest request,HttpServletResponse response) 
 			throws Exception{
 		HttpSession session=request.getSession();

@@ -7,7 +7,7 @@ import svc.MemberJoinService;
 import vo.ActionForward_member;
 import vo.MemberBean;
 
-public class MemberJoinAction implements Action{
+public class MemberJoinAction implements Action_member{
 	 public ActionForward_member execute(HttpServletRequest request,HttpServletResponse response) 
 	 	throws Exception{
 		 	

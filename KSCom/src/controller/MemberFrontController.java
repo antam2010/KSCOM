@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import action.Action;
+import action.Action_member;
 import action.MemberDeleteAction;
 import action.MemberJoinAction;
 import action.MemberListAction;
@@ -23,7 +23,7 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet
 		String contextPath=request.getContextPath();
 		String command=RequestURI.substring(contextPath.length());
 		ActionForward_member forward=null;
-		Action action=null;
+		Action_member action=null;
 
 		if(command.equals("/memberLogin.me")){
 			forward=new ActionForward_member();

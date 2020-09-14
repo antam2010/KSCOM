@@ -77,7 +77,7 @@
  		<li><a href="gpuRegistForm.do">그래픽카드 등록</a></li>
  		</div>
  	</ul>
-  
+ 
 </nav>
 
 </body>

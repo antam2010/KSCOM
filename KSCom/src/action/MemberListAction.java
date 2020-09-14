@@ -9,7 +9,7 @@ import svc.MemberListService;
 import vo.ActionForward_member;
 import vo.MemberBean;
 
-public class MemberListAction implements Action{
+public class MemberListAction implements Action_member{
 	 public ActionForward_member execute(HttpServletRequest request,HttpServletResponse response) 
 	 	throws Exception{
 		 	HttpSession session=request.getSession();
