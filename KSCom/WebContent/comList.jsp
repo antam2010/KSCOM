@@ -27,6 +27,10 @@
 	<a href="mainboardList.do"><img src="images/mainboard_1.png" class="add_image"></a>
 	</article>
 	<article>
+	<a href="com_caseList.do"><img src="images/com_case_1.png" class="add_image"></a>
+	</article>
+
+	<article>
 	<img src="images/speaker_1.jpg" class="add_iamge">
 	</article>
 </section>

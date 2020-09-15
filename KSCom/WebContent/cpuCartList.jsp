@@ -18,7 +18,9 @@
 
 
 </style>
-<script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js">
+<script type="text/javascript">
+
 	function checkAll(theForm){
 		if(theForm.remove.length == undefined){
 			theForm.remove.checked = theForm.allCheck.checked;
@@ -28,6 +30,7 @@
 			}
 		}
 	}
+	
 	
 	function checkQty(name,qty){
 		if(qty != 1){
@@ -50,6 +53,10 @@
 		}
 	}
 </script>
+
+
+
+
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
@@ -185,7 +192,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" value="삭제" formaction="cpuCartRemove.do"/>
+         	<input type="submit"  value="삭제"  formaction="cpuCartRemove.do"/>
          </td>
          </tr>
         </c:forEach>

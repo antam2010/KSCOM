@@ -1,5 +1,5 @@
 <%@page import="java.util.HashMap"%>
-<%@page import="vo.Cpu"%>
+<%@page import="vo.Com_case"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,44 +9,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/form.css">
-<title>ram 리스트</title>
+<title>comCase 리스트</title>
 
 </head>
 <body>
+
 <jsp:include page="template.jsp"></jsp:include>
 <jsp:include page="nav.jsp"></jsp:include>
 
 <section>
-<c:if test="${ramList != null}">
-<h2>ram 정보</h2>	
+
+<c:if test="${com_caseList != null}">
+<h2>com_case 정보</h2>	
+
  
 <table>
 	<tr>
-		<c:forEach var = "ram" items="${ramList }" varStatus="status">
+		<c:forEach var = "com_case" items="${com_caseList }" varStatus="status">
 		<td>
-			<a href="ramView.do?id=${ram.id}">
-			<img src="images/${ram.image}" id="productImage"/>
+			<a href="com_caseView.do?id=${com_case.id}">
+			<img src="images/${com_case.image}" id="productImage"/>
 			</a><br>
-			상품명:${ram.name}<br>
-			가격:${ram.price}<br>
-			조회수:${ram.readcount }<br>
+			상품명:${com_case.name}<br>
+			가격:${com_case.price}<br>
+			조회수:${com_case.readcount }<br>
 		</td>
 		<c:if test="${((status.index+1) mod 4)==0 }">
-			</tr>
-			<tr>
+	</tr>
+	<tr>
 		</c:if>
 		</c:forEach>
 	</tr>
 </table>
 </c:if>
-<c:if test="${ramList==null }">
+<c:if test="${com_caseList==null }">
 	<div class="div_empty">
-	<h3>램리스트에 담긴 정보가 없습니다.</h3>
+	<h3>com_case리스트가 존재하지 않습니다.</h3>
 	</div>
 </c:if>
+
+
 <c:if test="${todayImageList !=null }">
-
-
 
 <div id ="todayImageList">
 	<h2>오늘 본 상품 목록</h2>
@@ -66,6 +69,7 @@
 </div>
 </c:if>
 </section>
+
 <!-- 관리자만 보이는 페이지 -->
 <section>
 	<ul>	
@@ -81,6 +85,7 @@
 		<li><a href="mainboardList.do" class="light_com">메인보드 보러가기</a></li>
 	</ul>
 </section> 
+
 
 </body>
 </html>

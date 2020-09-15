@@ -9,6 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import vo.ActionForward;
 import action.Action;
+import action.Com_caseCartAddAction;
+import action.Com_caseCartListAction;
+import action.Com_caseCartQtyDownAction;
+import action.Com_caseCartQtyUpAction;
+import action.Com_caseCartRemoveAction;
+import action.Com_caseListAction;
+import action.Com_caseRegistAction;
+import action.Com_caseRegistFormAction;
+import action.Com_caseViewAction;
 import action.CpuCartAddAction;
 import action.CpuCartListAction;
 import action.CpuCartQtyDownAction;
@@ -40,6 +49,7 @@ import action.RamCartListAction;
 import action.RamCartQtyDownAction;
 import action.RamCartQtyUpAction;
 import action.RamCartRemoveAction;
+
 import action.RamListAction;
 import action.RamRegistAction;
 import action.RamRegistFormAction;
@@ -113,6 +123,15 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/com_caseList.do")){
+			action = new Com_caseListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		
 		//View.do
@@ -145,6 +164,15 @@ public class CpuFrontController extends HttpServlet {
 		}
 		else if(command.equals("/gpuView.do")){
 			action = new GpuViewAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/com_caseView.do")){
+			action = new Com_caseViewAction();
 			
 			try {
 				forward = action.execute(request, response);
@@ -191,6 +219,15 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/com_caseCartAdd.do")){
+			action = new Com_caseCartAddAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		//CartList.do
 		else if(command.equals("/cpuCartList.do")){
@@ -229,6 +266,15 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/com_caseCartList.do")){
+			action = new Com_caseCartListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		//카트 가격 서치
 		else if(command.equals("/cpuCartSearch.do")){
 			action = new CpuCartSearchAction();
@@ -239,6 +285,8 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+
 		
 		//장바구니 값 지우기
 		else if(command.equals("/cpuCartRemove.do")){
@@ -270,6 +318,15 @@ public class CpuFrontController extends HttpServlet {
 		}
 		else if(command.equals("/gpuCartRemove.do")){
 			action = new GpuCartRemoveAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/com_caseCartRemove.do")){
+			action = new Com_caseCartRemoveAction();
 			
 			try {
 				forward = action.execute(request, response);
@@ -315,6 +372,15 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/com_caseCartQtyUp.do")){
+			action = new Com_caseCartQtyUpAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		//갯수 다운
 		else if(command.equals("/cpuCartQtyDown.do")){
@@ -346,6 +412,15 @@ public class CpuFrontController extends HttpServlet {
 		}
 		else if(command.equals("/gpuCartQtyDown.do")){
 			action = new GpuCartQtyDownAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/com_caseCartQtyDown.do")){
+			action = new Com_caseCartQtyDownAction();
 			
 			try {
 				forward = action.execute(request, response);
@@ -390,6 +465,15 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/com_caseRegist.do")){
+			action = new Com_caseRegistAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		//등록 폼 으로이동부분 regist
 		else if(command.equals("/cpuRegistForm.do")){
 			action = new CpuRegistFormAction();
@@ -417,6 +501,14 @@ public class CpuFrontController extends HttpServlet {
 		}
 		else if(command.equals("/gpuRegistForm.do")){
 			action = new GpuRegistFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/com_caseRegistForm.do")){
+			action = new Com_caseRegistFormAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

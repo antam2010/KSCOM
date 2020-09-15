@@ -29,6 +29,7 @@
 			</a><br>
 			상품명:${mainboard.name}<br>
 			가격:${mainboard.price}<br>
+			조회수:${mainboard.readcount }<br>
 		</td>
 		<c:if test="${((status.index+1) mod 4)==0 }">
 			</tr>

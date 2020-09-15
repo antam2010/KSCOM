@@ -29,6 +29,7 @@
 			</a><br>
 			상품명:${gpu.name}<br>
 			가격:${gpu.price}<br>
+			조회수:${gpu.readcount }<br>
 		</td>
 		<c:if test="${((status.index+1) mod 4)==0 }">
 			</tr>

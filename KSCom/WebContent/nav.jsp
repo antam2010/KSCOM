@@ -15,6 +15,7 @@
 			<li><a href="ramList.do">RAM</a></li>
 		 	<li><a href="mainboardList.do">MainBoard</a></li>
 		 	<li><a href="gpuList.do">그래픽카드</a></li>
+		 	<li><a href="com_caseList.do">컴퓨터케이스</a></li>
 		</ul>
 	</nav>
 </body>
