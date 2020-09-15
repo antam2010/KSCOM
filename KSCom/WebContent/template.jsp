@@ -41,8 +41,5 @@
 	</ul>
 </header>
 
-<nav>
-
-</nav>
 </body>
 </html>
