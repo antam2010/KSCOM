@@ -4,16 +4,16 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import dao.MemberDAO;
 import static db.JdbcUtil.*;
-import vo.MemberBean;
+import vo.Member;
 
 public class MemberListService {
 
-	public ArrayList<MemberBean> getMemberList() {
+	public ArrayList<Member> getMemberList() {
 		// TODO Auto-generated method stub
 		Connection con = getConnection();
 		MemberDAO memberDAO = MemberDAO.getInstance();
 		memberDAO.setConnection(con);
-		ArrayList<MemberBean> memberList = memberDAO.selectMemberList();
+		ArrayList<Member> memberList = memberDAO.selectMemberList();
 		close(con);
 		return memberList;
 	}

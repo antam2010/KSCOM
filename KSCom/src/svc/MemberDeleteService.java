@@ -14,8 +14,8 @@ public class MemberDeleteService {
 		memberDAO.setConnection(con);
 		int deleteCount = memberDAO.deleteMember(deleteId);
 		if(deleteCount > 0){
-			deleteResult = true;
 			commit(con);
+			deleteResult = true;
 		}
 		else{
 			rollback(con);

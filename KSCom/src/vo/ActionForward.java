@@ -26,7 +26,7 @@ public class ActionForward {
 		this.redirect = redirect;
 	}
 	
-	//member
+
 	
 	
 }

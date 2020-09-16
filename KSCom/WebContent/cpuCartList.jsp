@@ -192,7 +192,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit"  value="삭제"  formaction="cpuCartRemove.do"/>
+         	<label for="remove"><input type="submit"  value="삭제"  formaction="cpuCartRemove.do"/></label> <!-- 라벨실험 하길 바라 -->
          </td>
          </tr>
         </c:forEach>

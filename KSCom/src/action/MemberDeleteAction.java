@@ -22,7 +22,7 @@ public class MemberDeleteAction implements Action_member{
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out=response.getWriter();
 			out.println("<script>");
-			out.println("alert('관리자가 아닙니다.');");
+			out.println("alert('삭제 완료하였다.');");
 			out.println("location.href='./memberLogin.me';");
 			out.println("</script>");
 		}
@@ -40,7 +40,7 @@ public class MemberDeleteAction implements Action_member{
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out=response.getWriter();
 				out.println("<script>");
-				out.println("alert('회원정보삭제 실패.');");
+				out.println("alert('꾸렣뚫');");
 				out.println("location.href='./memberLogin.me';");
 				out.println("</script>");
 			}

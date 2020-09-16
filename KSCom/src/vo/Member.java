@@ -1,6 +1,7 @@
 package vo;
 
 public class Member {
+	
 	private String id;
 	private String passwd;
 	private String name;
@@ -8,9 +9,6 @@ public class Member {
 	private String gender;
 	private String addr;
 	private String email;
-	private String grade;
-	
-	
 	public String getId() {
 		return id;
 	}
@@ -53,13 +51,5 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getGrade() {
-		return grade;
-	}
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
 
-
-	
 }

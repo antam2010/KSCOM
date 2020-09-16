@@ -1,6 +1,4 @@
-<!-- 미완 -->
-
-<%@page import="vo.MemberBean"%>
+<%@page import="vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,21 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>회원관리 시스템 관리자모드(회원 목록 보기)</title>
-<style>
-	#memberListArea{
-		width : 400px;
-		border : 1px solid gray;
-		margin : auto;
-	}
-	table{
-		width : 380px;
-		margin : auto;
-		text-align: center;
-	}
-</style>
+<link rel="stylesheet" href="css/form.css">
 </head>
 <body>
-<section id = "memberListArea">
+<jsp:include page="template.jsp"></jsp:include>
+<nav></nav>
+<section>
 <table>
 	<tr>
 		<td colspan=2><h1>회원 목록</h1></td>
@@ -31,22 +20,17 @@
 	<c:forEach var = "member" items = "${memberList}">
 	<tr>
 		<td>
-			<a href="memberViewAction.me?id=${member.MEMBER_ID}">
-				${member.MEMBER_ID}
+			<a href="memberViewAction.me?id=${member.id}">
+				${member.id}
 			</a>
 		</td>
 		<td>
-		<a href="memberDeleteAction.me?id=${member.MEMBER_ID}">삭제</a>
+		<a href="memberDeleteAction.me?id=${member.id}">삭제</a>
 		</td>
 	</tr>
-	
 	</c:forEach>
 	<tr>
-		<td colspan=2>
-			<a href="template.jsp">홈으로 돌아가기</a>
-		</td>
-	</tr>
-
+		<td><a href="comList.jsp">홈으로가기</a></td>
 </table>
 </section>
 </body>

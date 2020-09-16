@@ -5,21 +5,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import svc.MemberJoinService;
 import vo.ActionForward_member;
-import vo.MemberBean;
+import vo.Member;
 
 public class MemberJoinAction implements Action_member{
 	 public ActionForward_member execute(HttpServletRequest request,HttpServletResponse response) 
 	 	throws Exception{
 		 	
-		 	MemberBean member=new MemberBean();
+		 	Member member=new Member();
 	   		boolean joinResult=false;
 	   		
-	   		member.setMEMBER_ID(request.getParameter("MEMBER_ID"));
-	   		member.setMEMBER_PW(request.getParameter("MEMBER_PW"));
-	   		member.setMEMBER_NAME(request.getParameter("MEMBER_NAME"));
-	   		member.setMEMBER_AGE(Integer.parseInt(request.getParameter("MEMBER_AGE")));
-	   		member.setMEMBER_GENDER(request.getParameter("MEMBER_GENDER"));
-	   		member.setMEMBER_EMAIL(request.getParameter("MEMBER_EMAIL"));
+	   		member.setId(request.getParameter("id"));
+	   		member.setPasswd(request.getParameter("passwd"));
+	   		member.setName(request.getParameter("name"));
+	   		member.setAge(Integer.parseInt(request.getParameter("age")));
+	   		member.setGender(request.getParameter("gender"));
+	   		member.setAddr(request.getParameter("addr"));
+	   		member.setEmail(request.getParameter("email"));
 	   		
 	   		MemberJoinService memberJoinService = new MemberJoinService();
 	   		joinResult=memberJoinService.joinMember(member);
@@ -29,7 +30,7 @@ public class MemberJoinAction implements Action_member{
 	   			response.setContentType("text/html;charset=UTF-8");
 	   			PrintWriter out = response.getWriter();
 	   			out.println("<script>");
-	   			out.println("alert('ȸ����Ͻ���')");
+	   			out.println("alert('회원가입에 실패하였다')");
 	   			out.println("history.back()");
 	   			out.println("</script>");
 		   	}

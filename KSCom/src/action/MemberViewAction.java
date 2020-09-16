@@ -6,7 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import svc.MemberViewService;
 import vo.ActionForward_member;
-import vo.MemberBean;
+import vo.Member;
+
 
 public class MemberViewAction implements Action_member{
 	 public ActionForward_member execute(HttpServletRequest request,HttpServletResponse response) 
@@ -21,10 +22,10 @@ public class MemberViewAction implements Action_member{
 				forward.setRedirect(true);
 				forward.setPath("./memberLogin.me");
 	   		}else if(!id.equals("admin")){
-	   			response.setContentType("text/html;charset=euc-kr");
+	   			response.setContentType("text/html;charset=utf-8");
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
-		   		out.println("alert('�����ڰ� �ƴմϴ�.');");
+		   		out.println("alert('관리자로 로그인 하라');");
 		   		out.println("location.href='./memberLogin.me';");
 		   		out.println("</script>");
 	   		}
@@ -33,7 +34,7 @@ public class MemberViewAction implements Action_member{
 	   		forward = new ActionForward_member();
 	   		String viewId=request.getParameter("id");
 	   		MemberViewService memberViewService = new MemberViewService();
-	   		MemberBean member=memberViewService.getMember(viewId);
+	   		Member member=memberViewService.getMember(viewId);
 	   		request.setAttribute("member", member);
 	   		forward.setPath("./member_info.jsp");
 	   		}

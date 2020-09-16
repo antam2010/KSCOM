@@ -3,9 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.sql.DataSource;
-import vo.MemberBean;
+import vo.Member;
 import static db.JdbcUtil.*;
 
 public class MemberDAO {
@@ -27,21 +28,21 @@ public class MemberDAO {
 		this.con = con;
 	}
 	
-	public String selectLoginId(MemberBean member){
+	public String selectLoginId(Member member){
 		String loginId = null;
-		String sql="select MEMBER_ID FROM KScomUser where MEMBER_ID=? AND MEMBER_PW=?";
-
+		String sql="SELECT id FROM user WHERE ID=? AND Passwd=?";
+		
 		try{
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, member.getMEMBER_ID());
-			pstmt.setString(2, member.getMEMBER_PW());
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPasswd());
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
-				loginId = rs.getString("MEMBER_ID");
+				loginId = rs.getString("id");
 			}
-		}catch(Exception ex){
-			System.out.println(" 에러: " + ex);			
+		}catch(SQLException ex){
+			System.out.println(" selectLoginDAo부분: " + ex);			
 		}finally{
 			close(rs);
 			close(pstmt);
@@ -50,23 +51,24 @@ public class MemberDAO {
 		return loginId;
 	}
 	
-	public int insertMember(MemberBean member){
-		String sql="insert into KScomUser VALUES (?,?,?,?,?,?)";
+	public int insertMember(Member member){
+		String sql="INSERT INTO user VALUES (?,?,?,?,?,?,?)";
 		int insertCount=0;
 		
 		try{
 
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, member.getMEMBER_ID());
-			pstmt.setString(2, member.getMEMBER_PW());
-			pstmt.setString(3, member.getMEMBER_NAME());
-			pstmt.setInt(4, member.getMEMBER_AGE());
-			pstmt.setString(5, member.getMEMBER_GENDER());
-			pstmt.setString(6, member.getMEMBER_EMAIL());
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPasswd());
+			pstmt.setString(3, member.getName());
+			pstmt.setInt(4, member.getAge());
+			pstmt.setString(5, member.getGender());
+			pstmt.setString(6, member.getAddr());
+			pstmt.setString(7, member.getEmail());
 			insertCount=pstmt.executeUpdate();
-
-		}catch(Exception ex){
-			System.out.println("joinMember 에러: " + ex);			
+			
+		}catch(SQLException ex){
+			System.out.println("insertMemberDAO 오류: " + ex);			
 		}finally{
 			close(pstmt);
 		}
@@ -74,10 +76,10 @@ public class MemberDAO {
 		return insertCount;
 	}
 	
-	public ArrayList<MemberBean> selectMemberList(){
-		String sql="SELECT * FROM KScomUser";
-		ArrayList<MemberBean> memberList=new ArrayList<MemberBean>();
-		MemberBean mb = null;
+	public ArrayList<Member> selectMemberList(){
+		String sql="SELECT * FROM user";
+		ArrayList<Member> memberList=new ArrayList<Member>();
+		Member mb = null;
 		try{
 			
 			pstmt=con.prepareStatement(sql);
@@ -85,18 +87,20 @@ public class MemberDAO {
 			
 			if(rs.next()){
 				do{
-				mb=new MemberBean();
-				mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
-				mb.setMEMBER_PW(rs.getString("MEMBER_PW"));
-				mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
-				mb.setMEMBER_AGE(rs.getInt("MEMBER_AGE"));
-				mb.setMEMBER_GENDER(rs.getString("MEMBER_GENDER"));
-				mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+				mb=new Member();
+				mb.setId(rs.getString("id"));
+				mb.setPasswd(rs.getString("passwd"));
+				mb.setName(rs.getString("name"));
+				mb.setAge(rs.getInt("age"));
+				mb.setGender(rs.getString("gender"));
+				mb.setAddr(rs.getString("addr"));
+				mb.setEmail(rs.getString("email"));
+
 				memberList.add(mb);
 				}while(rs.next());
 			}
-		}catch(Exception ex){
-			System.out.println("getDeatilMember 에러: " + ex);			
+		}catch(SQLException ex){
+			System.out.println("selectMemberList 부분 수정바람: " + ex);			
 		}finally{
 			close(rs);
 			close(pstmt);
@@ -104,9 +108,9 @@ public class MemberDAO {
 		return memberList;
 	}
 	
-	public MemberBean selectMember(String id){
-		String sql="SELECT * FROM KScomUser WHERE MEMBER_ID=?";
-		MemberBean mb = null;
+	public Member selectMember(String id){
+		String sql="SELECT * FROM user WHERE id=?";
+		Member mb = null;
 		try{
 			
 			pstmt=con.prepareStatement(sql);
@@ -114,16 +118,17 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){
-			mb=new MemberBean();
-			mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
-			mb.setMEMBER_PW(rs.getString("MEMBER_PW"));
-			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
-			mb.setMEMBER_AGE(rs.getInt("MEMBER_AGE"));
-			mb.setMEMBER_GENDER(rs.getString("MEMBER_GENDER"));
-			mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+			mb=new Member();
+			mb.setId(rs.getString("id"));
+			mb.setPasswd(rs.getString("passwd"));
+			mb.setName(rs.getString("name"));
+			mb.setAge(rs.getInt("age"));
+			mb.setGender(rs.getString("gender"));
+			mb.setAddr(rs.getString("addr"));
+			mb.setEmail(rs.getString("email"));
 			}
-		}catch(Exception ex){
-			System.out.println("getDeatilMember 에러: " + ex);			
+		}catch(SQLException ex ){
+			System.out.println("selectMember부분 수정바람: " + ex);			
 		}finally{
 			close(rs);
 			close(pstmt);
@@ -132,15 +137,15 @@ public class MemberDAO {
 		return mb;
 	}
 	public int deleteMember(String id){
-		String sql="DELETE from KScomUser WHERE MEMBER_ID=?";
+		String sql="DELETE from user WHERE ID=?";
 		int deleteCount = 0;
 
 		try{
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			deleteCount = pstmt.executeUpdate();
-		}catch(Exception ex){
-			System.out.println("deleteMember 에러: " + ex);	
+		}catch(SQLException ex){
+			System.out.println("deleteMember 부분수정바람: " + ex);	
 		}finally{
 			close(pstmt);
 		}

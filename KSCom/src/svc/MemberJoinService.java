@@ -1,13 +1,13 @@
 package svc;
 
-import vo.MemberBean;
+import vo.Member;
 import static db.JdbcUtil.*;
 import java.sql.Connection;
 import dao.MemberDAO;
 
 public class MemberJoinService {
 
-	public boolean joinMember(MemberBean member) {
+	public boolean joinMember(Member member) {
 		// TODO Auto-generated method stub
 		boolean joinSuccess = false;
 		MemberDAO memberDAO = MemberDAO.getInstance();
