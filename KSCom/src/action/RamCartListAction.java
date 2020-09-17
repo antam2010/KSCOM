@@ -19,13 +19,18 @@ public class RamCartListAction implements Action {
 //		그러므로 cpu 것을 쓰도록 해보는 실험
 		int totalMoney = 0;
 		int money = 0 ;
-		
-		for (int i = 0; i < ramcartList.size(); i++) {
-			money = ramcartList.get(i).getPrice()*ramcartList.get(i).getQty();
-			totalMoney += money;
+		try {
+			if(ramcartList.size()!=0) {
+				for (int i = 0; i < ramcartList.size(); i++) {
+					money = ramcartList.get(i).getPrice()*ramcartList.get(i).getQty();
+					totalMoney += money;				
+			}
+		}
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 
-		request.setAttribute("totalMoney", totalMoney);
+		request.setAttribute("totalMoney_ram", totalMoney);
 		request.setAttribute("ramcartList", ramcartList);
 		ActionForward forward = new ActionForward("cpuCartList.jsp", false);
 		//cpucartlist.jsp 를 메인 페이지로 시도하기

@@ -51,7 +51,7 @@ import action.RamCartListAction;
 import action.RamCartQtyDownAction;
 import action.RamCartQtyUpAction;
 import action.RamCartRemoveAction;
-
+import action.RamCartSearchAction;
 import action.RamListAction;
 import action.RamRegistAction;
 import action.RamRegistFormAction;
@@ -288,7 +288,15 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
+		else if(command.equals("/ramCartSearch.do")){
+			action = new RamCartSearchAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 		
 		//장바구니 값 지우기
