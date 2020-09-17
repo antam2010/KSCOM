@@ -14,13 +14,18 @@
 <meta charset="UTF-8">
 <title>장바구니 목록</title>
 <link rel="stylesheet" href="css/form.css">
-<style>
 
-
-</style>
-<script src="//code.jquery.com/jquery-1.11.3.min.js">
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
-
+	
+	//만약 submit을 클릭했을때 remove값이 체크안되어있으면 체크로 강제 전환
+	$("#submitChk").click(function(){
+		if($("#remove").prop("checked",false)){
+			$("#remove").prop("checked",true);
+			alert("강제 체크 확인");
+		};
+		
+	})
 	function checkAll(theForm){
 		if(theForm.remove.length == undefined){
 			theForm.remove.checked = theForm.allCheck.checked;
@@ -52,6 +57,12 @@
 			location.href="gpuCartQtyDown.do?name="+ encodeURIComponent(name);
 		}
 	}
+	function checkQtyCom_case(name,qty){
+		if(qty != 1){
+			location.href="com_caseCartQtyDown.do?name="+ encodeURIComponent(name);
+		}
+	}
+	
 </script>
 
 
@@ -169,7 +180,7 @@
         <c:forEach var="cart" items="${cartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" id="remove" name="remove" value="${cart.name }"/></td>
+        	 <td><input type="checkbox" id="remove" name="remove" value="${cart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -192,7 +203,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<label for="remove"><input type="submit"  value="삭제"  formaction="cpuCartRemove.do"/></label> <!-- 라벨실험 하길 바라 -->
+         	<input type="submit" id="submitChk" value="삭제"   formaction="cpuCartRemove.do"/>
          </td>
          </tr>
         </c:forEach>
@@ -445,7 +456,7 @@
              <img src="images/up.jpg" id = "upImage"/>
              </a><br>
              ${com_casecart.qty }<br>
-            <a href="javascript:checkQtyMainboard('${com_casecart.name}',${com_casecart.qty})">
+            <a href="javascript:checkQtyCom_case('${com_casecart.name}',${com_casecart.qty})">
             <img src="images/down.jpg" id = "downImage" />
              </a>
             </td>

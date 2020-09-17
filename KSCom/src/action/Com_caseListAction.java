@@ -31,7 +31,7 @@ public class Com_caseListAction implements Action {
 		ArrayList<Com_case> com_caseList = com_caseListService.getCom_caseList();
 		request.setAttribute("com_caseList", com_caseList);
 		request.setAttribute("todayImageList", todayImageList);
-		ActionForward forward = new ActionForward("cpuList.jsp", false);
+		ActionForward forward = new ActionForward("com_caseList.jsp", false);
 		
 		return forward;
 	}

@@ -28,20 +28,20 @@ public class Com_caseCartAddService {
 
 	public void addCart(HttpServletRequest request, vo.Com_case cartCom_case) {
 		HttpSession session = request.getSession(); 
-		ArrayList<Cart> cartList = (ArrayList<Cart>)session.getAttribute("cartList");
+		ArrayList<Cart> com_casecartList = (ArrayList<Cart>)session.getAttribute("com_casecartList");
 		
-		if(cartList == null){
-			cartList = new ArrayList<Cart>();
-			session.setAttribute("cartList", cartList);
+		if(com_casecartList == null){
+			com_casecartList = new ArrayList<Cart>();
+			session.setAttribute("com_casecartList", com_casecartList);
 		}
 		
 		boolean isNewCart = true;
 		
 		
-		for (int i = 0; i < cartList.size(); i++) {
-			if(cartCom_case.getName().equals(cartList.get(i).getName())){
+		for (int i = 0; i < com_casecartList.size(); i++) {
+			if(cartCom_case.getName().equals(com_casecartList.get(i).getName())){
 				isNewCart = false;
-				cartList.get(i).setQty(cartList.get(i).getQty()+1);
+				com_casecartList.get(i).setQty(com_casecartList.get(i).getQty()+1);
 				break;
 				
 			}
@@ -53,7 +53,7 @@ public class Com_caseCartAddService {
 			cart.setName(cartCom_case.getName());
 			cart.setPrice(cartCom_case.getPrice());
 			cart.setQty(1);
-			cartList.add(cart);
+			com_casecartList.add(cart);
 		}
 		
 	}

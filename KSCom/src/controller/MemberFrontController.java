@@ -5,11 +5,15 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import action.Action_member;
 import action.MemberDeleteAction;
 import action.MemberJoinAction;
 import action.MemberListAction;
+
 import action.MemberLoginAction;
+
 import action.MemberViewAction;
 import vo.ActionForward_member;
 
@@ -68,7 +72,12 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet
 			}catch(Exception e){
 				e.printStackTrace();
 			}
+		}else if(command.equals("/memberLogoutAction.me")){
+			HttpSession session=request.getSession();
+			session.invalidate();
+			response.sendRedirect("comList.jsp");
 		}
+		
 		if(forward != null){
 			if(forward.isRedirect()){
 				response.sendRedirect(forward.getPath());

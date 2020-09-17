@@ -26,13 +26,14 @@ public class MemberListAction implements Action_member{
 	   		ArrayList<Member> memberList=memberListService.getMemberList();
 	   		request.setAttribute("memberList", memberList);
 	   		forward.setPath("./member_list.jsp");
+	   		
 	   		}
 	   		else{
 	   			forward = new ActionForward_member();
 		   	    MemberListService memberListService = new MemberListService();
 		   		ArrayList<Member> memberList=memberListService.getMemberList();
 		   		request.setAttribute("memberList", memberList);
-		   		forward.setPath("./member_list.jsp");
+		   		forward.setPath("./comList.jsp");
 	   		}
 	   		return forward;
 	}
