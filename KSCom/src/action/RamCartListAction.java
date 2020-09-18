@@ -30,7 +30,7 @@ public class RamCartListAction implements Action {
 			e.printStackTrace();
 		}
 
-		request.setAttribute("totalMoney_ram", totalMoney);
+		request.setAttribute("totalMoney", totalMoney);
 		request.setAttribute("ramcartList", ramcartList);
 		ActionForward forward = new ActionForward("cpuCartList.jsp", false);
 		//cpucartlist.jsp 를 메인 페이지로 시도하기

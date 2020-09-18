@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>cpu등록 폼</title>
 <link rel="stylesheet" href="css/form.css">
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>

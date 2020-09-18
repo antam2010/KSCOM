@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,6 @@
 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
-$(function(){
-	$(".ready").click(function(){
-		alert('아직 준비중 입니다.');
-	});	
-});
 
 </script>
 <title>컴퓨터리스트</title>
@@ -53,7 +49,18 @@ $(function(){
 	</article>
 	
 </section>
-
+<c:if test="${id eq 'admin' }">
+<section>
+	<ul>	
+		<li><a href="cpuRegistForm.do" class="adPage">CPU등록</a></li>
+		<li><a href="ramRegistForm.do" class="adPage">램 등록</a></li>
+ 		<li><a href="mainboardRegistForm.do" class="adPage">메인보드 등록</a></li>
+ 		<li><a href="gpuRegistForm.do" class="adPage">그래픽카드 등록</a></li>
+ 		<li><a href="com_caseRegistForm.do" class="adPage">컴퓨터 케이스 등록</a></li>
+ 	</ul>
+ 	
+</section> 
+</c:if>
 
 </body>
 </html>

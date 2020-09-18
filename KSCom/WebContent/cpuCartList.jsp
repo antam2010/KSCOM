@@ -19,19 +19,22 @@
 <script type="text/javascript">
 
 	
-	$(function
-			(){
-		if($(".remove").prop("checked",false)){
-			$(".submitChk").click(function(){
-				$(".remove").prop("checked",true);
-			});
-		}
-	});
+// 	$(function
+// 			(){
+// 		if($(".remove").prop("checked",false)){
+// 			$(".submitChk").click(function(){
+// 				$(".remove").prop("checked",true);
+// 			});
+// 		}
+// 	});
 
-	
+//  	만약 submit을 클릭했을때 remove값이 체크안되어있으면 체크로 강제 전환 테스트
 
-	//만약 submit을 클릭했을때 remove값이 체크안되어있으면 체크로 강제 전환 테스트
-	
+	function testIndex(o){
+		var index=Array.prototype.indexOf.call(o.form.submitChk, o);
+		o.form.remove[index].checked=true;
+}
+
 	function checkAll(theForm){
 		if(theForm.remove.length == undefined){
 			theForm.remove.checked = theForm.allCheck.checked;
@@ -76,8 +79,13 @@
 
 </head>
 <body>
+
 <jsp:include page="template.jsp"></jsp:include>
 <jsp:include page="nav.jsp"></jsp:include>
+
+<!-- 토탈 변수 -->
+<c:set var="total" value="0"/>
+
 
 <c:if test="${startMoney !=null }">
 	<c:set var="startMoney" value="${startMoney}"></c:set>
@@ -168,12 +176,13 @@
     		</td>
     	</tr>
         <tr class = "tr_top">
-        	<td><input type="checkbox" id = "allCheck" name="allCheck" onclick="checkAll(this.form)"/> </td>
+        	<td><input type="checkbox" id = "allCheck" name="allCheck" onclick="checkAll(this.form)" /> </td>
              <td>번호</td>
              <td>상품 이미지</td>
              <td>상품명</td>
              <td>가격</td>
              <td>수량</td>
+             
          </tr>
          
 <!-- 여기서 부터 값 들어가는 부분 -->
@@ -181,12 +190,13 @@
 <c:if test="${cartList ne null && cartList.size()>0 }">
 		<tr>
 			<td colspan="7"><h2>CPU</h2></td>
+			
 		</tr>
 		
         <c:forEach var="cart" items="${cartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${cart.name }" /></td>
+        	 <td><input type="checkbox" class="remove" name="remove" value="${cart.name }"/></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -197,23 +207,27 @@
              ${cart.name }
             </td>
              <td>
-             ${cart.price }
+    		${cart.price *cart.qty}  	
+	  		<c:set var="total" value="${total+ (cart.price * cart.qty) }"/>
+		
             </td>
              <td>
              <a href="cpuCartQtyUp.do?name=${cart.name }">
              <img src="images/up.jpg" id = "upImage"/>
              </a><br>
              ${cart.qty }<br>
-            <a href="javascript:checkQty('${cart.name}',${cart.qty})">
+            <a href="javascript:checkQty('${cart.name}',${cart.qty})" >
             <img src="images/down.jpg" id = "downImage" />
              </a>
             </td>
+           
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" value="삭제"   formaction="cpuCartRemove.do"/>
+         	<input type="submit" class="submitChk"  name="submitChk"  onclick="testIndex(this)" value="삭제"  formaction="cpuCartRemove.do" />
          </td>
          </tr>
         </c:forEach>
         </c:if>
+        
 <!--  RAM 폼 들어가는 부분 -->
 
 <c:if test="${ramcartList ne null && ramcartList.size()> 0 }">
@@ -223,7 +237,7 @@
          <c:forEach var="ramcart" items="${ramcartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${ramcart.name }"/></td>
+        	 <td><input type="checkbox" class="remove" name="remove" value="${ramcart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -234,7 +248,8 @@
              ${ramcart.name }
             </td>
              <td>
-             ${ramcart.price }
+            ${ramcart.price *ramcart.qty}  	
+	  		<c:set var="total" value="${total+ (ramcart.price * ramcart.qty) }"/>
             </td>
              <td>
              <a href="ramCartQtyUp.do?name=${ramcart.name }">
@@ -246,7 +261,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" value="삭제" formaction="ramCartRemove.do"/>
+         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="ramCartRemove.do" />
          </td>
          </tr>
         </c:forEach>
@@ -258,8 +273,8 @@
         </tr>
          <c:forEach var="mainboardcart" items="${mainboardcartList }" varStatus="status">
         <tr>
-        		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${mainboardcart.name }"/></td>
+        		 
+        	 <td><input type="checkbox" class="remove" name="remove" value="${mainboardcart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -270,7 +285,8 @@
              ${mainboardcart.name }
             </td>
              <td>
-             ${mainboardcart.price }
+             ${mainboardcart.price *mainboardcart.qty}  	
+	  		<c:set var="total" value="${total+ (mainboard.price * mainboard.qty) }"/>
             </td>
              <td>
              <a href="mainboardCartQtyUp.do?name=${mainboardcart.name }">
@@ -282,7 +298,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" value="삭제" formaction="mainboardCartRemove.do"/>
+         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="mainboardCartRemove.do" />
          </td>
          </tr>
         </c:forEach>
@@ -295,7 +311,7 @@
          <c:forEach var="gpucart" items="${gpucartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${gpucart.name }"/></td>
+        	 <td><input type="checkbox" class="remove" name="remove" value="${gpucart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -306,7 +322,8 @@
              ${gpucart.name }
             </td>
              <td>
-             ${gpucart.price }
+              ${gpucart.price *gpucart.qty}  	
+	  		<c:set var="total" value="${total+ (gpucart.price * gpucart.qty) }"/>
             </td>
              <td>
              <a href="gpuCartQtyUp.do?name=${gpucart.name }">
@@ -318,7 +335,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" value="삭제" formaction="gpuCartRemove.do"/>
+         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="gpuCartRemove.do" />
          </td>
          </tr>
         </c:forEach>
@@ -332,7 +349,7 @@
          <c:forEach var="hddcart" items="${hddcartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${hddcart.name }"/></td>
+        	 <td><input type="checkbox" class="remove" name="remove" value="${hddcart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -343,7 +360,8 @@
              ${hddcart.name }
             </td>
              <td>
-             ${hddcart.price }
+              ${hddcart.price *hddcart.qty}  	
+	  		<c:set var="total" value="${total+ (hddcart.price * hddcart.qty) }"/>
             </td>
              <td>
              <a href="hddCartQtyUp.do?name=${hddcart.name }">
@@ -355,7 +373,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" value="삭제" formaction="hddCartRemove.do"/>
+         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="hddCartRemove.do" />
          </td>
          </tr>
         </c:forEach>
@@ -369,7 +387,7 @@
          <c:forEach var="powercart" items="${powercartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${powercart.name }"/></td>
+        	 <td><input type="checkbox" class="remove" name="remove" value="${powercart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -380,7 +398,8 @@
              ${powercart.name }
             </td>
              <td>
-             ${powercart.price }
+             ${powercart.price *powercart.qty}  	
+	  		<c:set var="total" value="${total+ (powercart.price * powercart.qty) }"/>
             </td>
              <td>
              <a href="powerCartQtyUp.do?name=${powercart.name }">
@@ -392,7 +411,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" value="삭제" formaction="powerCartRemove.do"/>
+         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="powerCartRemove.do" />
          </td>
          </tr>
         </c:forEach>
@@ -406,7 +425,7 @@
          <c:forEach var="ssdcart" items="${ssdcartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${ssdcart.name }"/></td>
+        	 <td><input type="checkbox" class="remove" name="remove" value="${ssdcart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -417,7 +436,8 @@
              ${ssdcart.name }
             </td>
              <td>
-             ${ssdcart.price }
+           ${ssdcart.price *ssdcart.qty}  	
+	  		<c:set var="total" value="${total+ (ssdcart.price * ssdcart.qty) }"/>
             </td>
              <td>
              <a href="ssdCartQtyUp.do?name=${ssdcart.name }">
@@ -429,7 +449,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" value="삭제" formaction="ssdCartRemove.do"/>
+         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="ssdCartRemove.do" />
          </td>
          </tr>
         </c:forEach>       
@@ -444,7 +464,7 @@
          <c:forEach var="com_casecart" items="${com_casecartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${com_casecart.name }"/></td>
+        	 <td><input type="checkbox" class="remove" name="remove" value="${com_casecart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -455,7 +475,8 @@
              ${com_casecart.name }
             </td>
              <td>
-             ${com_casecart.price }
+             ${com_casecart.price *com_casecart.qty}  	
+	  		<c:set var="total" value="${total+ (com_casecart.price * com_casecart.qty) }"/>
             </td>
              <td>
              <a href="com_caseCartQtyUp.do?name=${com_casecart.name }">
@@ -467,7 +488,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk"  value="삭제" formaction="com_caseCartRemove.do"/>
+         	<input type="submit" class="submitChk"  name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="com_caseCartRemove.do" />
          </td>
          </tr>
         </c:forEach> 
@@ -481,7 +502,7 @@
          <c:forEach var="other_productcart" items="${other_productcartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${other_productcart.name }"/></td>
+        	 <td><input type="checkbox" class="remove" name="remove" value="${other_productcart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -492,7 +513,8 @@
              ${other_productcart.name }
             </td>
              <td>
-             ${other_productcart.price }
+            ${other_productcart.price *other_productcart.qty}  	
+	  		<c:set var="total" value="${total+ (other_productcart.price * other_productcart.qty) }"/>
             </td>
              <td>
              <a href="other_productCartQtyUp.do?name=${other_productcart.name }">
@@ -504,7 +526,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" value="삭제" formaction="other_productCartRemove.do"/>
+         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="other_productCartRemove.do" />
          </td>
          </tr>
         </c:forEach>      
@@ -514,12 +536,15 @@
        
         
 <!--  토탈 금액 수정 바람        -->
+ 
       <tr>
          <td colspan="6" style="text-align:center;">
-		총 금액 : ${totalMoney}원<br>
-		총 금액 : ${totalMoney_ram }원<br>
+		
+	  	총 금액 : ${total }원
 	  
          </td>
+         
+         
          <td style="text-align:center;">
          <input type="button" onclick="alert('아직 구현중')" value="전체 삭제"></td>
       </tr>

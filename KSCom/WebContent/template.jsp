@@ -20,6 +20,7 @@
 		
 		<c:choose>
 		<c:when test="${id eq 'admin' && id ne null }">
+		
 		<li><a href="memberListAction.me">관리자 페이지 가기</a></li>
 		<li><a href="comList.jsp">제품보러가기</a></li>
 		<li><a href ="memberLogoutAction.me">로그아웃</a></li>

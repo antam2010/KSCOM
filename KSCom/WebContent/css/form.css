@@ -76,17 +76,27 @@ section{
 }
 section ul{
 	list-style-type: none;
+	
+}
+section ul li{
 	float:left;
+	list-style-type: none;
 }
 section ul li a{
 	text-decoration: none;
-	
+	color:gray;
+	margin-right: 35px;
 }
+
 
 section ul li a:hover{
 	color:green;
 	}
-
+.adPage{
+	font-size:1.3em;
+	text-align: center;
+	float:left;
+}
 
 section article{
 	width: 25%;
@@ -106,6 +116,7 @@ section aside{
 	text-align: center;
 	
 }
+
 #desc{
 		
 		height:170px;
@@ -145,10 +156,7 @@ seciton table tr,td{
 	list-style-type: none;
 }
 
-.adPage{
-	font-size:1.3em;
-	text-align: center;
-}
+
 
 .light_com{
 	color: red;	
