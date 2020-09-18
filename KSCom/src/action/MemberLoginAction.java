@@ -26,7 +26,7 @@ public class MemberLoginAction implements Action_member{
 	   		session.setAttribute("id", member.getId());
 	   		System.out.println(member.getId()+"출력확인");
 	   		forward.setRedirect(true);
-	   		forward.setPath("./memberListAction.me");
+	   		forward.setPath("./AdminPage.jsp");
 	   		}
 	   		else{
 	   			response.setContentType("text/html;charset=utf-8");

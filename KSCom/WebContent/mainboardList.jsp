@@ -66,21 +66,7 @@
 </div>
 </c:if>
 </section>
-<!-- 관리자만 보이는 페이지 -->
-<section>
-	<ul>	
-		<li><a href="cpuRegistForm.do" class="adPage">CPU등록</a></li>
-		<li><a href="ramRegistForm.do" class="adPage">램 등록</a></li>
- 		<li><a href="mainboardRegistForm.do" class="adPage">메인보드 등록</a></li>
- 		<li><a href="gpuRegistForm.do" class="adPage">그래픽카드 등록</a></li>
- 	</ul>
- 	<ul>
-		<li><a href="cpuList.do" class="light_com">cpu리스트 보러가기</a></li>
-		<li><a href="ramList.do" class="light_com">ram리스트 보러가기</a></li>
-		<li><a href="gpuList.do" class="light_com">그래픽카드 보러가기</a></li>
-		<li><a href="mainboardList.do" class="light_com">메인보드 보러가기</a></li>
-	</ul>
-</section> 
+
 
 </body>
 </html>
