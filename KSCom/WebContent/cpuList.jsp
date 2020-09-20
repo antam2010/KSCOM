@@ -70,19 +70,7 @@
 </c:if>
 </section>
 
-<!-- 관리자만 보이는 페이지 -->
-<c:if test="${id eq 'admin' }">
-<section>
-	<ul>	
-		<li><a href="cpuRegistForm.do" class="adPage">CPU등록</a></li>
-		<li><a href="ramRegistForm.do" class="adPage">램 등록</a></li>
- 		<li><a href="mainboardRegistForm.do" class="adPage">메인보드 등록</a></li>
- 		<li><a href="gpuRegistForm.do" class="adPage">그래픽카드 등록</a></li>
- 		<li><a href="com_caseRegistForm.do" class="adPage">컴퓨터 케이스 등록</a></li>
- 	</ul>
- 	
-</section> 
-</c:if>
+
 
 </body>
 </html>

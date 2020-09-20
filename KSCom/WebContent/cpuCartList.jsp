@@ -141,7 +141,7 @@
     				<c:when test="${endMoney==10000 }">
     					<option selected="selected">10000</option>
     					<option>20000</option>
-    					<option>30000</option>
+    					<option>30000</option>	
 	    				<option>40000</option>
     				</c:when>
     				<c:when test="${endMoney==20000 }">

@@ -29,10 +29,7 @@
 </div>
 </c:when>
 <c:otherwise>
-<script>
-alert("잘못된 접근입니다.");
-history.back();
-</script>
+<c:redirect url="comList.jsp"></c:redirect>
 
 </c:otherwise>
 </c:choose>

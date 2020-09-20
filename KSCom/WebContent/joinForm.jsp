@@ -5,13 +5,17 @@
 <meta charset="UTF-8">
 <title>회원가입 폼</title>
 <link rel="stylesheet" href="css/form.css">
+<script type="text/javascript">
+
+
+</script>
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
 <nav>
 </nav>
 <section>
-<form name="joinform" action="./memberJoinAction.me" method="post">
+<form name="joinform" action="./memberJoinAction.me" method="post" >
 <table>
 	<tr>
 		<td colspan="2">
@@ -49,10 +53,10 @@
 		<td><input type="text" name="email" id ="email"/></td>
 	</tr>
 	<tr>
-		<td colspan="2">
-			<a href="javascript:joinform.submit()">회원가입</a>&nbsp;&nbsp;
-			<a href="javascript:joinform.reset()">다시작성</a>
-		</td>
+		<td align="center" colspan="2">
+			<input type="submit" value="회원 가입"/>
+			<input type="reset" value="다시 작성"/>
+ 		</td>
 	</tr>
 </table>
 </form>
