@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.sql.DataSource;
+
+import com.sun.istack.internal.Pool;
+
 import vo.Member;
 import static db.JdbcUtil.*;
 
@@ -50,6 +53,7 @@ public class MemberDAO {
 		
 		return loginId;
 	}
+
 	
 	public int insertMember(Member member){
 		String sql="INSERT INTO user VALUES (?,?,?,?,?,?,?)";
@@ -152,5 +156,7 @@ public class MemberDAO {
 		
 		return deleteCount;
 	}
+	
+	
 	
 }

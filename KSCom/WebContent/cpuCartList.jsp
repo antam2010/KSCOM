@@ -101,72 +101,69 @@
     	<tr id="select">
     		<td colspan="6">
     		<select id = "startMoney" name="startMoney">
-    			<option>=최하=</option>
+    			
     			<c:choose>
-    				<c:when test="${startMoney==10000 }">
-    					<option selected="selected">10000</option>
-    					<option>20000</option>
-    					<option>30000</option>
-	    				<option>40000</option>
+    			
+    				<c:when test="${startMoney==0 }">
+    					<option selected="selected">0</option>
+    					<option>50000</option>
+    					<option>100000</option>
+	    				<option>150000</option>
     				</c:when>
-    				<c:when test="${startMoney==20000 }">
-    					<option>10000</option>
-    					<option selected="selected">20000</option>
-    					<option>30000</option>
-	    				<option>40000</option>
+    				<c:when test="${startMoney==50000 }">
+    					<option>0</option>
+    					<option selected="selected">50000</option>
+    					<option>100000</option>
+	    				<option>150000</option>
     				</c:when>
-    				<c:when test="${startMoney==30000 }">
-    					<option>10000</option>
-    					<option>20000</option>
-    					<option selected="selected">30000</option>
-	    				<option>40000</option>
+    				<c:when test="${startMoney==100000 }">
+    					<option>0</option>
+    					<option>50000</option>
+    					<option selected="selected">100000</option>
+	    				<option>150000</option>
     				</c:when>
-    				<c:when test="${startMoney==40000 }">
-    					<option>10000</option>
-    					<option>20000</option>
-    					<option>30000</option>
-	    				<option selected="selected">40000</option>
+    				<c:when test="${startMoney==150000 }">
+    					<option>0</option>
+    					<option>50000</option>
+    					<option>100000</option>
+	    				<option selected="selected">150000</option>
     				</c:when>
     				<c:otherwise>
-    					<option>10000</option>
-    					<option>20000</option>
-    					<option>30000</option>
-    					<option>40000</option>
+    					<option>0</option>
+    					<option>50000</option>
+    					<option>100000</option>
+    					<option>150000</option>
     				</c:otherwise>
     			</c:choose>
     		</select>
+    		~
     		<select id = "endMoney" name="endMoney">
-    			<option>=최고=</option>
+    		
     			<c:choose>
-    				<c:when test="${endMoney==10000 }">
-    					<option selected="selected">10000</option>
-    					<option>20000</option>
-    					<option>30000</option>	
-	    				<option>40000</option>
+    			
+    				<c:when test="${endMoney==50000 }">
+    					<option>0</option>
+    					<option selected="selected">50000</option>
+    					<option>100000</option>
+	    				<option>150000</option>
     				</c:when>
-    				<c:when test="${endMoney==20000 }">
-    					<option>1000</option>
-    					<option selected="selected">20000</option>
-    					<option>30000</option>
-	    				<option>40000</option>
+    				<c:when test="${endMoney==100000 }">
+    					<option>0</option>
+    					<option>50000</option>
+    					<option selected="selected">100000</option>
+	    				<option>150000</option>
     				</c:when>
-    				<c:when test="${endMoney==30000 }">
-    					<option>10000</option>
-    					<option>20000</option>
-    					<option selected="selected">30000</option>
-	    				<option>40000</option>
-    				</c:when>
-    				<c:when test="${endMoney==40000 }">
-    					<option>10000</option>
-    					<option>20000</option>
-    					<option>30000</option>
-	    				<option selected="selected">40000</option>
+    				<c:when test="${endMoney==150000 }">
+    					<option>0</option>
+    					<option>50000</option>
+    					<option>100000</option>
+	    				<option selected="selected">150000</option>
     				</c:when>
     				<c:otherwise>
-    					<option>10000</option>
-    					<option>20000</option>
-    					<option>30000</option>
-    					<option>40000</option>
+    					<option>0</option>
+    					<option>50000</option>
+    					<option>100000</option>
+    					<option>150000</option>
     				</c:otherwise>
     			</c:choose>
     		</select>

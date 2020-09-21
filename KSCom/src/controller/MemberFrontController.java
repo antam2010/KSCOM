@@ -1,5 +1,7 @@
 package controller;
+
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action_member;
+
 import action.MemberDeleteAction;
+
 import action.MemberJoinAction;
 import action.MemberListAction;
 
@@ -18,85 +22,87 @@ import action.MemberViewAction;
 import vo.ActionForward_member;
 
 @WebServlet("*.me")
-public class MemberFrontController extends javax.servlet.http.HttpServlet 
-{
+public class MemberFrontController extends javax.servlet.http.HttpServlet {
 	static final long serialVersionUID = 1L;
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		String RequestURI=request.getRequestURI();
-		String contextPath=request.getContextPath();
-		String command=RequestURI.substring(contextPath.length());
-		ActionForward_member forward=null;
-		Action_member action=null;
 
-		if(command.equals("/memberLogin.me")){
-			forward=new ActionForward_member();
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String RequestURI = request.getRequestURI();
+		String contextPath = request.getContextPath();
+		String command = RequestURI.substring(contextPath.length());
+		ActionForward_member forward = null;
+		Action_member action = null;
+
+		if (command.equals("/memberLogin.me")) {
+			forward = new ActionForward_member();
 			forward.setRedirect(true);
 			forward.setPath("./loginForm.jsp");
-		}else if(command.equals("/memberJoin.me")){
-			forward=new ActionForward_member();
+		} else if (command.equals("/memberJoin.me")) {
+			forward = new ActionForward_member();
 			forward.setRedirect(false);
 			forward.setPath("./joinForm.jsp");
-		}else if(command.equals("/memberLoginAction.me")){
+		} else if (command.equals("/memberLoginAction.me")) {
 			action = new MemberLoginAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/memberJoinAction.me")){
+		} else if (command.equals("/memberJoinAction.me")) {
 			action = new MemberJoinAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/memberListAction.me")){
+		} else if (command.equals("/memberListAction.me")) {
 			action = new MemberListAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/memberViewAction.me")){
+		} else if (command.equals("/memberViewAction.me")) {
 			action = new MemberViewAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/memberDeleteAction.me")){
+		} else if (command.equals("/memberDeleteAction.me")) {
 			action = new MemberDeleteAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/memberLogoutAction.me")){
-			HttpSession session=request.getSession();
+		} else if (command.equals("/memberLogoutAction.me")) {
+			HttpSession session = request.getSession();
 			session.invalidate();
 			response.sendRedirect("comList.jsp");
 		}
 		
-		if(forward != null){
-			if(forward.isRedirect()){
+		
+		if (forward != null) {
+			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
-			}else{
-				RequestDispatcher dispatcher=
-						request.getRequestDispatcher(forward.getPath());
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}
+		
 		}
+
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doProcess(request,response);
-	}  	
+		doProcess(request, response);
+	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		doProcess(request,response);
-	}   	  	      	    
+		doProcess(request, response);
+	}
 }

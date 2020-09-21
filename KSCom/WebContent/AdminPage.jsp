@@ -27,6 +27,12 @@
  		<a href="com_caseRegistForm.do" >컴퓨터 케이스 등록</a>
 	</div>
 </div>
+<div class="dropdown">
+<button class="dropbtn">부품 수정 및 비활성화</button>
+	<div class="dropdown-content">
+		<a href="#">CPU수정</a>
+	</div>
+</div>
 </c:when>
 <c:otherwise>
 <c:redirect url="comList.jsp"></c:redirect>

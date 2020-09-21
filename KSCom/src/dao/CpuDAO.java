@@ -96,7 +96,7 @@ public class CpuDAO {
 		
 		return cpu;
 	}
-//cpu 조회수 업데이트? cpu및 모든 조회수로 해보자	
+//cpu 조회수 업데이트	
 	public int updateReadCount(int id) {
 		PreparedStatement pstmt = null;
 		int updateCount = 0;
@@ -140,6 +140,27 @@ public class CpuDAO {
 		}
 		
 		return insertCount;
+	}
+
+	public int update(Cpu cpu) {
+		PreparedStatement pstmt=null;
+		String sql="";
+		int update=0;
+		try {
+			sql="update cpu set name=?,core=?,cpu_package=?,image=?,price=?,content=? where id=?";
+			pstmt =con.prepareStatement(sql);
+			pstmt.setString(1, cpu.getName());
+			pstmt.setString(2, cpu.getCore());
+			pstmt.setString(3, cpu.getImage());
+			pstmt.setInt(4, cpu.getPrice());
+			pstmt.setString(5, cpu.getContent());
+			pstmt.setInt(6, cpu.getId());
+			update=pstmt.executeUpdate();		
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}return update;
 	}
 	
 }
