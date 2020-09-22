@@ -28,6 +28,7 @@ import action.CpuCartSearchAction;
 import action.CpuListAction;
 import action.CpuRegistAction;
 import action.CpuRegistFormAction;
+
 import action.CpuViewAction;
 import action.GpuCartAddAction;
 import action.GpuCartListAction;
@@ -135,7 +136,6 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
 		
 		//View.do
 		else if(command.equals("/cpuView.do")){
@@ -518,6 +518,7 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
 		else if(command.equals("/com_caseRegistForm.do")){
 			action = new Com_caseRegistFormAction();
 			try {
@@ -526,6 +527,7 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
 		
 		
 		

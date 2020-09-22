@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import action.Action_member;
 
 import action.MemberDeleteAction;
-
+import action.MemberIdCheckAction;
 import action.MemberJoinAction;
 import action.MemberListAction;
 
@@ -76,7 +76,19 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/memberLogoutAction.me")) {
+			
+		}
+		else if (command.equals("/memberIdCheckAction.me")) {
+			action = new MemberIdCheckAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		else if (command.equals("/memberLogoutAction.me")) {
 			HttpSession session = request.getSession();
 			session.invalidate();
 			response.sendRedirect("comList.jsp");

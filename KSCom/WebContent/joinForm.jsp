@@ -8,48 +8,68 @@
 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
-function openIdChk(){
+function checkValue()
+{
+    var form = document.userInfo;
+
+    if(!form.id.value){
+        alert("아이디를 입력하세요.");
+        return false;
+    }
     
-	
-	window.open("idCheck.jsp","get","height=280,width=500");
+    if(form.idDuplication.value != "idCheck"){
+        alert("아이디 중복체크를 해주세요.");
+        return false;
+    }
+    
+    if(!form.passwd.value){
+        alert("비밀번호를 입력하세요.");
+        return false;
+    }
+    
+    // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
+    if(form.passwd.value != form.passwdCheck.value ){
+        alert("비밀번호가 동일하지 않습니다.");
+        return false;
+    }    
+    
+    if(!form.name.value){
+        alert("이름을 입력하세요.");
+        return false;
+    }
+    
+    if(!form.age.value){
+    	alert("나이를 입력하세요.");
+    	return false;
+    }
+    
+    if(!form.addr.value){
+        alert("주소를 입력하세요.");
+        return false;
+    }
+    
+    if(!form.email.value){
+        alert("메일 주소를 입력하세요.");
+        return false;
+    }
+    
+
 }
 
 
+// 아이디 중복체크 화면open
+function openIdChk(){
 
-
-function inputCheck() {
-	if(document.regFrm.id.value==""){
-		alert("아이디를 입력해라.");
-		document.regFrm.id.focus();
-		return false;
-	}
-	if(document.regFrm.passwd.value==""){
-		alert("비밀번호를 입력해라.");
-		document.regFrm.passwd.focus();
-		return false;
-		
-	}
-	if(document.regFrm.age.value==""){
-		alert("나이를 입력해라.");
-		document.regFrm.age.focus();
-		return false;
-		
-	}if(document.regFrm.addr.value==""){
-		alert("주소를 입력해라.");
-		document.regFrm.addr.focus();
-		return false;
-		
-	}
-	if(document.regFrm.email.value==""){
-		alert("이메일을 입력해라.");
-		document.regFrm.email.focus();
-		return false;
-		
-	}
-	
-	
-	
+    
+    window.open("idCheck.jsp",
+            "chkForm", "width=500, height=300 ");    
 }
+
+
+function inputIdChk(){
+    document.userInfo.idDuplication.value ="idUncheck";
+}
+
 
 </script>
 </head>
@@ -58,7 +78,7 @@ function inputCheck() {
 <nav>
 </nav>
 <section>
-<form  id="regFrm" name="regFrm" action="./memberJoinAction.me" method="post" >
+<form action="./memberJoinAction.me" method="post" name="userInfo" onsubmit="return checkValue()">
 <table>
 	<tr>
 		<td colspan="2">
@@ -67,14 +87,19 @@ function inputCheck() {
 	</tr>
 	<tr>
 		<td>아이디 :  </td>
-		<td><input type="text" name="id" id ="id"/>
+		<td>
+		<input type="text" name="id" id ="id" onkeydown="inputIdChk()"/>
 		<input type="button" value="중복확인" onclick="openIdChk()">
+		<input type="hidden" name="idDuplication" value="idUncheck">
 		</td>
 	</tr>
 	<tr>
 		<td>비밀번호 : </td>
 		<td><input type="password" name="passwd" id = "passwd"/></td>
 	</tr>
+	<tr>
+		<td>비밀번호 확인 </td>
+		<td><input type="password" name="passwdCheck">
 	<tr>
 		<td>이름 : </td>
 		<td><input type="text" name="name" id = "name"/></td>
@@ -99,12 +124,13 @@ function inputCheck() {
 	</tr>
 	<tr>
 		<td align="center" colspan="2">
-			<input type="submit" value="회원 가입" onclick="return inputCheck()"/>
-			<input type="reset" value="다시 작성"/>
+			<input type="submit" value="회원 가입" />
+			<input type="button" value="뒤로가기" onclick="history.back();"/>
  		</td>
 	</tr>
 </table>
 </form>
+
 </section>
 </body>
 </html>

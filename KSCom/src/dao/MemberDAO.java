@@ -156,6 +156,26 @@ public class MemberDAO {
 		
 		return deleteCount;
 	}
+	public boolean duplicateIdCheck(Member member) {
+	
+		boolean x=false;
+		
+		try {
+			String sql="select id from user where id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, member.getId());
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+				x=true;
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return x;
+	}
 	
 	
 	

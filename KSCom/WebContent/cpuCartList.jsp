@@ -19,16 +19,23 @@
 <script type="text/javascript">
 
 	
-// 	$(function
-// 			(){
-// 		if($(".remove").prop("checked",false)){
-// 			$(".submitChk").click(function(){
-// 				$(".remove").prop("checked",true);
-// 			});
-// 		}
-// 	});
+	$(function(){
+		if($(".remove").prop("checked",false)){
+			$("#buttonChk").click(function(){
+				$(".remove").prop("checked",true);
+				$(".submitChk").submit();
+				
+			});
+		}
+		
+	
+		
+		
+	});
 
 //  	만약 submit을 클릭했을때 remove값이 체크안되어있으면 체크로 강제 전환 테스트
+
+
 
 	function testIndex(o){
 		var index=Array.prototype.indexOf.call(o.form.submitChk, o);
@@ -38,6 +45,7 @@
 	function checkAll(theForm){
 		if(theForm.remove.length == undefined){
 			theForm.remove.checked = theForm.allCheck.checked;
+			
 		}else{
 			for(var i=0;i<theForm.remove.length;i++){
 				theForm.remove[i].checked = theForm.allCheck.checked;
@@ -96,8 +104,8 @@
 <section>
 
    <h2>장바구니 목록</h2>
-	<form method="post">
-      <table>
+	<form method="post" id="frm1">
+      <table id="tb1">
     	<tr id="select">
     		<td colspan="6">
     		<select id = "startMoney" name="startMoney">
@@ -142,28 +150,39 @@
     			<c:choose>
     			
     				<c:when test="${endMoney==50000 }">
-    					<option>0</option>
+    					
     					<option selected="selected">50000</option>
     					<option>100000</option>
 	    				<option>150000</option>
+	    				<option>999999</option>
     				</c:when>
     				<c:when test="${endMoney==100000 }">
-    					<option>0</option>
+    					
     					<option>50000</option>
     					<option selected="selected">100000</option>
 	    				<option>150000</option>
+	    				<option>999999</option>
     				</c:when>
     				<c:when test="${endMoney==150000 }">
-    					<option>0</option>
+    					
     					<option>50000</option>
     					<option>100000</option>
 	    				<option selected="selected">150000</option>
+	    				<option>999999</option>
+    				</c:when>
+    				<c:when test="${endMoney==999999 }">
+    					
+    					<option>50000</option>
+    					<option>100000</option>
+	    				<option>150000</option>
+	    				<option selected="selected">999999</option>
     				</c:when>
     				<c:otherwise>
-    					<option>0</option>
+    					
     					<option>50000</option>
     					<option>100000</option>
     					<option>150000</option>
+    					<option>999999</option>
     				</c:otherwise>
     			</c:choose>
     		</select>
@@ -543,7 +562,7 @@
          
          
          <td style="text-align:center;">
-         <input type="button" onclick="alert('아직 구현중')" value="전체 삭제"></td>
+       	<input type="button" id="buttonChk" value="전체삭제">
       </tr>
       
       </table>
