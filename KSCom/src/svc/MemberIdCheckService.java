@@ -17,9 +17,10 @@ public class MemberIdCheckService {
 		boolean check=memberDAO.duplicateIdCheck(member);
 		if(check) {
 			checkSuccess=true;
-			commit(con);
-		}else {
 			rollback(con);
+			
+		}else {
+			commit(con);
 		}
 		close(con);
 		return checkSuccess;

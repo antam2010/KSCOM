@@ -13,6 +13,15 @@ $(function(){
 	$(".ready").click(function(){
 		alert('아직 준비중 입니다.');
 	});	
+	
+	
+	
+	$(".loginPlz").click(function(){
+		alert('로그인 후 이용해 주세요');
+	});	
+	
+	
+	
 });
 </script>
 </head>

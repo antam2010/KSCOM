@@ -93,6 +93,17 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 			session.invalidate();
 			response.sendRedirect("comList.jsp");
 		}
+		//야매로 만든 세션 각 부품 초기화
+		else if (command.equals("/allCheck.me")) {
+			HttpSession session = request.getSession();
+			session.removeAttribute("cartList");
+			session.removeAttribute("ramcartList");
+			session.removeAttribute("gpucartList");
+			session.removeAttribute("com_casecartList");
+			session.removeAttribute("mainboardcartList");
+			response.sendRedirect("cpuCartList.jsp");
+			
+		}
 		
 		
 		if (forward != null) {

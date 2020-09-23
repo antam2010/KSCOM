@@ -22,6 +22,7 @@ public class MemberIdCheckAction implements Action_member {
 		ActionForward_member forward = new ActionForward_member();
 		MemberIdCheckService memberIdCheckService = new MemberIdCheckService();
 		result = memberIdCheckService.checkMember(member);
+		request.setAttribute("result", result);
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		if (result) { // 아이디가 있다.
@@ -30,14 +31,14 @@ public class MemberIdCheckAction implements Action_member {
 			out.println("alert('아이디가 중복됩니다.');");
 			out.println("history.back()");
 			out.println("</script>");
+			
 		}
 
 		else {
-
-			out.println("<script>");
-			out.println("alert('사용 가능한 아이디입니다.');");
-			out.println("history.back()");
-			out.println("</script>");
+			
+			forward=new ActionForward_member();
+			forward.setRedirect(result);
+			forward.setPath("idCheck.jsp");
 		}
 
 		return forward;

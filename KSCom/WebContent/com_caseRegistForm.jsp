@@ -100,7 +100,7 @@
          <label for = "image">상품이미지 : </label>
       </td>
       <td class = "td_right">
-         <input type = "file" name = "image" id ="image"/>
+         <input type = "file" name = "image" id ="image"/> *파일이름은 영어로
       </td>
    </tr>
    <tr>

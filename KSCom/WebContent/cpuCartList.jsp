@@ -19,28 +19,10 @@
 <script type="text/javascript">
 
 	
-	$(function(){
-		if($(".remove").prop("checked",false)){
-			$("#buttonChk").click(function(){
-				$(".remove").prop("checked",true);
-				$(".submitChk").submit();
-				
-			});
-		}
-		
-	
-		
-		
-	});
-
-//  	만약 submit을 클릭했을때 remove값이 체크안되어있으면 체크로 강제 전환 테스트
-
-
-
 	function testIndex(o){
-		var index=Array.prototype.indexOf.call(o.form.submitChk, o);
+		var index=Array.prototype.indexOf.call(o.form.submitChk,o);
 		o.form.remove[index].checked=true;
-}
+}	
 
 	function checkAll(theForm){
 		if(theForm.remove.length == undefined){
@@ -83,7 +65,7 @@
 </script>
 
 
-
+                                                                                  
 
 </head>
 <body>
@@ -95,102 +77,13 @@
 <c:set var="total" value="0"/>
 
 
-<c:if test="${startMoney !=null }">
-	<c:set var="startMoney" value="${startMoney}"></c:set>
-</c:if>
-<c:if test="${endMoney !=null }">
-	<c:set var="endMoney" value="${endMoney}"></c:set>
-</c:if>
+
 <section>
 
    <h2>장바구니 목록</h2>
-	<form method="post" id="frm1">
+	<form >
       <table id="tb1">
-    	<tr id="select">
-    		<td colspan="6">
-    		<select id = "startMoney" name="startMoney">
-    			
-    			<c:choose>
-    			
-    				<c:when test="${startMoney==0 }">
-    					<option selected="selected">0</option>
-    					<option>50000</option>
-    					<option>100000</option>
-	    				<option>150000</option>
-    				</c:when>
-    				<c:when test="${startMoney==50000 }">
-    					<option>0</option>
-    					<option selected="selected">50000</option>
-    					<option>100000</option>
-	    				<option>150000</option>
-    				</c:when>
-    				<c:when test="${startMoney==100000 }">
-    					<option>0</option>
-    					<option>50000</option>
-    					<option selected="selected">100000</option>
-	    				<option>150000</option>
-    				</c:when>
-    				<c:when test="${startMoney==150000 }">
-    					<option>0</option>
-    					<option>50000</option>
-    					<option>100000</option>
-	    				<option selected="selected">150000</option>
-    				</c:when>
-    				<c:otherwise>
-    					<option>0</option>
-    					<option>50000</option>
-    					<option>100000</option>
-    					<option>150000</option>
-    				</c:otherwise>
-    			</c:choose>
-    		</select>
-    		~
-    		<select id = "endMoney" name="endMoney">
-    		
-    			<c:choose>
-    			
-    				<c:when test="${endMoney==50000 }">
-    					
-    					<option selected="selected">50000</option>
-    					<option>100000</option>
-	    				<option>150000</option>
-	    				<option>999999</option>
-    				</c:when>
-    				<c:when test="${endMoney==100000 }">
-    					
-    					<option>50000</option>
-    					<option selected="selected">100000</option>
-	    				<option>150000</option>
-	    				<option>999999</option>
-    				</c:when>
-    				<c:when test="${endMoney==150000 }">
-    					
-    					<option>50000</option>
-    					<option>100000</option>
-	    				<option selected="selected">150000</option>
-	    				<option>999999</option>
-    				</c:when>
-    				<c:when test="${endMoney==999999 }">
-    					
-    					<option>50000</option>
-    					<option>100000</option>
-	    				<option>150000</option>
-	    				<option selected="selected">999999</option>
-    				</c:when>
-    				<c:otherwise>
-    					
-    					<option>50000</option>
-    					<option>100000</option>
-    					<option>150000</option>
-    					<option>999999</option>
-    				</c:otherwise>
-    			</c:choose>
-    		</select>
-    		
-    		
-    		<input type="submit" value="검색" formaction="cpuCartSearch.do"/>
-    		</td>
-    	</tr>
+    	
         <tr class = "tr_top">
         	<td><input type="checkbox" id = "allCheck" name="allCheck" onclick="checkAll(this.form)" /> </td>
              <td>번호</td>
@@ -200,7 +93,7 @@
              <td>수량</td>
              
          </tr>
-         
+        
 <!-- 여기서 부터 값 들어가는 부분 -->
 <!-- CPU 값 들어가는 폼 -->
 <c:if test="${cartList ne null && cartList.size()>0 }">
@@ -562,7 +455,7 @@
          
          
          <td style="text-align:center;">
-       	<input type="button" id="buttonChk" value="전체삭제">
+       	<input type="submit" id="buttonChk" value="전체삭제" formaction="allCheck.me" >
       </tr>
       
       </table>
@@ -571,7 +464,8 @@
 	 
 
    		<a href="comList.jsp">쇼핑 계속하기</a>
- 
+   		
+ 		 
    
 </section>
 

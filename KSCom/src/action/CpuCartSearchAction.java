@@ -32,7 +32,7 @@ public class CpuCartSearchAction implements Action {
 		}
 
 		request.setAttribute("totalMoney", totalMoney);
-		ActionForward forward = new ActionForward("cpuCartList.jsp", false);
+		ActionForward forward = new ActionForward("cpuList.jsp", false);
 		return forward;
 	}
 	

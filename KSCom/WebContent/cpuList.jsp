@@ -17,13 +17,20 @@
 <jsp:include page="template.jsp"></jsp:include>
 <jsp:include page="nav.jsp"></jsp:include>
 
+<c:if test="${startMoney !=null }">
+	<c:set var="startMoney" value="${startMoney}"></c:set>
+</c:if>
+<c:if test="${endMoney !=null }">
+	<c:set var="endMoney" value="${endMoney}"></c:set>
+</c:if>
 <section>
 
 <c:if test="${cpuList != null}">
 <h2>cpu 정보</h2>	
 
- 
+
 <table>
+
 	<tr>
 		<c:forEach var = "cpu" items="${cpuList }" varStatus="status">
 		<td>
@@ -41,6 +48,8 @@
 		</c:forEach>
 	</tr>
 </table>
+
+
 </c:if>
 <c:if test="${cpuList==null }">
 	<div class="div_empty">
@@ -66,6 +75,9 @@
 		</c:forEach>
 	</tr>
 </table>
+
+
+
 </div>
 </c:if>
 </section>

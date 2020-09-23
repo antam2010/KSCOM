@@ -53,7 +53,7 @@
    <tr class="td_left">
    	<td><label for ="kind">제품 분류 :</label></td>
    	<td class="td_right">
-   		<select id="brand" name="brand">
+   		<select id="kind" name="kind">
          <option value="intelCPU">인텔 CPU용</option>
          <option value="amdCPU">AMD CPU용</option>
          <option value="Imbedded">임베디드</option>
@@ -127,7 +127,7 @@
          <label for = "image">상품이미지 : </label>
       </td>
       <td class = "td_right">
-         <input type = "file" name = "image" id ="image"/>
+         <input type = "file" name = "image" id ="image"/> *파일이름은 영어로
       </td>
    </tr>
    <tr>

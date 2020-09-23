@@ -60,20 +60,28 @@ function checkValue()
 // 아이디 중복체크 화면open
 function openIdChk(){
 
-    
+	
     window.open("idCheck.jsp",
-            "chkForm", "width=500, height=300 ");    
+            "chkForm", "width=500, height=300 ");  
+    
 }
 
+function pValue() {
+	document.getElementById("id").value=opener.document.userInfo.id.value;
+	
+}
 
 function inputIdChk(){
-    document.userInfo.idDuplication.value ="idUncheck";
+	 document.userInfo.idDuplication.value ="idUncheck";
 }
+
+
+
 
 
 </script>
 </head>
-<body>
+<body onload="pValue()">
 <jsp:include page="template.jsp"></jsp:include>
 <nav>
 </nav>
@@ -86,9 +94,9 @@ function inputIdChk(){
 		</td>
 	</tr>
 	<tr>
-		<td>아이디 :  </td>
+		<td>아이디 :</td>
 		<td>
-		<input type="text" name="id" id ="id" onkeydown="inputIdChk()"/>
+		<input type="text" name="id" id ="id"  onkeydown="inputIdChk()" />
 		<input type="button" value="중복확인" onclick="openIdChk()">
 		<input type="hidden" name="idDuplication" value="idUncheck">
 		</td>

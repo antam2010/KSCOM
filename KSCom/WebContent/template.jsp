@@ -17,7 +17,7 @@
 <body>
 
 <header>
-
+	
 	<ul>
 		
 		<c:choose>
@@ -45,6 +45,7 @@
 		
 	</ul>
 <a href="comList.jsp"><img src="images/logo.png" style="width:130px; height:130px; float: left;"></a>
+<p style="font-size: 2.5em; color: yellow; text-align: center;" >콩순이 컴퓨터</p>
 
 
 </header>

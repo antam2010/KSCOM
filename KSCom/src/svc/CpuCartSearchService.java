@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import vo.Cart;
+import vo.Ram;
 
 public class CpuCartSearchService {
+
 
 	public ArrayList<Cart> getCartSearchList(int start_money, int end_money, HttpServletRequest request) {
 		HttpSession session = request.getSession();

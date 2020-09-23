@@ -1,6 +1,7 @@
 <%@page import="vo.Gpu"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,8 +33,15 @@
 		
 		<div style="clear:both"></div>
 		<div id = "commandList">
-			<a href="gpuList.do">쇼핑계속하기</a>
+			<a href="cpuList.do">쇼핑계속하기</a>
+			<c:choose>
+			<c:when test="${id eq null || empty id }">
+			<a href="loginForm.jsp" class="loginPlz">장바구니에 담기</a>
+			</c:when>
+			<c:otherwise>
 			<a href="gpuCartAdd.do?id=${gpu.id}">장바구니에담기</a>
+			</c:otherwise>
+			</c:choose>
 		</div>
 
 </section>

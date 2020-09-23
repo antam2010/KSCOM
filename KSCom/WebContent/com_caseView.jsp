@@ -1,6 +1,7 @@
 <%@page import="vo.Com_case"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +31,14 @@
 		</aside>
 		<div style="clear:both"></div>
 		<div id = "commandList">
-			<a href="com_caseList.do">쇼핑계속하기</a>
+			<c:choose>
+			<c:when test="${id eq null || empty id }">
+			<a href="loginForm.jsp" class="loginPlz">장바구니에 담기</a>
+			</c:when>
+			<c:otherwise>
 			<a href="com_caseCartAdd.do?id=${com_case.id}">장바구니에담기</a>
+			</c:otherwise>
+			</c:choose>
 		</div>
 	
 </section>
