@@ -165,6 +165,31 @@ public class CpuDAO {
 		
 		
 	}
+	public int add_Select(int name) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			
+			StringBuffer sql=new StringBuffer();
+			String sqlSlect = "SELECT NAME FROM ";
+			sql.append(sqlSlect);
+			sql.append(" CPU");
+			sql.append("UNION");
+			sql.append(sqlSlect);
+			sql.append(" RAM");
+			pstmt=con.prepareStatement(sql.toString());
+			
+			rs=pstmt.executeQuery();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return name;
+		
+		
+	}
 
 	
 	
