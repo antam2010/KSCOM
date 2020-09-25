@@ -19,7 +19,7 @@
 		<img src="images/${com_case.image}" class="add_image"/>
 	</article>
 			<b>브랜드: </b> ${com_case.brand}<br>
-			<b>이름 : </b> $com_case.name}<br>
+			<b>이름 : </b> ${com_case.name}<br>
 			<b>사이즈 : </b> ${com_case.size}<br>
 			<b>파워규격 : </b> ${com_case.power_standard}<br>
 			<b>쿨링팬 : </b> ${com_case.board_standard}<br>
@@ -31,6 +31,7 @@
 		</aside>
 		<div style="clear:both"></div>
 		<div id = "commandList">
+			 <a href="com_caseList.do">쇼핑계속하기</a>
 			<c:choose>
 			<c:when test="${id eq null || empty id }">
 			<a href="loginForm.jsp" class="loginPlz">장바구니에 담기</a>

@@ -32,7 +32,7 @@ public class GpuDAO {
 		Gpu gpu=null;
 		
 		try {
-			pstmt= con.prepareStatement("select * from gpu where id=?");
+			pstmt= con.prepareStatement("select * from GPU where id=?");
 			pstmt.setInt(1, id);
 			rs=pstmt.executeQuery();
 			
@@ -66,7 +66,7 @@ public class GpuDAO {
 		ResultSet rs = null;
 		ArrayList<Gpu> gpuList = null;
 		try {
-			pstmt=con.prepareStatement("select *from gpu");
+			pstmt=con.prepareStatement("select *from GPU");
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -101,7 +101,7 @@ public class GpuDAO {
 		int insertCount=0;
 		String sql="";
 		try {
-			sql="insert into gpu(brand,chipset_maker,detail_chipset,vram,image,name,price,content,readcount) values(?,?,?,?,?,?,?,?,?)";
+			sql="insert into GPU(brand,chipset_maker,detail_chipset,vram,image,name,price,content,readcount) values(?,?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, gpu.getBrand());
 			pstmt.setString(2, gpu.getChipset_maker());
@@ -129,7 +129,7 @@ public class GpuDAO {
 		String sql="";
 		
 		try {
-			sql="update gpu set readcount =readcount +1 where id=?";
+			sql="update GPU set readcount =readcount +1 where id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			updateCount=pstmt.executeUpdate();

@@ -33,7 +33,7 @@ public class MainboardDAO {
 		ResultSet rs = null;
 		ArrayList<Mainboard> mainboardList = null;
 		try {
-			pstmt=con.prepareStatement("select *from mainboard");
+			pstmt=con.prepareStatement("select *from Mainboard");
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -72,7 +72,7 @@ public class MainboardDAO {
 		String sql="";
 		
 		try {
-			sql="update mainboard set readcount =readcount +1 where id=?";
+			sql="update Mainboard set readcount =readcount +1 where id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			updateCount=pstmt.executeUpdate();
@@ -90,7 +90,7 @@ public class MainboardDAO {
 		Mainboard mainboard=null;
 		
 		try {
-			pstmt= con.prepareStatement("select * from mainboard where id=?");
+			pstmt= con.prepareStatement("select * from Mainboard where id=?");
 			pstmt.setInt(1, id);
 			rs=pstmt.executeQuery();
 			
@@ -125,7 +125,7 @@ public class MainboardDAO {
 		int insertCount=0;
 		String sql="";
 		try {
-			sql="insert into mainboard(brand,name,kind,socket,chipset,form_factor,image,price,content,readcount)"
+			sql="insert into Mainboard(brand,name,kind,socket,chipset,form_factor,image,price,content,readcount)"
 					+"values(?,?,?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, mainboard.getBrand());

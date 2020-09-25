@@ -30,7 +30,6 @@
 
 
 <table>
-
 	<tr>
 		<c:forEach var = "cpu" items="${cpuList }" varStatus="status">
 		<td>
@@ -41,7 +40,7 @@
 			가격:${cpu.price}<br>
 			조회수:${cpu.readcount }<br>
 		</td>
-		<c:if test="${((status.index+1) mod 4)==0 }">
+		<c:if test="${((status.index+1) mod 4)==0 }"> <!-- 4개마다 줄바꿈 -->
 	</tr>
 	<tr>
 		</c:if>
@@ -57,30 +56,8 @@
 	</div>
 </c:if>
 
-
-<c:if test="${todayImageList !=null }">
-
-<div id ="todayImageList">
-	<h2>오늘 본 상품 목록</h2>
-<table>
-	<tr>
-		<c:forEach var="todayImage" items="${todayImageList}" varStatus="status">
-		<td>
-			<img src="images/${todayImage}" id="todayImage"/>
-		</td>
-			<c:if test="${((status.index+1) mod 4)==0 }">
-			</tr>
-			<tr>
-		</c:if>
-		</c:forEach>
-	</tr>
-</table>
-
-
-
-</div>
-</c:if>
 </section>
+
 
 
 

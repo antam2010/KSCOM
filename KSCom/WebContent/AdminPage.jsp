@@ -28,9 +28,9 @@
 	</div>
 </div>
 <div class="dropdown">
-<button class="dropbtn">부품 수정 및 비활성화</button>
+<button class="dropbtn">부품 리스트</button>
 	<div class="dropdown-content">
-		<a href="#">CPU수정</a>
+		<a href="cpuList.do">CPU리스트</a>
 	</div>
 </div>
 </c:when>

@@ -8,6 +8,18 @@
 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
+$(function (){
+	$(document).ready(function(){
+	    $(".onlyNum").keyup( function(){
+	    	$(this).val( $(this).val().replace(/[^0-9]/gi,"") ); 
+	    	});
+	});
+	
+	
+});
+
+
+
 function checkValue()
 {
     var form = document.userInfo;
@@ -96,7 +108,7 @@ function inputIdChk(){
 	<tr>
 		<td>아이디 :</td>
 		<td>
-		<input type="text" name="id" id ="id"  onkeydown="inputIdChk()" />
+		<input type="text" name="id" id ="id"  maxlength="13" onkeydown="inputIdChk()" />
 		<input type="button" value="중복확인" onclick="openIdChk()">
 		<input type="hidden" name="idDuplication" value="idUncheck">
 		</td>
@@ -107,14 +119,14 @@ function inputIdChk(){
 	</tr>
 	<tr>
 		<td>비밀번호 확인 </td>
-		<td><input type="password" name="passwdCheck">
+		<td><input type="password" name="passwdCheck" onkeypress="return checkNumber(event)">
 	<tr>
 		<td>이름 : </td>
-		<td><input type="text" name="name" id = "name"/></td>
+		<td><input type="text" name="name" id = "name" maxlength="13"/></td>
 	</tr>
 	<tr>
 		<td>나이 : </td>
-		<td><input type="text" name="age" maxlength="2" id = "age"/></td>
+		<td><input type="text" name="age"  id = "age" class="onlyNum"  maxlength="3" /></td>
 	</tr>
 	<tr>
 		<td><label for = "gender">성별 : </label></td>

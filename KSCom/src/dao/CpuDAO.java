@@ -33,7 +33,7 @@ public class CpuDAO {
 		ArrayList<Cpu> cpuList = null;
 		
 		try {
-			pstmt = con.prepareStatement("SELECT * FROM cpu");
+			pstmt = con.prepareStatement("SELECT * FROM CPU");
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -71,7 +71,7 @@ public class CpuDAO {
 		Cpu cpu = null;
 		
 		try {
-			pstmt = con.prepareStatement("select * from cpu where id=?");
+			pstmt = con.prepareStatement("select * from CPU where id=?");
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			
@@ -103,7 +103,7 @@ public class CpuDAO {
 		String sql = "";
 		
 		try {
-			sql = "update cpu set readcount = readcount + 1 where id=?";
+			sql = "update CPU set readcount = readcount + 1 where id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			updateCount = pstmt.executeUpdate();
@@ -123,7 +123,7 @@ public class CpuDAO {
 		String sql = "";
 		
 		try {
-			sql = "insert into cpu(name,core,cpu_package,image,price,content,readcount)values(?,?,?,?,?,?,?)";
+			sql = "insert into CPU(name,core,cpu_package,image,price,content,readcount)values(?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, cpu.getName());
 			pstmt.setString(2, cpu.getCore());
@@ -140,6 +140,30 @@ public class CpuDAO {
 		}
 		
 		return insertCount;
+	}
+	
+//ajax 테스트 쿼리문
+	public int cpuNameChk(int name) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			StringBuffer sql=new StringBuffer();
+			sql.append("select name");
+			sql.append(" from User");
+			sql.append(" where name =?");
+			pstmt=con.prepareStatement(sql.toString());
+			pstmt.setString(1, "name");
+			
+			rs=pstmt.executeQuery();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return name;
+		
+		
 	}
 
 	

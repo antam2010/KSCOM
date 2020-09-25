@@ -25,12 +25,17 @@
 			</a>
 		</td>
 		<td>
+			<a href="memberModifyFormAction.me?id=${member.id }">수정</a>
+		<td>
+		<c:if test="${member.id ne 'admin' }">
 		<a href="memberDeleteAction.me?id=${member.id}">삭제</a>
+		</c:if>
 		</td>
 	</tr>
 	</c:forEach>
 	<tr>
 		<td><a href="AdminPage.jsp">뒤로가기</a></td>
+		
 </table>
 </section>
 

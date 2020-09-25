@@ -33,7 +33,7 @@ public class MemberDAO {
 	
 	public String selectLoginId(Member member){
 		String loginId = null;
-		String sql="SELECT id FROM user WHERE ID=? AND Passwd=?";
+		String sql="SELECT id FROM User WHERE ID=? AND Passwd=?";
 		
 		try{
 			pstmt=con.prepareStatement(sql);
@@ -56,7 +56,7 @@ public class MemberDAO {
 
 	
 	public int insertMember(Member member){
-		String sql="INSERT INTO user VALUES (?,?,?,?,?,?,?)";
+		String sql="INSERT INTO User VALUES (?,?,?,?,?,?,?)";
 		int insertCount=0;
 		
 		try{
@@ -81,7 +81,7 @@ public class MemberDAO {
 	}
 	
 	public ArrayList<Member> selectMemberList(){
-		String sql="SELECT * FROM user";
+		String sql="SELECT * FROM User";
 		ArrayList<Member> memberList=new ArrayList<Member>();
 		Member mb = null;
 		try{
@@ -113,7 +113,7 @@ public class MemberDAO {
 	}
 	
 	public Member selectMember(String id){
-		String sql="SELECT * FROM user WHERE id=?";
+		String sql="SELECT * FROM User WHERE id=?";
 		Member mb = null;
 		try{
 			
@@ -141,7 +141,7 @@ public class MemberDAO {
 		return mb;
 	}
 	public int deleteMember(String id){
-		String sql="DELETE from user WHERE ID=?";
+		String sql="DELETE from User WHERE ID=?";
 		int deleteCount = 0;
 
 		try{
@@ -161,7 +161,7 @@ public class MemberDAO {
 		boolean x=false;
 		
 		try {
-			String sql="select id from user where id=?";
+			String sql="select id from User where id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, member.getId());
 			rs=pstmt.executeQuery();
@@ -175,6 +175,31 @@ public class MemberDAO {
 			close(rs);
 		}
 		return x;
+	}
+	public int updateMember(Member member) {
+		String sql="UPDATE User SET passwd=?,name=?,age=?,gender=?,addr=?,email=? where id=?";
+		int updateCount=0;
+		
+		try{
+
+			pstmt=con.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getPasswd());
+			pstmt.setString(2, member.getName());
+			pstmt.setInt(3, member.getAge());
+			pstmt.setString(4, member.getGender());
+			pstmt.setString(5, member.getAddr());
+			pstmt.setString(6, member.getEmail());
+			pstmt.setString(7, member.getId());
+			updateCount=pstmt.executeUpdate();
+			
+		}catch(SQLException ex){
+			System.out.println("UpdateMemberDAO 오류: " + ex);			
+		}finally{
+			close(pstmt);
+		}
+		
+		return updateCount;
 	}
 	
 	

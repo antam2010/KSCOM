@@ -37,7 +37,7 @@ public class Com_caseDAO {
 		Com_case com_case = null;
 		
 		try {
-			pstmt = con.prepareStatement("select * from com_case where id=?");
+			pstmt = con.prepareStatement("select * from Com_Case where id=?");
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			
@@ -71,7 +71,7 @@ public class Com_caseDAO {
 		ArrayList<Com_case> com_caseList = null;
 		
 		try {
-			pstmt = con.prepareStatement("SELECT * FROM com_case");
+			pstmt = con.prepareStatement("SELECT * FROM Com_Case");
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -110,7 +110,7 @@ public class Com_caseDAO {
 		String sql = "";
 		
 		try {
-			sql = "insert into com_case(brand,name,size,power_standard,board_standard,image,price,content,readcount)values(?,?,?,?,?,?,?,?,?)";
+			sql = "insert into Com_Case(brand,name,size,power_standard,board_standard,image,price,content,readcount)values(?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, com_case.getBrand());
 			pstmt.setString(2, com_case.getName());
@@ -137,7 +137,7 @@ public class Com_caseDAO {
 		String sql = "";
 		
 		try {
-			sql = "update com_case set readcount = readcount + 1 where id=?";
+			sql = "update Com_case set readcount = readcount + 1 where id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			updateCount = pstmt.executeUpdate();

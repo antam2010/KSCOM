@@ -35,7 +35,7 @@
 		</aside>
 		<div style="clear:both"></div>
 		<div id = "commandList">
-			<a href="cpuList.do">쇼핑계속하기</a>
+			<a href="mainboardList.do">쇼핑계속하기</a>
 			<c:choose>
 			<c:when test="${id eq null || empty id }">
 			<a href="loginForm.jsp" class="loginPlz">장바구니에 담기</a>

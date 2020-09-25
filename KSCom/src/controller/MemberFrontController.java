@@ -17,7 +17,8 @@ import action.MemberJoinAction;
 import action.MemberListAction;
 
 import action.MemberLoginAction;
-
+import action.MemberModifyAction;
+import action.MemberModifyFormAction;
 import action.MemberViewAction;
 import vo.ActionForward_member;
 
@@ -102,6 +103,26 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 			session.removeAttribute("com_casecartList");
 			session.removeAttribute("mainboardcartList");
 			response.sendRedirect("cpuCartList.jsp");
+			
+		}
+		//회원수정 폼
+		else if (command.equals("/memberModifyFormAction.me")) {
+			action = new MemberModifyFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		//회원 수정
+		else if (command.equals("/memberModifyAction.me")) {
+			action = new MemberModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 		}
 		

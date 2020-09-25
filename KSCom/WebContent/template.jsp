@@ -39,13 +39,13 @@
 		<li><a href ="memberLogoutAction.me">로그아웃</a></li>
 		<li><a href="cpuCartList.do">장바구니</a></li>
 		<li><a href="comList.jsp">제품보러가기</a></li>
-		<li><div class="white_h4">${ id }님 환영합니다</div></li>
+		<li><div class="white_h4">${ id } 님환영합니다</div></li>
 		</c:otherwise>
 		</c:choose>
 		
 	</ul>
-<a href="comList.jsp"><img src="images/logo.png" style="width:130px; height:130px; float: left;"></a>
-<p style="font-size: 2.5em; color: yellow; text-align: center;" >콩순이 컴퓨터</p>
+<a href="comList.jsp"><img src="images/logo.png" style="width:330px; height:100px; float: left;"></a>
+
 
 
 </header>

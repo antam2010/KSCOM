@@ -18,6 +18,14 @@
 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
+	$(function() {
+		
+
+		
+	});
+	
+	
+	
 	
 	function testIndex(o){
 		var index=Array.prototype.indexOf.call(o.form.submitChk,o);
@@ -455,7 +463,8 @@
          
          
          <td style="text-align:center;">
-       	<input type="submit" id="buttonChk" value="전체삭제" formaction="allCheck.me" >
+       	<input type="submit" id="buttonChk" value="장바구니 비우기" formaction="allCheck.me" >
+       	
       </tr>
       
       </table>
@@ -464,6 +473,7 @@
 	 
 
    		<a href="comList.jsp">쇼핑 계속하기</a>
+   		<a href="todayList.jsp">오늘 본 상품 목록</a>
    		
  		 
    

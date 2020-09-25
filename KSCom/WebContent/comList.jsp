@@ -6,50 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/form.css">
-<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-<script type="text/javascript">
 
-
-</script>
 <title>컴퓨터리스트</title>
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
 <jsp:include page="nav.jsp"></jsp:include>
 
-
 <section>
-	
-	<article>
-	<a href="cpuList.do"><img src="images/cpu_i5.jpg" class="add_image"></a>
-	</article>
-	<article>
-	<a href="gpuList.do"><img src="images/gpu_1.jpg" class="add_iamge"></a>
-	</article>
-	<article>
-	<a href="ramList.do"><img src="images/ram_1.jpg" class="add_image"></a>
-	</article>
-	<article>
-	<a href="mainboardList.do"><img src="images/mainboard_1.png" class="add_image"></a>
-	</article>
-	<article>
-	<a href="com_caseList.do"><img src="images/com_case_1.png" class="add_image"></a>
-	</article>
-	<article>
-	<a class="ready" href="#"><img src="images/power_1.jpg" class="add_iamge"></a>
-	</article>
-	<article>
-	<a class="ready" href="#"><img src="images/hdd_1.jpg" class="add_iamge"></a>
-	</article>
-	<article>
-	<a class="ready" href="#"><img src="images/ssd_1.jpg" class="add_iamge"></a>
-	</article>
-	<article>
-	<a class="ready" href="#"><img src="images/speaker_1.jpg" class="add_iamge"></a>
-	</article>
-	
-</section>
 
+<c:choose>
+
+<c:when test="${addList eq null && id eq 'admin' }">
+<article>
+<form action="ad_AddList.do" method="post">
+<input type="submit" value="광고 등록하기">
+</form>
+</article>
+</c:when>
+
+<c:when test="${addList eq null && id ne 'admin' }">
+<div style="text-align: center;"><h2>빠른 시일내로 준비하겠습니다.</h2></div>
+</c:when>
+
+<c:otherwise>
+
+</c:otherwise>
+</c:choose>
+
+
+
+</section>
 
 </body>
 </html>

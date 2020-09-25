@@ -97,8 +97,8 @@ section ul li a:hover{
 
 
 section article{
-	width: 25%;
-	height:150px;
+	width: 50%;
+	height:350px;
 	border: 2px solid pink;
 	padding:15px;
 	overflow: hidden;
@@ -107,6 +107,11 @@ section article{
 		
 }
 
+aside{
+	width:150px;
+	height:150px;
+	float:right;
+}
 section aside{
 	width: 300px;
 	height:auto;
@@ -194,9 +199,7 @@ seciton table tr,td{
    }
 
 
-#todayImageList{
-		text-align: center;
-	}
+
 #productImage{
 		width: 150px;
 		height: 150px;
@@ -219,7 +222,7 @@ seciton table tr,td{
       background:lightpink;
    }
 .tr_top {
-   background-color: lime;
+   background-color: orange;
 }
 
 #cartImage{
@@ -270,3 +273,6 @@ seciton table tr,td{
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+

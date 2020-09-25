@@ -30,7 +30,7 @@ public class RamDAO {
 		ResultSet rs = null;
 		ArrayList<Ram> ramList = null;
 		try {
-			pstmt=con.prepareStatement("select *from ram");
+			pstmt=con.prepareStatement("select *from RAM");
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -65,7 +65,7 @@ public class RamDAO {
 		int insertCount=0;
 		String sql="";
 		try {
-			sql="insert into ram(brand,name,clock,capacity,image,price,content,readcount) values(?,?,?,?,?,?,?,?)";
+			sql="insert into RAM(brand,name,clock,capacity,image,price,content,readcount) values(?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, ram.getBrand());
 			pstmt.setString(2, ram.getName());
@@ -92,7 +92,7 @@ public class RamDAO {
 		String sql="";
 		
 		try {
-			sql="update ram set readcount =readcount +1 where id=?";
+			sql="update RAM set readcount =readcount +1 where id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			updateCount=pstmt.executeUpdate();
@@ -111,7 +111,7 @@ public class RamDAO {
 		Ram ram=null;
 		
 		try {
-			pstmt= con.prepareStatement("select * from ram where id=?");
+			pstmt= con.prepareStatement("select * from RAM where id=?");
 			pstmt.setInt(1, id);
 			rs=pstmt.executeQuery();
 			

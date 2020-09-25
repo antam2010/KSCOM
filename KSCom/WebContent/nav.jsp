@@ -26,6 +26,7 @@ $(function(){
 </script>
 </head>
 <body>
+	
 	<nav>
 		<ul>
 			<li><a href="cpuList.do">CPU</a></li>
@@ -39,5 +40,6 @@ $(function(){
 		 	<li><a href="#" class="ready">주변기기</a></li>
 		</ul>
 	</nav>
+	
 </body>
 </html>
