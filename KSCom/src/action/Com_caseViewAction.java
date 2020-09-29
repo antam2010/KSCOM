@@ -1,6 +1,6 @@
 package action;
 
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,9 +18,7 @@ public class Com_caseViewAction implements Action {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Com_case com_case = com_caseViewService.getCom_caseView(id);
 		request.setAttribute("com_case", com_case);
-		Cookie todayImageCookie = new Cookie("today"+id, com_case.getImage());
-		todayImageCookie.setMaxAge(60*60*24);
-		response.addCookie(todayImageCookie);
+		
 		ActionForward forward = new ActionForward("com_caseView.jsp", false);
 		return forward;
 	}

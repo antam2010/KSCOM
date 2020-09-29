@@ -13,6 +13,7 @@ public class MemberLoginAction implements Action_member{
 	 	throws Exception{
 		 
 		 	HttpSession session=request.getSession();
+		 	
 	   		Member member=new Member();
 	   		
 	   		member.setId(request.getParameter("id"));
@@ -23,6 +24,7 @@ public class MemberLoginAction implements Action_member{
 	   		ActionForward_member forward = null;
 	   		if(loginResult){
 	   	    forward = new ActionForward_member();
+	   	    
 	   		session.setAttribute("id", member.getId());
 	   		System.out.println(member.getId()+"출력확인");
 	   		forward.setRedirect(true);
@@ -32,7 +34,7 @@ public class MemberLoginAction implements Action_member{
 	   			response.setContentType("text/html;charset=utf-8");
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
-		   		out.println("alert('아이디나 비번이 틀려먹었다');");
+		   		out.println("alert('아이디나 비번이 틀렸습니다.');");
 		   		out.println("location.href='./memberLogin.me';");
 		   		out.println("</script>");
 	   		}

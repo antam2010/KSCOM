@@ -88,13 +88,13 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 			}
 			
 		}
-		
+		//로그아웃
 		else if (command.equals("/memberLogoutAction.me")) {
 			HttpSession session = request.getSession();
-			session.invalidate();
+			session.removeAttribute("id");
 			response.sendRedirect("comList.jsp");
 		}
-		//야매로 만든 세션 각 부품 초기화
+		//야매로 만든 세션 각 부품 초기화, addservice에 있다
 		else if (command.equals("/allCheck.me")) {
 			HttpSession session = request.getSession();
 			session.removeAttribute("cartList");

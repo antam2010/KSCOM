@@ -40,6 +40,9 @@
 			<c:when test="${id eq null || empty id }">
 			<a href="loginForm.jsp" class="loginPlz">장바구니에 담기</a>
 			</c:when>
+			<c:when test="${id eq 'admin' }">
+			<a href="ad_AddList.do?image=${mainboard.image }&name=${mainboard.name}&brand=${mainboard.brand }&id=${mainboard.id}">광고 등록</a>
+			</c:when>
 			<c:otherwise>
 			<a href="mainboardCartAdd.do?id=${mainboard.id}">장바구니에담기</a>
 			</c:otherwise>

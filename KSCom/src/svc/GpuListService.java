@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import dao.GpuDAO;
 import vo.Gpu;
-import vo.Gpu;
+
 
 public class GpuListService {
 

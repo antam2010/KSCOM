@@ -247,7 +247,7 @@
              <img src="images/up.jpg" id = "upImage"/>
              </a><br>
              ${gpucart.qty }<br>
-            <a href="javascript:checkQtyMainboard('${gpucart.name}',${gpucart.qty})">
+            <a href="javascript:checkQtyGpu('${gpucart.name}',${gpucart.qty})">
             <img src="images/down.jpg" id = "downImage" />
              </a>
             </td>

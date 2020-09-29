@@ -1,6 +1,6 @@
 package action;
 
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,9 +18,7 @@ public class MainboardViewAction implements Action {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Mainboard mainboard = mainboardViewService.getMainboardView(id);
 		request.setAttribute("mainboard", mainboard);
-		Cookie todayImageCookie = new Cookie("today"+id, mainboard.getImage());
-		todayImageCookie.setMaxAge(60*60*24);
-		response.addCookie(todayImageCookie);
+		
 		ActionForward forward = new ActionForward("mainboardView.jsp", false);
 		return forward;
 	}

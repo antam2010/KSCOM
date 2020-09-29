@@ -36,9 +36,9 @@
          <select id="brand" name="brand">
          <option value="MSI">MSI</option>
          <option value="ASUS">ASUS</option>
-         <option value="ASrock">애즈락</option>
-         <option value="GIGABYTE">기가바이트</option>
-         <option value="BIOSTAR">바이오스타</option>
+         <option value="애즈락">애즈락</option>
+         <option value="기가바이트">기가바이트</option>
+         <option value="바이오스타">바이오스타</option>
          </select>
       </td>
    </tr>
@@ -127,7 +127,7 @@
          <label for = "image">상품이미지 : </label>
       </td>
       <td class = "td_right">
-         <input type = "file" name = "image" id ="image"/> *파일이름은 영어로
+         <input type = "file" name = "image" id ="image"/> *10MB 까지 업로드가능
       </td>
    </tr>
    <tr>

@@ -17,12 +17,7 @@
 <jsp:include page="template.jsp"></jsp:include>
 <jsp:include page="nav.jsp"></jsp:include>
 
-<c:if test="${startMoney !=null }">
-	<c:set var="startMoney" value="${startMoney}"></c:set>
-</c:if>
-<c:if test="${endMoney !=null }">
-	<c:set var="endMoney" value="${endMoney}"></c:set>
-</c:if>
+
 <section>
 
 <c:if test="${cpuList != null}">

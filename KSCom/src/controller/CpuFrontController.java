@@ -11,6 +11,7 @@ import vo.ActionForward;
 import vo.Member;
 import action.Action;
 import action.Ad_AddListFormAction;
+import action.AddListAction;
 import action.Com_caseCartAddAction;
 import action.Com_caseCartListAction;
 import action.Com_caseCartQtyDownAction;
@@ -532,6 +533,14 @@ public class CpuFrontController extends HttpServlet {
 		}
 		else if(command.equals("/ad_AddList.do")){
 			action = new Ad_AddListFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/addList.do")){
+			action = new AddListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

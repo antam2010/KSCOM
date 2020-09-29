@@ -32,10 +32,13 @@
 		
 		<div style="clear:both"></div>
 		<div id = "commandList">
-			<a href="ramList.do">쇼핑계속하기</a>
+			<a href="ramList.do">쇼핑계속하기</a>&nbsp;&nbsp;&nbsp;
 			<c:choose>
 			<c:when test="${id eq null || empty id }">
 			<a href="loginForm.jsp" class="loginPlz">장바구니에 담기</a>
+			</c:when>
+			<c:when test="${id eq 'admin' }">
+			<a href="ad_AddList.do?image=${ram.image }&name=${ram.name}&brand=${ram.brand }&id=${ram.id}">광고 등록</a>
 			</c:when>
 			<c:otherwise>
 			<a href="ramCartAdd.do?id=${ram.id}">장바구니에담기</a>

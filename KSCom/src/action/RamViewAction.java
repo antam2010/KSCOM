@@ -1,6 +1,6 @@
 package action;
 
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,9 +18,7 @@ public class RamViewAction implements Action {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Ram ram = ramViewService.getRamView(id);
 		request.setAttribute("ram", ram);
-		Cookie todayImageCookie = new Cookie("today"+id, ram.getImage());
-		todayImageCookie.setMaxAge(60*60*24);
-		response.addCookie(todayImageCookie);
+		
 		ActionForward forward = new ActionForward("ramView.jsp", false);
 		return forward;
 	}

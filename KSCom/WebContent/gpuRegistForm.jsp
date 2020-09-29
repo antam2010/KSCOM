@@ -36,11 +36,11 @@
          <select id="brand" name="brand">
          <option value="이엠텍">이엠텍</option>
          <option value="갤럭시">갤럭시</option>
-         <option value="ZOTAC">조탁</option>
-         <option value="MSI">MSI</option>
+         <option value="조탁">조탁</option>
+         <option value="MSI_GPU">MSI</option>
          <option value="GIGABYTE">GIGABYTE</option>
          <option value="엠텍코리아">엠텍코리아</option>
-         <option value="ASUS">ASUS</option>
+         <option value="ASUS_GPU">ASUS</option>
          </select>
       </td>
    </tr>
@@ -106,7 +106,7 @@
          <label for = "image">상품이미지 : </label>
       </td>
       <td class = "td_right">
-         <input type = "file" name = "image" id ="image" />*파일이름은 영어로
+         <input type = "file" name = "image" id ="image" /> *10MB 까지 업로드가능
       </td>
    </tr>
    <tr>

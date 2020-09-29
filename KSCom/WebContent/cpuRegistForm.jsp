@@ -76,7 +76,7 @@
          <label for = "image">상품이미지 : </label>
       </td>
       <td class = "td_right">
-         <input type = "file" name = "image" id ="image"/> *파일이름은 영어로
+         <input type = "file" name = "image" id ="image"/> *10MB 까지 업로드가능
       </td>
    </tr>
    <tr>

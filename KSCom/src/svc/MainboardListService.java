@@ -10,7 +10,7 @@ import vo.Mainboard;
 
 public class MainboardListService {
 
-	public static ArrayList<Mainboard> getMainboardList() {
+	public ArrayList<Mainboard> getMainboardList() {
 		MainboardDAO mainboardDAO= MainboardDAO.getInstance();
 		Connection con =getConnection();
 		mainboardDAO.setConnection(con);

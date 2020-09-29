@@ -42,13 +42,13 @@ $(function(){
 		</aside>
 		<div style="clear:both"></div>
 		<div id = "commandList">
-			 <a href="cpuList.do">쇼핑계속하기</a>
+			 <a href="cpuList.do">쇼핑계속하기</a>&nbsp;&nbsp;&nbsp;
 			<c:choose>
 			<c:when test="${id eq null || empty id }">
 			<a href="loginForm.jsp" class="loginPlz">장바구니에 담기</a>
 			</c:when>
 			<c:when test="${id eq 'admin' }">
-			<a href="ad_AddList.do?id=${cpu.id }">광고로 쓰기위해 가져오기</a>
+			<a href="ad_AddList.do?image=${cpu.image }&name=${cpu.name}&id=${cpu.id}&brand=${cpu.cpu_package}">광고 등록</a>
 			</c:when>
 			<c:otherwise>
 			<a href="cpuCartAdd.do?id=${cpu.id}">장바구니에담기</a>

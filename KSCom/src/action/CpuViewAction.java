@@ -1,6 +1,6 @@
 package action;
 
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,9 +18,7 @@ public class CpuViewAction implements Action {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Cpu cpu = cpuViewService.getCpuView(id);
 		request.setAttribute("cpu", cpu);
-		Cookie todayImageCookie = new Cookie("today"+id, cpu.getImage());
-		todayImageCookie.setMaxAge(60*60*24);
-		response.addCookie(todayImageCookie);
+		
 		ActionForward forward = new ActionForward("cpuView.jsp", false);
 		return forward;
 	}

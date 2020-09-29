@@ -32,7 +32,7 @@
       </td>
       <td class = "td_right">
        <select id="brand" name="brand">
-       <option value="ABKO">앱코</option>
+       <option value="앱코">앱코</option>
        <option value="아이군주">아이군주</option>
        <option value="마이크로닉스">마이크로닉스</option>
        <option value="COX">COX</option>
@@ -100,7 +100,7 @@
          <label for = "image">상품이미지 : </label>
       </td>
       <td class = "td_right">
-         <input type = "file" name = "image" id ="image"/> *파일이름은 영어로
+         <input type = "file" name = "image" id ="image"/> *10MB 까지 업로드가능
       </td>
    </tr>
    <tr>
