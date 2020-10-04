@@ -16,7 +16,7 @@
 <section>
 
 <table>
-	<tr>
+	<tr>	
 		<td>제품 명: ${name }</td>
 	</tr>
 	<tr>

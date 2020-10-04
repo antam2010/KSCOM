@@ -93,7 +93,7 @@
          <label for = "content">제품 정보 : </label>
       </td>
       <td class = "td_right">
-         <textarea name="content" id="content" rows="13" cols="70"  wrap="virtual"></textarea>
+         <textarea name="content" id="content" rows="13" cols="70"  wrap="physical"></textarea>
       </td>
    </tr>
    <tr>

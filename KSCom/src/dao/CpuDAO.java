@@ -3,6 +3,8 @@ package dao;
 import static db.JdbcUtil.*;
 import java.sql.*;
 import java.util.ArrayList;
+
+import vo.Ad;
 import vo.Cpu;
 
 public class CpuDAO {
@@ -189,6 +191,31 @@ public class CpuDAO {
 		return name;
 		
 		
+	}
+
+	public int insertAd(Ad ad) {
+		PreparedStatement pstmt = null;
+		int insertCount = 0;
+		String sql = "";
+		
+		try {
+			sql = "insert into CPU(name,core,cpu_package,image,price,content,readcount)values(?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cpu.getName());
+			pstmt.setString(2, cpu.getCore());
+			pstmt.setString(3, cpu.getCpu_package());
+			pstmt.setString(4, cpu.getImage());
+			pstmt.setInt(5, cpu.getPrice());
+			pstmt.setString(6, cpu.getContent());
+			pstmt.setInt(7, cpu.getReadcount());
+			insertCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("insertcpu 다오 부분"+e);
+		} finally {
+			close(pstmt);
+		}
+		
+		return insertCount;
 	}
 
 	

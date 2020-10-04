@@ -16,7 +16,6 @@ public class AddListAction implements Action {
 		session.setAttribute("name", request.getParameter("name"));
 		session.setAttribute("image", request.getParameter("image"));
 		session.setAttribute("product_id", request.getParameter("product_id"));
-		
 		session.setAttribute("brand", request.getParameter("brand"));
 		
 		
