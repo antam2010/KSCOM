@@ -48,6 +48,7 @@ public class CpuCartAddService {
 			cart.setPrice(cartCpu.getPrice());
 			cart.setQty(1);
 			cartList.add(cart);
+			
 		}
 		
 	}

@@ -30,7 +30,7 @@
 <div class="dropdown">
 <button class="dropbtn">부품 리스트</button>
 	<div class="dropdown-content">
-		<a href="cpuList.do">CPU리스트</a>
+		<a href="ad_AddListSuccess.do">광고</a>
 	</div>
 </div>
 </c:when>

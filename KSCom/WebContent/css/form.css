@@ -1,6 +1,11 @@
 body{
-	font-family: "맑은 고딕","고딕","굴림";
+	font-family: "italic","맑은 고딕","고딕","굴림";
 	
+	
+}
+b{
+	font-style: italic;
+	padding: 2px;
 }
 header{
 	width:80%;
@@ -80,7 +85,7 @@ section{
 	border:1px solid lightpink;
 	padding:5px;
 	overflow:hidden;
-
+	
 }
 section ul{
 	list-style-type: none;
@@ -110,12 +115,15 @@ section article{
 	overflow: hidden;
 	float:left;
 	margin: 3px;
-		
+	
 }
 section article table{
 	text-align: center;
+	
 }
-
+section article table tr,td{
+	font-style: italic;
+}
 aside{
 	width:300px;
 	height:150px;
@@ -126,6 +134,7 @@ section aside{
 	height:auto;
 	float:left;
 	text-align: center;
+	font-style: italic;
 	
 }
 

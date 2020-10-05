@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import vo.Ad;
+import vo.AdList;
 import vo.Cpu;
 
 public class CpuDAO {
@@ -192,6 +193,8 @@ public class CpuDAO {
 		
 		
 	}
+// 광고 등록부분
+	
 
 	public int insertAd(Ad ad) {
 		PreparedStatement pstmt = null;
@@ -199,24 +202,54 @@ public class CpuDAO {
 		String sql = "";
 		
 		try {
-			sql = "insert into CPU(name,core,cpu_package,image,price,content,readcount)values(?,?,?,?,?,?,?)";
+			sql = "INSERT INTO AD VALUES(?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, cpu.getName());
-			pstmt.setString(2, cpu.getCore());
-			pstmt.setString(3, cpu.getCpu_package());
-			pstmt.setString(4, cpu.getImage());
-			pstmt.setInt(5, cpu.getPrice());
-			pstmt.setString(6, cpu.getContent());
-			pstmt.setInt(7, cpu.getReadcount());
+			pstmt.setString(1, ad.getName());
+			pstmt.setInt(3, ad.getProduct_id());
+			pstmt.setString(2, ad.getImage());
+			pstmt.setString(4, ad.getBrand());
+			
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("insertcpu 다오 부분"+e);
+			System.out.println("insertAD 다오 부분"+e);
 		} finally {
 			close(pstmt);
 		}
 		
 		return insertCount;
 	}
+
+	public ArrayList<Ad> selectAd() {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		ArrayList<Ad> adList=null;
+		
+		try {
+			pstmt =con.prepareStatement("SELECT * FROM AD");
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				adList= new ArrayList<Ad>();
+				
+				do {
+					adList.add(new Ad(
+							rs.getString("name"),
+							rs.getString("image"),
+							rs.getInt("product_id"),
+							rs.getString("brand")
+							));
+				}while(rs.next());
+			}
+		}catch (SQLException e) {
+			System.out.println("selectAd 부분"+e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return adList;
+	}
+
+	
+	
 
 	
 	

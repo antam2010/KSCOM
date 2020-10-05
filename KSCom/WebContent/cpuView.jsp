@@ -31,6 +31,7 @@ $(function(){
 	<article>	
 		<img src="images/${cpu.image}" class="add_image" id="add_image"/>
 	</article>
+		
 			<b>이름 : </b> ${cpu.name}<br>
 			<b>코어 : </b> ${cpu.core}<br>
 			<b>브랜드: </b> ${cpu.cpu_package}<br>

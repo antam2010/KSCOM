@@ -11,7 +11,8 @@ import vo.ActionForward;
 import vo.Member;
 import action.Action;
 import action.Ad_AddListFormAction;
-import action.AddListAction;
+import action.Ad_AddListSuccessAction;
+
 import action.Com_caseCartAddAction;
 import action.Com_caseCartListAction;
 import action.Com_caseCartQtyDownAction;
@@ -531,6 +532,7 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		//여기서부터 컴퓨터 컨트롤러
 		else if(command.equals("/ad_AddList.do")){
 			action = new Ad_AddListFormAction();
 			try {
@@ -539,8 +541,9 @@ public class CpuFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/addList.do")){
-			action = new AddListAction();
+		
+		else if(command.equals("/ad_AddListSuccess.do")){
+			action = new Ad_AddListSuccessAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
