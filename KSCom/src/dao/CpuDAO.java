@@ -5,8 +5,10 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import vo.Ad;
-import vo.AdList;
+
 import vo.Cpu;
+import vo.ItemsName;
+
 
 public class CpuDAO {
 	
@@ -246,6 +248,41 @@ public class CpuDAO {
 			close(rs);
 			close(pstmt);
 		}return adList;
+	}
+
+	public boolean nameChk(ItemsName name) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		boolean x=false;
+		try {
+			
+			String sel = " SELECT NAME FROM ";
+			String un=" UNION ";
+			String where=" WHERE NAME=? ";
+			String sql=sel+"CPU"+where+un+sel+"RAM"+where+un+sel+"COM_CASE"+where
+					+un+sel+"MAINBOARD"+where+un+sel+"GPU"+where;
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, name.getName());
+			pstmt.setString(2, name.getName());
+			pstmt.setString(3, name.getName());
+			pstmt.setString(4, name.getName());
+			pstmt.setString(5, name.getName());
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				x=true;
+				
+			}
+			
+		}catch (SQLException e) {
+			System.out.println("items"+e);
+		}finally {
+			close(con);
+			close(rs);
+		}
+		return x;
+		
+		
 	}
 
 	

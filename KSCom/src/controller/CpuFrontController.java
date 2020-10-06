@@ -8,11 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import vo.ActionForward;
-import vo.Member;
 import action.Action;
 import action.Ad_AddListFormAction;
 import action.Ad_AddListSuccessAction;
-
 import action.Com_caseCartAddAction;
 import action.Com_caseCartListAction;
 import action.Com_caseCartQtyDownAction;
@@ -31,9 +29,7 @@ import action.CpuCartSearchAction;
 import action.CpuListAction;
 import action.CpuRegistAction;
 import action.CpuRegistFormAction;
-
 import action.CpuViewAction;
-
 import action.GpuCartAddAction;
 import action.GpuCartListAction;
 import action.GpuCartQtyDownAction;
@@ -43,7 +39,6 @@ import action.GpuListAction;
 import action.GpuRegistAction;
 import action.GpuRegistFormAction;
 import action.GpuViewAction;
-
 import action.MainboardCartAddAction;
 import action.MainboardCartListAction;
 import action.MainboardCartQtyDownAction;
@@ -51,7 +46,6 @@ import action.MainboardListAction;
 import action.MainboardRegistAction;
 import action.MainboardRegistFormAction;
 import action.MainboardViewAction;
-
 import action.RamCartAddAction;
 import action.RamCartListAction;
 import action.RamCartQtyDownAction;
@@ -62,7 +56,7 @@ import action.RamListAction;
 import action.RamRegistAction;
 import action.RamRegistFormAction;
 import action.RamViewAction;
-
+import action.ItemsAction;
 import action.MainboardCartQtyUpAction;
 import action.MainboardCartRemoveAction;
 
@@ -544,6 +538,14 @@ public class CpuFrontController extends HttpServlet {
 		
 		else if(command.equals("/ad_AddListSuccess.do")){
 			action = new Ad_AddListSuccessAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/items.do")){
+			action = new ItemsAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

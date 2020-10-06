@@ -8,15 +8,6 @@
 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
-$(function (){
-	$(document).ready(function(){
-	    $(".onlyNum").keyup( function(){
-	    	$(this).val( $(this).val().replace(/[^0-9]/gi,"") ); 
-	    	});
-	});
-	
-	
-});
 
 
 
@@ -126,7 +117,7 @@ function inputIdChk(){
 	</tr>
 	<tr>
 		<td>나이 : </td>
-		<td><input type="text" name="age"  id = "age" class="onlyNum"  maxlength="3" /></td>
+		<td><input type="number" name="age"  id = "age" class="onlyNum"  maxlength="3" /></td>
 	</tr>
 	<tr>
 		<td><label for = "gender">성별 : </label></td>

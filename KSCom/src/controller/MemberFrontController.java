@@ -92,7 +92,7 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 		else if (command.equals("/memberLogoutAction.me")) {
 			HttpSession session = request.getSession();
 			session.removeAttribute("id");
-			response.sendRedirect("comList.jsp");
+			response.sendRedirect("ad_AddListSuccess.do");
 		}
 		//야매로 만든 세션 각 부품 초기화, addservice에 있다
 		else if (command.equals("/allCheck.me")) {

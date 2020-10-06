@@ -19,11 +19,20 @@
 <jsp:include page="nav.jsp"></jsp:include>
 </c:otherwise>
 </c:choose>
+
+<c:choose>
+<c:when test="${id ne 'admin' }">
+<script>
+alert('잘못된 경로입니다.');
+location.href="loginForm.jsp";
+</script>
+</c:when>
+<c:otherwise>
 <section>
    
       <h2>컴퓨터 케이스등록</h2>
    
-      <form action="com_caseRegist.do" method="post" name = "writeForm" enctype="multipart/form-data">
+      <form action="" method="post" name = "writeForm" enctype="multipart/form-data">
       
    <table>
    <tr>
@@ -46,6 +55,8 @@
       </td>
       <td class = "td_right">
          <input type = "text" name = "name" id ="name" required="required"/>
+         <input type="button" onclick="itemsCheck()" value="클릭">
+         <span id="resultName"></span>
       </td>
    </tr>
    
@@ -108,7 +119,7 @@
          <label for = "price">가격 : </label>
       </td>
       <td class = "td_right">
-         <input type = "text" name = "price" id ="price" placeholder="숫자만 입력"/>
+         <input type = "number" class="onlyNum" name = "price" id ="price" placeholder="숫자만 입력"/>
       </td>
    </tr>
    
@@ -122,7 +133,7 @@
    </tr>
    <tr>
       <td colspan="2" id = "commandCell"> 
-         <input type = "submit" value = "상품등록"/>      
+         <input type = "submit" value = "상품등록" class="writeSubCom_case"/>      
          <input type = "reset" value = "다시작성"/>      
          <input type = "button" value = "상품목록보기" onClick="window.location.href='com_caseList.do'"/>      
       </td>
@@ -131,6 +142,8 @@
    </form>
    
 </section>
+</c:otherwise>
+</c:choose>
 
 </body>
 </html>
