@@ -204,7 +204,7 @@ public class CpuDAO {
 		String sql = "";
 		
 		try {
-			sql = "INSERT INTO AD VALUES(?,?,?,?)";
+			sql = "INSERT INTO AD VALUES(?,?,?,?,now())";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, ad.getName());
 			pstmt.setInt(3, ad.getProduct_id());
@@ -227,7 +227,7 @@ public class CpuDAO {
 		ArrayList<Ad> adList=null;
 		
 		try {
-			pstmt =con.prepareStatement("SELECT * FROM AD");
+			pstmt =con.prepareStatement("SELECT * FROM AD ORDER BY DATE DESC LIMIT 4 ");
 			rs= pstmt.executeQuery();
 			
 			if(rs.next()) {
