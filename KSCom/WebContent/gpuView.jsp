@@ -27,7 +27,7 @@
 			<b>가격 : </b> ${gpu.price}<br>
 			<aside>
 			<p id="desc">
-			<b>제품 설명 : </b> ${gpu.content}<br>
+			<b>제품 설명 : </b><br> ${gpu.content}<br>
 			</p>
 			</aside>
 		

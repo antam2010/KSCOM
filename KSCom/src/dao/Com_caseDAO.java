@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import static db.JdbcUtil.*;
 import vo.Com_case;
-import vo.Com_case;
+
 
 public class Com_caseDAO {
 	Connection con;
@@ -137,7 +137,7 @@ public class Com_caseDAO {
 		String sql = "";
 		
 		try {
-			sql = "update Com_case set readcount = readcount + 1 where id=?";
+			sql = "update Com_Case set readcount = readcount + 1 where id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			updateCount = pstmt.executeUpdate();

@@ -30,7 +30,7 @@
 			<b>가격 : </b> ${mainboard.price}<br>
 		<aside>	
 			<p id="desc">
-			<b>제품 설명 : </b> ${mainboard.content}<br>
+			<b>제품 설명 : </b><br> ${mainboard.content}<br>
 			</p>
 		</aside>
 		<div style="clear:both"></div>

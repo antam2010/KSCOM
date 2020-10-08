@@ -26,7 +26,7 @@
 			<b>가격 : </b> ${ram.price}<br>
 			<aside>
 			<p id="desc">
-			<b>제품 설명 : </b> ${ram.content}<br>
+			<b>제품 설명 : </b><br> ${ram.content}<br>
 			</p>
 			</aside>
 		

@@ -55,7 +55,7 @@ location.href="loginForm.jsp";
          <label for = "name">제품 이름 : </label>
       </td>
       <td class = "td_right">
-         <input type = "text" name = "name" id ="name" />
+         <input type = "text" name = "name" id ="name" required="required" />
          <input type="button" onclick="itemsCheck()" value="클릭">
          <span id="resultName"></span>
       </td>
@@ -137,7 +137,7 @@ location.href="loginForm.jsp";
          <label for = "image">상품이미지 : </label>
       </td>
       <td class = "td_right">
-         <input type = "file" name = "image" id ="image"/> *10MB 까지 업로드가능
+         <input type = "file" name = "image" id ="image" required="required"/> *10MB 까지 업로드가능
       </td>
    </tr>
    <tr>
@@ -145,7 +145,7 @@ location.href="loginForm.jsp";
          <label for = "price">가격 : </label>
       </td>
       <td class = "td_right">
-         <input type = "number" class="onlyNum" name = "price" id ="price" placeholder="숫자만 입력"/>
+         <input type = "number" class="onlyNum" name = "price" id ="price" placeholder="숫자만 입력" required="required"/>
       </td>
    </tr>
    
@@ -154,7 +154,7 @@ location.href="loginForm.jsp";
          <label for = "content">제품 설명 : </label>
       </td>
       <td class = "td_right">
-         <textarea name="content" id="content" rows="13" cols="70" wrap="virtual"></textarea>
+         <textarea name="content" id="content" rows="13" cols="70" wrap="virtual" required="required"></textarea>
       </td>
    </tr>
    <tr>

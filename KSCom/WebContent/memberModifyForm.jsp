@@ -7,30 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/form.css">
-<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(function(){
-	$(document).ready(function(){
-		$("#id").val('${member.id}');
-	});
-	$(document).ready(function(){
-		$("#name").val('${member.name}');
-	});
-	$(document).ready(function(){
-		$("#passwd").val('${member.passwd}');
-	});
-	$(document).ready(function(){
-		$("#age").val('${member.age}');
-	});
-	$(document).ready(function(){
-		$("#addr").val('${member.addr}');
-	});
-	$(document).ready(function(){
-		$("#email").val('${member.email}');
-	});
-	
-	
-});
+
 </script>
 </head>
 <body>
@@ -42,33 +21,43 @@ $(function(){
 <table>
 	<tr>
 		<td>아이디 :</td>
-		<td><input type="text" id="id" name="id" maxlength="13" readonly="readonly">*수정불가</td>
+		<td><input type="text" id="id" name="id" maxlength="13" readonly="readonly" value="${member.id }">*수정불가</td>
 	</tr>
 	<tr>
 		<td>비밀 번호 :</td>
-		<td><input type="text" id="passwd" name="passwd"></td>
+		<td><input type="text" id="passwd" name="passwd" required="required" value="${member.passwd }"></td>
 	</tr>
 	<tr>
 		<td>이름 :</td>
-		<td><input type="text" id="name" name="name" maxlength="13" ></td>
+		<td><input type="text" id="name" name="name" maxlength="13"  required="required" value="${member.name }"></td>
 	</tr>
 	<tr>
 		<td>나이 : </td>
-		<td><input type="text" name="age"  id = "age" class="onlyNum"/></td>
+		<td><input type="text" name="age"  id = "age" class="onlyNum" required="required" value="${member.age }"/></td>
 	</tr>
 	<tr>
 		<td><label for = "gender">성별 : </label></td>
 		<td>
-			<input type="radio" name="gender" value="남" checked="checked" id = "gender"/>남자
-			<input type="radio" name="gender" value="여"/>여자
+			<c:choose>
+				<c:when test="${member.gender eq '남' }">
+				<input type="radio" name="gender" value="남"  id = "gender" checked="checked"/>남자
+				<input type="radio" name="gender" value="여"/>여자
+				</c:when>
+			<c:otherwise>
+				<input type="radio" name="gender" value="남"  id = "gender" />남자
+				<input type="radio" name="gender" value="여" checked="checked"/>여자
+			</c:otherwise>
+			</c:choose>
+			
+			
 		</td>
 	</tr>
 	<tr>
 		<td>주소 :</td>
-		<td><input type="text" name="addr" id="addr"/></td>
+		<td><input type="text" name="addr" id="addr" required="required"/ value="${member.addr }"></td>
 	<tr>
 		<td>이메일 주소 : </td>
-		<td><input type="text" name="email" id="email"/></td>
+		<td><input type="text" name="email" id="email" required="required" value="${member.email }"/></td>
 	</tr>
 	<tr>
 		<td align="center" colspan="2">

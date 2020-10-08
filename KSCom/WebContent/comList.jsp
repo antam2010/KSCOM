@@ -6,188 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style type="text/css">
-
-    
-</style>
 <link rel="stylesheet" href="css/form.css">
-
-<script src="js/jquery.bxslider.min.js"></script>
-<script src="js/jquery.js"></script>
+<title>컴퓨터리스트</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-
-
-$(function () {
-	
-	$('.changeA').click(function () {
-		
-		
-		var brand= $('#list2').val();
-		var proId=$('#list1').val();
-		alert(brand);
-	
-// 		램
-		if(brand.indexOf('삼성')!=-1 || brand.indexOf('GelL')!=-1 || brand.indexOf('G.SKILL')!=-1 || brand.indexOf('대원cts')!=-1 || brand.indexOf('아스크텍')!=-1){
-			$(function() {
-				$(".changeA").attr("href","ramView.do?id="+proId);
-				
-			});
-		//cpu
-		}else if(brand.indexOf('인텔')!=-1 || brand.indexOf('amd')!=-1 || brand.indexOf('기타')!=-1){
-			$(function(){
-				$(".changeA").attr("href","cpuView.do?id="+proId);
-				
-			});
-		//mainboard
-		}else if(brand.indexOf('MSI')!=-1|| brand.indexOf('ASUS')!=-1 || brand.indexOf('애즈락')!=-1 ||
-				 brand.indexOf('기가바이트')!=-1 || brand.indexOf('바이오스타')!=-1){
-			$(function(){
-				$(".changeA").attr("href","mainboardView.do?id="+proId);
-				
-			});
-		//GPU	
-		}else if(brand.indexOf('이엠텍')!=-1|| brand.indexOf('갤럭시')!=-1 || brand.indexOf('조탁')!=-1 ||
-				 brand.indexOf('MSI_GPU')!=-1 || brand.indexOf('GIGABYTE')!=-1 || brand.indexOf('엠텍코리아')!=-1 ||brand.indexOf('ASUS_GPU')!=-1 ){
-			$(function(){
-				$(".changeA").attr("href","gpuView.do?id="+proId);
-				
-			});
-		//컴케이스
-		}else if(brand.indexOf('앱코')!=-1|| brand.indexOf('아이군주')!=-1 || brand.indexOf('마이크로닉스')!=-1 ||
-				 brand.indexOf('COX')!=-1 || brand.indexOf('잘만')!=-1 ){
-			$(function(){
-				$(".changeA").attr("href","com_caseView.do?id="+proId);
-				
-			});
-		
-		}else{
-			alert('잘못된 경로');
-			location.href="ad_AddListSuccess.do";
-			
-			return false;
-		}
-		
-		
- 	});
-	
-$('.changeB').click(function () {
-		
-		
-	var brand= $('#list4').val();
-	var proId=$('#list3').val();
-	alert(brand);
-	
-// 		램
-		if(brand.indexOf('삼성')!=-1 || brand.indexOf('GelL')!=-1 || brand.indexOf('G.SKILL')!=-1 || brand.indexOf('대원cts')!=-1 || brand.indexOf('아스크텍')!=-1){
-			$(function() {
-				$(".changeB").attr("href","ramView.do?id="+proId);
-				
-			});
-		//cpu
-		}else if(brand.indexOf('인텔')!=-1 || brand.indexOf('amd')!=-1 || brand.indexOf('기타')!=-1){
-			$(function(){
-				$(".changeB").attr("href","cpuView.do?id="+proId);
-				
-			});
-		//mainboard
-		}else if(brand.indexOf('MSI')!=-1|| brand.indexOf('ASUS')!=-1 || brand.indexOf('애즈락')!=-1 ||
-				 brand.indexOf('기가바이트')!=-1 || brand.indexOf('바이오스타')!=-1){
-			$(function(){
-				$(".changeB").attr("href","mainboardView.do?id="+proId);
-				
-			});
-		//GPU	
-		}else if(brand.indexOf('이엠텍')!=-1|| brand.indexOf('갤럭시')!=-1 || brand.indexOf('조탁')!=-1 ||
-				 brand.indexOf('MSI_GPU')!=-1 || brand.indexOf('GIGABYTE')!=-1 || brand.indexOf('엠텍코리아')!=-1 ||brand.indexOf('ASUS_GPU')!=-1 ){
-			$(function(){
-				$(".changeB").attr("href","gpuView.do?id="+proId);
-				
-			});
-		//컴케이스
-		}else if(brand.indexOf('앱코')!=-1|| brand.indexOf('아이군주')!=-1 || brand.indexOf('마이크로닉스')!=-1 ||
-				 brand.indexOf('COX')!=-1 || brand.indexOf('잘만')!=-1 ){
-			$(function(){
-				$(".changeB").attr("href","com_caseView.do?id="+proId);
-				
-			});
-		
-		}else{
-			alert('잘못된 경로');
-			location.href="ad_AddListSuccess.do";
-			
-			return false;
-		}
-		
-		
- 	});
-
-$('.changeC').click(function () {
-	
-	
-	var brand= $("input[name='test2']").eq(0).val();
-	var proId=$("input[name='test3']").eq(0).val();
-	
-	alert(brand);
-
-	
-
-//		램
-	if(brand.indexOf('삼성')!=-1 || brand.indexOf('GelL')!=-1 || brand.indexOf('G.SKILL')!=-1 || brand.indexOf('대원cts')!=-1 || brand.indexOf('아스크텍')!=-1){
-		$(function() {
-			$(".changeA").attr("href","ramView.do?id="+proId);
-			
-		});
-	//cpu
-	}else if(brand.indexOf('인텔')!=-1 || brand.indexOf('amd')!=-1 || brand.indexOf('기타')!=-1){
-		$(function(){
-			$(".changeA").attr("href","cpuView.do?id="+proId);
-			
-		});
-	//mainboard
-	}else if(brand.indexOf('MSI')!=-1|| brand.indexOf('ASUS')!=-1 || brand.indexOf('애즈락')!=-1 ||
-			 brand.indexOf('기가바이트')!=-1 || brand.indexOf('바이오스타')!=-1){
-		$(function(){
-			$(".changeA").attr("href","mainboardView.do?id="+proId);
-			
-		});
-	//GPU	
-	}else if(brand.indexOf('이엠텍')!=-1|| brand.indexOf('갤럭시')!=-1 || brand.indexOf('조탁')!=-1 ||
-			 brand.indexOf('MSI_GPU')!=-1 || brand.indexOf('GIGABYTE')!=-1 || brand.indexOf('엠텍코리아')!=-1 ||brand.indexOf('ASUS_GPU')!=-1 ){
-		$(function(){
-			$(".changeA").attr("href","gpuView.do?id="+proId);
-			
-		});
-	//컴케이스
-	}else if(brand.indexOf('앱코')!=-1|| brand.indexOf('아이군주')!=-1 || brand.indexOf('마이크로닉스')!=-1 ||
-			 brand.indexOf('COX')!=-1 || brand.indexOf('잘만')!=-1 ){
-		$(function(){
-			$(".changeA").attr("href","com_caseView.do?id="+proId);
-			
-		});
-	
-	}else{
-		alert('잘못된 경로');
-		location.href="ad_AddListSuccess.do";
-		
-		return false;
-	}
-	
-	
-	});
-	 
-	
-	 
-
-
-});
-//제이쿼리 끝
-
-
-
 </script>
-<title>컴퓨터리스트</title>
-
 </head>
 <body>
 
@@ -232,7 +56,20 @@ $('.changeC').click(function () {
 <%-- </c:forEach> --%>
 
 <article>
-<jsp:include page="NewFile.jsp"></jsp:include>
+	
+		
+	<c:choose>
+		<c:when test="${id eq 'admin' }">
+		<div class="ad_h4"> 등록 방법: 제품 클릭 -> 하단 '광고 등록' 버튼</div>
+		</c:when>
+		<c:otherwise>
+			<div class="ad_h3">인기 제품</div>
+		</c:otherwise>
+	</c:choose>
+	
+<jsp:include page="adList.jsp"></jsp:include>
+
+	
 </article>
 
 </c:otherwise>

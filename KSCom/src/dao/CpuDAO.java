@@ -259,8 +259,8 @@ public class CpuDAO {
 			String sel = " SELECT NAME FROM ";
 			String un=" UNION ";
 			String where=" WHERE NAME=? ";
-			String sql=sel+"CPU"+where+un+sel+"RAM"+where+un+sel+"COM_CASE"+where
-					+un+sel+"MAINBOARD"+where+un+sel+"GPU"+where;
+			String sql=sel+"CPU"+where+un+sel+"RAM"+where+un+sel+"Com_Case"+where
+					+un+sel+"Mainboard"+where+un+sel+"GPU"+where;
 			
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, name.getName());

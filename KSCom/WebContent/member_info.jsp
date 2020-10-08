@@ -40,9 +40,11 @@
 		<td>${member.email}</td>
 	</tr>
 	<tr>
-		<td colspan=2>
-			<a href="memberListAction.me">리스트로 돌아가기</a>
+		<td >
+			<a href="memberListAction.me">리스트로 돌아가기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="memberModifyFormAction.me?id=${member.id }">수정</a>
 		</td>
+		
 	</tr>
 </table>
 </section>

@@ -30,7 +30,7 @@
 <div class="dropdown">
 <button class="dropbtn">부품 리스트</button>
 	<div class="dropdown-content">
-		<a href="ad_AddListSuccess.do">광고</a>
+		<a href="todoList.jsp">해야할 것</a>
 	</div>
 </div>
 </c:when>

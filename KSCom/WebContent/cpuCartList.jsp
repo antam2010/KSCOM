@@ -20,56 +20,62 @@
 
 	$(function() {
 		
-
+		//올체크 하는 것
+		$('#allCheck').click(function () {
 		
-	});
-	
-	
-	
-	
-	function testIndex(o){
-		var index=Array.prototype.indexOf.call(o.form.submitChk,o);
-		o.form.remove[index].checked=true;
-}	
+		 if($("input:checkbox[name='allCheck']:checked").length>0){
+			 $('.remove').prop("checked",true);
+			 
+			 }else{
+				 $('.remove').prop("checked",false);
+			 }
+		 });
+		//자동 체크박스 체크
+		
+		$('.submitChk2').click(function () {
+			var test= $('.submitChk2').length;
+			var testRs=test.
+			alert(test);
+		});
+		
 
-	function checkAll(theForm){
-		if(theForm.remove.length == undefined){
-			theForm.remove.checked = theForm.allCheck.checked;
-			
-		}else{
-			for(var i=0;i<theForm.remove.length;i++){
-				theForm.remove[i].checked = theForm.allCheck.checked;
-			}
+	});
+
+	// 	function testIndex(o){
+	// 		var index=Array.prototype.indexOf.call(o.form.submitChk,o);
+	// 		o.form.remove[index].checked=true;
+	// }	
+
+	function checkQty(name, qty) {
+		if (qty != 1) {
+			location.href = "cpuCartQtyDown.do?name="
+					+ encodeURIComponent(name);
 		}
 	}
-	
-	
-	function checkQty(name,qty){
-		if(qty != 1){
-			location.href="cpuCartQtyDown.do?name="+ encodeURIComponent(name);
+	function checkQtyRam(name, qty) {
+		if (qty != 1) {
+			location.href = "ramCartQtyDown.do?name="
+					+ encodeURIComponent(name);
 		}
 	}
-	function checkQtyRam(name,qty){
-		if(qty != 1){
-			location.href="ramCartQtyDown.do?name="+ encodeURIComponent(name);
+	function checkQtyMainboard(name, qty) {
+		if (qty != 1) {
+			location.href = "mainboardCartQtyDown.do?name="
+					+ encodeURIComponent(name);
 		}
 	}
-	function checkQtyMainboard(name,qty){
-		if(qty != 1){
-			location.href="mainboardCartQtyDown.do?name="+ encodeURIComponent(name);
+	function checkQtyGpu(name, qty) {
+		if (qty != 1) {
+			location.href = "gpuCartQtyDown.do?name="
+					+ encodeURIComponent(name);
 		}
 	}
-	function checkQtyGpu(name,qty){
-		if(qty != 1){
-			location.href="gpuCartQtyDown.do?name="+ encodeURIComponent(name);
+	function checkQtyCom_case(name, qty) {
+		if (qty != 1) {
+			location.href = "com_caseCartQtyDown.do?name="
+					+ encodeURIComponent(name);
 		}
 	}
-	function checkQtyCom_case(name,qty){
-		if(qty != 1){
-			location.href="com_caseCartQtyDown.do?name="+ encodeURIComponent(name);
-		}
-	}
-	
 </script>
 
 
@@ -140,6 +146,7 @@
            
              <td style="text-align:center;">
          	<input type="submit" class="submitChk"  name="submitChk"  onclick="testIndex(this)" value="삭제"  formaction="cpuCartRemove.do" />
+         	
          </td>
          </tr>
         </c:forEach>
@@ -154,7 +161,7 @@
          <c:forEach var="ramcart" items="${ramcartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${ramcart.name }" /></td>
+        	 <td><input type="checkbox" class="remove" name="remove2" value="${ramcart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -178,12 +185,14 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="ramCartRemove.do" />
+         	<input type="submit" class="submitChk2" name="submitChk2"  onclick="testIndex(this)" value="삭제"  />
+<!--          	formaction="ramCartRemove.do" -->
          </td>
          </tr>
         </c:forEach>
         </c:if>
 <!-- 메인보드 들어가는 폼 부분         -->
+
 <c:if test="${mainboardcartList ne null && mainboardcartList.size()>0 }">
          <tr>
         	<td colspan="7"><h2>MainBoard</h2></td>
@@ -203,7 +212,7 @@
             </td>
              <td>
              ${mainboardcart.price *mainboardcart.qty}  	
-	  		<c:set var="total" value="${total+ (mainboard.price * mainboard.qty) }"/>
+	  		<c:set var="total" value="${total+ (mainboardcart.price * mainboardcart.qty) }"/>
             </td>
              <td>
              <a href="mainboardCartQtyUp.do?name=${mainboardcart.name }">
@@ -473,7 +482,7 @@
 	 
 
    		<a href="comList.jsp">쇼핑 계속하기</a>
-   		<a href="todayList.jsp">오늘 본 상품 목록</a>
+   		<a href="javascript:;" class="ready">오늘 본 상품 목록</a>
    		
  		 
    

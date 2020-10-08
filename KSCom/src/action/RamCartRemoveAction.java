@@ -10,7 +10,7 @@ public class RamCartRemoveAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String[] nameArray = request.getParameterValues("remove");
+		String[] nameArray = request.getParameterValues("remove2");
 		RamCartRemoveService ramCartRemoveService = new RamCartRemoveService();
 		ramCartRemoveService.cartRemove(request,nameArray);
 		ActionForward forward = new ActionForward("ramCartList.do",true);
