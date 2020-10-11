@@ -19,6 +19,7 @@ public class MemberLoginAction implements Action_member{
 	   		member.setId(request.getParameter("id"));
 	   		member.setPasswd(request.getParameter("passwd"));
 	   		
+	   		
 	   		MemberLoginService memberLoginService = new MemberLoginService();
 	   		boolean loginResult = memberLoginService.login(member);
 	   		ActionForward_member forward = null;
@@ -26,7 +27,8 @@ public class MemberLoginAction implements Action_member{
 	   	    forward = new ActionForward_member();
 	   	    
 	   		session.setAttribute("id", member.getId());
-	   		System.out.println(member.getId()+"출력확인");
+	   		System.out.println(member.getId()+"아이디");
+	   		
 	   		forward.setRedirect(true);
 	   		forward.setPath("./ad_AddListSuccess.do");
 	   		}

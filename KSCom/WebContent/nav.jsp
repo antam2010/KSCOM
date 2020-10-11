@@ -27,7 +27,7 @@ $(function(){
 </head>
 <body>
 	
-	<nav>
+	<nav>	
 		<ul>
 			<li><a href="cpuList.do">CPU</a></li>
 			<li><a href="ramList.do">RAM</a></li>

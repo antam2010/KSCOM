@@ -11,7 +11,7 @@
 <script src="js/jquery.js"></script>
 <script type="text/javascript">
 
-	
+
 
 </script>
 </head>
@@ -50,6 +50,7 @@ location.href="loginForm.jsp";
          <input type = "text" name = "name" id ="name" required="required" />
          <input type="button" onclick="itemsCheck()" value="클릭">
          <span id="resultName"></span>
+         <input type="text" name="resultNameDB" value="notRs">
 
       </td>
    </tr>

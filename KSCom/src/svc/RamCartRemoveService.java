@@ -19,6 +19,7 @@ public class RamCartRemoveService {
 				
 				if(ramcartList.get(j).getName().equals(nameArray[i])){
 						ramcartList.remove(ramcartList.get(j));
+			
 					
 				}
 				

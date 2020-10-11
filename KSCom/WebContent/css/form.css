@@ -43,6 +43,13 @@ header ul li a:hover{
 .rightLi{
 	float: right;
 }
+.no_deco{
+	text-decoration: none;
+}
+.black_text{
+	color: black;
+}
+
 nav{
 	width:80%;
 	height:auto;

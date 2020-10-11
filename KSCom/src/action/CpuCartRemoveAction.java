@@ -10,7 +10,7 @@ public class CpuCartRemoveAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String[] nameArray = request.getParameterValues("remove");
+		String[] nameArray = request.getParameterValues("remove3");
 		CpuCartRemoveService cpuCartRemoveService = new CpuCartRemoveService();
 		cpuCartRemoveService.cartRemove(request,nameArray);
 		ActionForward forward = new ActionForward("cpuCartList.do",true);

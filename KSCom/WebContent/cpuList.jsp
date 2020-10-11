@@ -9,6 +9,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/form.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+</script>
 <title>cpu 리스트</title>
 
 </head>
@@ -29,11 +35,12 @@
 		<c:forEach var = "cpu" items="${cpuList }" varStatus="status">
 		<td>
 			<a href="cpuView.do?id=${cpu.id}">
-			<img src="images/${cpu.image}" id="productImage"/>
+			<img src="images/${cpu.image}" id="productImage" name="productImage"/>
 			</a><br>
 			상품명:${cpu.name}<br>
 			가격:${cpu.price}<br>
 			조회수:${cpu.readcount }<br>
+			
 		</td>
 		<c:if test="${((status.index+1) mod 4)==0 }"> <!-- 4개마다 줄바꿈 -->
 	</tr>

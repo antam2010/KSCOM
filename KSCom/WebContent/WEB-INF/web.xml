@@ -3,7 +3,7 @@
   <display-name>KSCom</display-name>
   <welcome-file-list>
   
-    <welcome-file>comList.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
    
   </welcome-file-list>
   

@@ -15,7 +15,7 @@
 <title>장바구니 목록</title>
 <link rel="stylesheet" href="css/form.css">
 
-<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 	$(function() {
@@ -32,12 +32,34 @@
 		 });
 		//자동 체크박스 체크
 		
-		$('.submitChk2').click(function () {
-			var test= $('.submitChk2').length;
-			var testRs=test.
-			alert(test);
+		//ram
+		$("input[name='remove2']").click(function () {
+			var name2= $(this).attr('class');
+			$(this).val(name2);
 		});
 		
+		//cpu remove
+		$("input[name='remove3']").click(function () {
+			var name2= $(this).attr('class');
+			$(this).val(name2);
+		});
+		//mainboard
+		$("input[name='remove4']").click(function () {
+			var name2= $(this).attr('class');
+			$(this).val(name2);
+		});
+		//GPU
+		$("input[name='remove5']").click(function () {
+			var name2= $(this).attr('class');
+			$(this).val(name2);
+		});
+		//com_case
+		$("input[name='remove6']").click(function () {
+			var name2= $(this).attr('class');
+			$(this).val(name2);
+		});
+		
+			
 
 	});
 
@@ -119,7 +141,7 @@
         <c:forEach var="cart" items="${cartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${cart.name }"/></td>
+        	 <td><input type="checkbox" class="remove" name="remove3" value="${cart.name }"/></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -145,7 +167,7 @@
             </td>
            
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk"  name="submitChk"  onclick="testIndex(this)" value="삭제"  formaction="cpuCartRemove.do" />
+         	<input type="submit" class="${cart.name }"  name="remove3"  value="삭제"  formaction="cpuCartRemove.do" />
          	
          </td>
          </tr>
@@ -185,8 +207,8 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk2" name="submitChk2"  onclick="testIndex(this)" value="삭제"  />
-<!--          	formaction="ramCartRemove.do" -->
+         	<input type="submit" class="${ramcart.name }" name="remove2"   value="삭제" formaction="ramCartRemove.do" />
+
          </td>
          </tr>
         </c:forEach>
@@ -200,13 +222,13 @@
          <c:forEach var="mainboardcart" items="${mainboardcartList }" varStatus="status">
         <tr>
         		 
-        	 <td><input type="checkbox" class="remove" name="remove" value="${mainboardcart.name }" /></td>
+        	 <td><input type="checkbox" class="remove" name="remove4" value="${mainboardcart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
              <td>
              <img src = "images/${mainboardcart.image }" id ="cartImage"/>
-            </td>
+            </td>	
              <td>
              ${mainboardcart.name }
             </td>
@@ -224,7 +246,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="mainboardCartRemove.do" />
+         	<input type="submit" class="${mainboardcart.name }" name="remove4"  onclick="testIndex(this)" value="삭제" formaction="mainboardCartRemove.do" />
          </td>
          </tr>
         </c:forEach>
@@ -237,7 +259,7 @@
          <c:forEach var="gpucart" items="${gpucartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${gpucart.name }" /></td>
+        	 <td><input type="checkbox" class="remove" name="remove5" value="${gpucart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -261,7 +283,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk" name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="gpuCartRemove.do" />
+         	<input type="submit" class="${gpucart.name }" name="remove5" value="삭제" formaction="gpuCartRemove.do" />
          </td>
          </tr>
         </c:forEach>
@@ -390,7 +412,7 @@
          <c:forEach var="com_casecart" items="${com_casecartList }" varStatus="status">
         <tr>
         		
-        	 <td><input type="checkbox" class="remove" name="remove" value="${com_casecart.name }" /></td>
+        	 <td><input type="checkbox" class="remove" name="remove6" value="${com_casecart.name }" /></td>
              <td>
              ${status.index+1}<!-- 번호값계산 -->
             </td>
@@ -414,7 +436,7 @@
              </a>
             </td>
              <td style="text-align:center;">
-         	<input type="submit" class="submitChk"  name="submitChk"  onclick="testIndex(this)" value="삭제" formaction="com_caseCartRemove.do" />
+         	<input type="submit" class="${com_casecart.name }"  name="remove6"  onclick="testIndex(this)" value="삭제" formaction="com_caseCartRemove.do" />
          </td>
          </tr>
         </c:forEach> 
@@ -481,7 +503,7 @@
 	 
 	 
 
-   		<a href="comList.jsp">쇼핑 계속하기</a>
+   		<a href="ad_AddListSuccess.do">쇼핑 계속하기</a>
    		<a href="javascript:;" class="ready">오늘 본 상품 목록</a>
    		
  		 

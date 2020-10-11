@@ -9,16 +9,9 @@
 <title>cpuView</title>
 <link rel="stylesheet" href="css/form.css">
 
-<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(function(){
-	$("#disabledBtn").click(function(){
-		$("#add_image").attr('src','image/hdd_1.jpg');
-		
-		
-	});
-	
-});
+
 
 </script>
 </head>
@@ -29,7 +22,7 @@ $(function(){
 <section>
 <h2>${cpu.name}의 상세정보</h2>
 	<article>	
-		<img src="images/${cpu.image}" class="add_image" id="add_image"/>
+		<img src="images/${cpu.image}" class="add_image"  name="add_image"/>
 	</article>
 		
 			<b>이름 : </b> ${cpu.name}<br>
@@ -60,9 +53,12 @@ $(function(){
 </section>
 <aside>
 <c:if test="${id eq 'admin' }">
-<input type="button" value="비활성화" id="disabledBtn"/>
-
+<input type="button" value="비활성화" onclick="product_check()"/>
+<!-- db 하나 만들어서 count>0 이면 활성 <0 이면 비활성해서 강제로 <0으로만들자 -->
 </c:if>
+
+
+
 </aside>
 </body>
 </html>

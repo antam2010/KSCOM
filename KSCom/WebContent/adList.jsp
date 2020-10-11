@@ -12,7 +12,7 @@
     $(function(){
         var mySlider = $("#slideBanner").bxSlider({
             mode:"horizontal",    // 가로 수평으로 슬라이드된다.
-            speed:100,        // 이동 속도를 설정한다.
+            speed:500,        // 이동 속도를 설정한다.
             pause:2000,
             autoControls:false,
             pager:false,    // 현재 위치 페이지 표시 여부를 설정한다.
@@ -44,16 +44,15 @@
     	
     	$('.changeA').click(function () {
     		
-    		
-    		
     		var brand= $('#list2').val();
     		var proId=$('#list1').val();
     		
-    	
+    		
 //     		램
     		if(brand.indexOf('삼성')!=-1 || brand.indexOf('GelL')!=-1 || brand.indexOf('G.SKILL')!=-1 || brand.indexOf('대원cts')!=-1 || brand.indexOf('아스크텍')!=-1){
     			$(function() {
     				$(".changeA").attr("href","ramView.do?id="+proId);
+    				
     				
     			});
     		//cpu
@@ -68,12 +67,15 @@
     			$(function(){
     				$(".changeA").attr("href","mainboardView.do?id="+proId);
     				
+    				
+    				
     			});
     		//GPU	
     		}else if(brand.indexOf('이엠텍')!=-1|| brand.indexOf('갤럭시')!=-1 || brand.indexOf('조탁')!=-1 ||
     				 brand.indexOf('MSI_GPU')!=-1 || brand.indexOf('GIGABYTE')!=-1 || brand.indexOf('엠텍코리아')!=-1 ||brand.indexOf('ASUS_GPU')!=-1 ){
     			$(function(){
     				$(".changeA").attr("href","gpuView.do?id="+proId);
+    				
     				
     			});
     		//컴케이스
@@ -297,6 +299,7 @@
            	    <input type="hidden"  value="${ad.brand }" id="list2" name="list2">
 				<input type="hidden" name="list1" id="list1" value="${ad.product_id }">
                 <a href="#" class="changeA"><img src="images/${ad.image }" style="width: 240px; height: 240px;"></a>
+                
               
            </li>
            </c:if>

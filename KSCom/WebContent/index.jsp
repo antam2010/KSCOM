@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="loginForm.jsp"></jsp:include>
+<jsp:forward page="ad_AddListSuccess.do"></jsp:forward>
 </body>
 </html>

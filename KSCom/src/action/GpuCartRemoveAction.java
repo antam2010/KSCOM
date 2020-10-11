@@ -10,7 +10,7 @@ public class GpuCartRemoveAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String[] nameArray = request.getParameterValues("remove");
+		String[] nameArray = request.getParameterValues("remove5");
 		GpuCartRemoveService gpuCartRemoveService = new GpuCartRemoveService();
 		gpuCartRemoveService.cartRemove(request,nameArray);
 		ActionForward forward = new ActionForward("gpuCartList.do",true);

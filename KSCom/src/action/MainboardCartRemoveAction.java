@@ -10,7 +10,7 @@ public class MainboardCartRemoveAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String[] nameArray = request.getParameterValues("remove");
+		String[] nameArray = request.getParameterValues("remove4");
 		MainboardCartRemoveService mainboardCartRemoveService = new MainboardCartRemoveService();
 		mainboardCartRemoveService.cartRemove(request,nameArray);
 		ActionForward forward = new ActionForward("mainboardCartList.do",true);

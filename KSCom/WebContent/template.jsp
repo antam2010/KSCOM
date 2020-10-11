@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 
@@ -26,11 +26,16 @@ $(function (){
 	$('.writeSubCpu').click(function () {
 		
 		var chk2=$.trim($('input[type=text]').val());
+		var trueRs= $("input[name='resultNameDB']").val();
 		if(!chk2){
 			alert('빈 칸 없이 작성해 주세요');
 			return false;
+		}else if(trueRs == 'notRs'){
+			alert('제품 명이 중복 됩니다.');
+			return false;
 		}else{
 			var conf=confirm('등록 하시겠습니까?');
+			 
 			if(conf){
 				$('[name=writeForm]').attr('action','cpuRegist.do');
 			}else{
@@ -106,14 +111,33 @@ function itemsCheck(){
              if(data =="suc"){
             	 $('#resultName').css('color' , 'green');
             	 $('#resultName').text("사용 가능한 제품명");
+            	 $("input[name='resultNameDB']").val('trueRs'); //hidden 값
+            	 
              }else{
             	 $('#resultName').css('color' , '#d11507');
             	 $('#resultName').text("사용 불가 제품 명");
+            	 $("input[name='resultNameDB']").val('notRs');
             	 $('#name').focus();
              }
         }
     });
     
+}
+//List,View 부분 비활성화
+function product_check() {
+	var productStr=document.getElementByName("add_image").value;
+	
+	$.ajax({
+		url : "product_check.do?name="+productStr,
+		type : 'POST',
+		success: function() {
+			if(data =="suc2"){
+				
+			}else{
+				
+			}
+		}
+	});
 }
 </script>
 <title>템플릿</title>
@@ -158,7 +182,7 @@ function itemsCheck(){
 		</c:choose>
 		
 	</ul>
-
+	
 
 
 

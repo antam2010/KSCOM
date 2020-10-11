@@ -22,7 +22,7 @@
 
 <c:choose>
 <c:when test="${adList eq null }">
-<article>
+<article style="border: 0px;">
 <div class="center_text"><h3>광고 준비중입니다.<br>빠른 시일 내로 준비하겠습니다</h3></div>
 </article>
 </c:when>
@@ -55,7 +55,7 @@
 <!-- </article> -->
 <%-- </c:forEach> --%>
 
-<article>
+<article style="border: 0px;">
 	
 		
 	<c:choose>
