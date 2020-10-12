@@ -13,6 +13,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
+function inputNameChk() {
+	document.writeForm.resultNameDB.value="notChk";
+}
+
 
 
 $(function (){
@@ -20,6 +24,10 @@ $(function (){
 	    $(".onlyNum").keyup( function(){
 	    	$(this).val( $(this).val().replace(/[^0-9]/gi,"") ); 
 	    	});
+	    
+	   
+	
+	   
 	});
 		
 	//regist 등록폼에 form action 값 전달하기
@@ -32,6 +40,9 @@ $(function (){
 			return false;
 		}else if(trueRs == 'notRs'){
 			alert('제품 명이 중복 됩니다.');
+			return false;
+		}else if(trueRs == 'notChk'){
+			alert('중복 체크 해주십시오');
 			return false;
 		}else{
 			var conf=confirm('등록 하시겠습니까?');
@@ -47,42 +58,97 @@ $(function (){
 		
 	});
 	$('.writeSubGpu').click(function () {
-		var conf=confirm('등록 하시겠습니까?');
-		
-		if(conf){
-			$('[name=writeForm]').attr('action','gpuRegist.do');
-		}else{
+		var chk2=$.trim($('input[type=text]').val());
+		var trueRs= $("input[name='resultNameDB']").val();
+		if(!chk2){
+			alert('빈 칸 없이 작성해 주세요');
 			return false;
+		}else if(trueRs == 'notRs'){
+			alert('제품 명이 중복 됩니다.');
+			return false;
+		}else if(trueRs == 'notChk'){
+			alert('중복 체크 해주십시오');
+			return false;
+		}else{
+			var conf=confirm('등록 하시겠습니까?');
+			 
+			if(conf){
+				$('[name=writeForm]').attr('action','gpuRegist.do');
+			}else{
+				return false;
+			}
 		}
+		
+		
+		
 		
 	});
 	$('.writeSubCom_case').click(function () {
-		var conf=confirm('등록 하시겠습니까?');
-		
-		if(conf){
-			$('[name=writeForm]').attr('action','com_caseRegist.do');
-		}else{
+		var chk2=$.trim($('input[type=text]').val());
+		var trueRs= $("input[name='resultNameDB']").val();
+		if(!chk2){
+			alert('빈 칸 없이 작성해 주세요');
 			return false;
+		}else if(trueRs == 'notRs'){
+			alert('제품 명이 중복 됩니다.');
+			return false;
+		}else if(trueRs == 'notChk'){
+			alert('중복 체크 해주십시오');
+			return false;
+		}else{
+			var conf=confirm('등록 하시겠습니까?');
+			 
+			if(conf){
+				$('[name=writeForm]').attr('action','com_caseRegist.do');
+			}else{
+				return false;
+			}
 		}
 		
 	});
 	$('.writeSubRam').click(function () {
-		var conf=confirm('등록 하시겠습니까?');
-		
-		if(conf){
-			$('[name=writeForm]').attr('action','ramRegist.do');
-		}else{
+		var chk2=$.trim($('input[type=text]').val());
+		var trueRs= $("input[name='resultNameDB']").val();
+		if(!chk2){
+			alert('빈 칸 없이 작성해 주세요');
 			return false;
+		}else if(trueRs == 'notRs'){
+			alert('제품 명이 중복 됩니다.');
+			return false;
+		}else if(trueRs == 'notChk'){
+			alert('중복 체크 해주십시오');
+			return false;
+		}else{
+			var conf=confirm('등록 하시겠습니까?');
+			 
+			if(conf){
+				$('[name=writeForm]').attr('action','ramRegist.do');
+			}else{
+				return false;
+			}
 		}
 		
 	});
 	$('.writeSubMain').click(function () {
-		var conf=confirm('등록 하시겠습니까?');
-		
-		if(conf){
-			$('[name=writeForm]').attr('action','mainboardRegist.do');
-		}else{
+		var chk2=$.trim($('input[type=text]').val());
+		var trueRs= $("input[name='resultNameDB']").val();
+		if(!chk2){
+			alert('빈 칸 없이 작성해 주세요');
 			return false;
+		}else if(trueRs == 'notRs'){
+			alert('제품 명이 중복 됩니다.');
+			return false;
+		}else if(trueRs == 'notChk'){
+			alert('중복 체크 해주십시오');
+			return false;
+		}else{
+			var conf=confirm('등록 하시겠습니까?');
+			 
+			if(conf){
+				$('[name=writeForm]').attr('action','mainboardRegist.do');
+			}else{
+				return false;
+			}
 		}
 		
 	});
@@ -103,21 +169,29 @@ $(function (){
 
 function itemsCheck(){
 	var nameStr=document.getElementById("name").value;
-	
+
     $.ajax({
         url : "items.do?name="+nameStr,
         type : 'GET',
         success : function(data){
-             if(data =="suc"){
+        	var trimPlz=$("input[name='name']").val();
+        	if(data =="suc" && trimPlz==''){
+        	 $('#resultName').css('color' , '#d11507');
+           	 $('#resultName').text("빈 값 넣지 마시오.");
+           	 $("input[name='resultNameDB']").val('notRs');
+           	 $('#name').focus();
+        	}
+        	else if(data =="suc"){
             	 $('#resultName').css('color' , 'green');
             	 $('#resultName').text("사용 가능한 제품명");
             	 $("input[name='resultNameDB']").val('trueRs'); //hidden 값
-            	 
+            	
              }else{
             	 $('#resultName').css('color' , '#d11507');
             	 $('#resultName').text("사용 불가 제품 명");
             	 $("input[name='resultNameDB']").val('notRs');
             	 $('#name').focus();
+            	 
              }
         }
     });

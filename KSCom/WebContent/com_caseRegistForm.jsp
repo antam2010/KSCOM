@@ -54,9 +54,10 @@ location.href="loginForm.jsp";
          <label for = "name">제품 이름 : </label>
       </td>
       <td class = "td_right">
-         <input type = "text" name = "name" id ="name" required="required"/>
+         <input type = "text" name = "name" id ="name" required="required" onkeydown="inputNameChk()"/>
          <input type="button" onclick="itemsCheck()" value="클릭">
          <span id="resultName"></span>
+         <input type="hidden" name="resultNameDB" value="notRs">
       </td>
    </tr>
    
@@ -133,7 +134,7 @@ location.href="loginForm.jsp";
    </tr>
    <tr>
       <td colspan="2" id = "commandCell"> 
-         <input type = "submit" value = "상품등록" class="writeSubCom_case"/>      
+         <input type = "submit" value = "상품등록" class="writeSubCom_case"  onclick="itemsCheck()"/>      
          <input type = "reset" value = "다시작성"/>      
          <input type = "button" value = "상품목록보기" onClick="window.location.href='com_caseList.do'"/>      
       </td>

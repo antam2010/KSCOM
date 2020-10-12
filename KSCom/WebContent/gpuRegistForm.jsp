@@ -91,7 +91,7 @@ location.href="loginForm.jsp";
          <label for = "name">제품 이름 : </label>
       </td>
       <td class = "td_right">
-         <input type = "text" name = "name" id ="name" required="required"/>
+         <input type = "text" name = "name" id ="name" required="required" onkeydown="inputNameChk()"/>
          <input type="button" onclick="itemsCheck()" value="클릭">
          <span id="resultName"></span>
       </td>
@@ -138,7 +138,7 @@ location.href="loginForm.jsp";
    </tr>
    <tr>
       <td colspan="2" id = "commandCell"> 
-         <input type = "submit" value = "상품등록" class="writeSubGpu"/>      
+         <input type = "submit" value = "상품등록" class="writeSubGpu" onclick="itemsCheck()"/>      
          <input type = "reset" value = "다시작성"/>      
          <input type = "button" value = "상품목록보기" onClick="window.location.href='gpuList.do'"/>      
       </td>

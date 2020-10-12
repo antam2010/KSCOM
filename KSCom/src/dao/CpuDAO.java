@@ -254,6 +254,7 @@ public class CpuDAO {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		boolean x=false;
+	
 		try {
 			
 			String sel = " SELECT NAME FROM ";
@@ -271,6 +272,7 @@ public class CpuDAO {
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				x=true;
+				
 				
 			}
 			

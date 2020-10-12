@@ -12,7 +12,6 @@
 <script type="text/javascript">
 
 
-
 </script>
 </head>
 <body>
@@ -47,10 +46,10 @@ location.href="loginForm.jsp";
          <label for = "name">제품 이름 : </label>
       </td>
       <td class = "td_right">
-         <input type = "text" name = "name" id ="name" required="required" />
-         <input type="button" onclick="itemsCheck()" value="클릭">
+         <input type = "text" name = "name" id ="name" required="required" onkeydown="inputNameChk()" />
+         <input type="button" onclick="itemsCheck()" value="클릭" >
          <span id="resultName"></span>
-         <input type="text" name="resultNameDB" value="notRs">
+         <input type="hidden" name="resultNameDB" value="notRs">
 
       </td>
    </tr>
@@ -106,7 +105,7 @@ location.href="loginForm.jsp";
    </tr>
    
     <tr>
-      <td class = "td_left">
+      <td class = "td_left">ㅏ 
          <label for = "content">제품 정보 : </label>
       </td>
       <td class = "td_right">
@@ -115,7 +114,7 @@ location.href="loginForm.jsp";
    </tr>
    <tr>
       <td colspan="2" id = "commandCell"> 
-         <input type = "submit" value = "상품등록" class="writeSubCpu"/>      
+         <input type = "submit" value = "상품등록" class="writeSubCpu" onclick="itemsCheck()" />      
          <input type = "reset" value = "다시작성"/>      
          <input type = "button" value = "상품목록보기" onClick="window.location.href='cpuList.do'"/>      
       </td>
