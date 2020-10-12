@@ -12,6 +12,7 @@
 $(function(){
 	$(".ready").click(function(){
 		alert('아직 준비중 입니다.');
+		
 	});	
 	
 	

@@ -64,7 +64,7 @@ function checkValue()
 function openIdChk(){
 
 	
-    window.open("idCheck.jsp",
+    window.open("idCheck.jsp?",
             "chkForm", "width=500, height=300 ");  
     
 }

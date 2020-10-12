@@ -172,7 +172,7 @@ function itemsCheck(){
 
     $.ajax({
         url : "items.do?name="+nameStr,
-        type : 'GET',
+        type : 'POST',
         success : function(data){
         	var trimPlz=$("input[name='name']").val();
         	if(data =="suc" && trimPlz==''){
@@ -197,22 +197,7 @@ function itemsCheck(){
     });
     
 }
-//List,View 부분 비활성화
-function product_check() {
-	var productStr=document.getElementByName("add_image").value;
-	
-	$.ajax({
-		url : "product_check.do?name="+productStr,
-		type : 'POST',
-		success: function() {
-			if(data =="suc2"){
-				
-			}else{
-				
-			}
-		}
-	});
-}
+
 </script>
 <title>템플릿</title>
 <link rel="stylesheet" href="css/form.css">

@@ -74,6 +74,20 @@
 
 </c:otherwise>
 </c:choose>
+
+<!-- 두번째 아티클 -->
+<article>
+<img src="images/board.jpg" class="img100" >
+<form action="">
+<table>
+	<c:forEach begin="0" end="3">
+	<tr>
+		<td>아아</td>
+	</tr>
+	</c:forEach>
+</table>
+</form>
+</article>
 </section>
 
 </body>

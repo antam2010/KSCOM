@@ -21,6 +21,9 @@ public class MemberJoinAction implements Action_member{
 	   		member.setGender(request.getParameter("gender"));
 	   		member.setAddr(request.getParameter("addr"));
 	   		member.setEmail(request.getParameter("email"));
+	   		request.setAttribute("idMs", request.getParameter("id"));
+	   		request.setAttribute("nameMs", request.getParameter("name"));
+	   			   		
 	   		
 	   		MemberJoinService memberJoinService = new MemberJoinService();
 	   		joinResult=memberJoinService.joinMember(member);
@@ -35,9 +38,10 @@ public class MemberJoinAction implements Action_member{
 	   			out.println("</script>");
 		   	}
 	   		else{
+	   			
 	   	    forward = new ActionForward_member();
-	   		forward.setRedirect(true);
-	   		forward.setPath("./memberLogin.me");
+	   		forward.setRedirect(false);
+	   		forward.setPath("loginSuccessMs.jsp");
 	   		}
 	   		return forward;
 	}

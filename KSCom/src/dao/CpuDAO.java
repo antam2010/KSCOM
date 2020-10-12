@@ -10,6 +10,7 @@ import vo.Cpu;
 import vo.ItemsName;
 
 
+
 public class CpuDAO {
 	
 	Connection con;
@@ -76,7 +77,7 @@ public class CpuDAO {
 		Cpu cpu = null;
 		
 		try {
-			pstmt = con.prepareStatement("select * from CPU where id=?");
+			pstmt = con.prepareStatement("SELECT * FROM CPU WHERE id=?");
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			
@@ -101,6 +102,7 @@ public class CpuDAO {
 		
 		return cpu;
 	}
+	
 //cpu 조회수 업데이트	
 	public int updateReadCount(int id) {
 		PreparedStatement pstmt = null;
@@ -286,6 +288,8 @@ public class CpuDAO {
 		
 		
 	}
+
+	
 
 	
 	

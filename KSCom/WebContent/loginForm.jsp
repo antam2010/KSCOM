@@ -28,6 +28,13 @@ $(function () {
 			
 		}
 	});
+	$("input[name='id']").keydown(function (key) {
+		if(key.keyCode==13){
+			$("form[name='loginform']").submit();
+			
+		}
+	});
+	
 	
 	
 	$('#login2').click(function () {

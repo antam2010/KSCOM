@@ -26,6 +26,7 @@
 	</article>
 		
 			<b>이름 : </b> ${cpu.name}<br>
+			<input type="hidden" value="${cpu.name }" class="getName"> <!-- 새로추가 -->
 			<b>코어 : </b> ${cpu.core}<br>
 			<b>브랜드: </b> ${cpu.cpu_package}<br>
 			<b>가격 : </b> ${cpu.price}<br>
@@ -53,7 +54,7 @@
 </section>
 <aside>
 <c:if test="${id eq 'admin' }">
-<input type="button" value="비활성화" onclick="product_check()"/>
+<input type="button" value="비활성화" class="ready"/>
 <!-- db 하나 만들어서 count>0 이면 활성 <0 이면 비활성해서 강제로 <0으로만들자 -->
 </c:if>
 

@@ -20,6 +20,7 @@
 	text-align: center;
 }
 </style>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
 function btnClose() {
@@ -28,20 +29,32 @@ function btnClose() {
 	window.close();
 }
 
+function upIdRs() {
+	var id2=opener.document.getElementById("id").value;
+	$('#id').val(id2);
+	
+}
+
+$(function () {
+	$('.clickBtn').click(function () {
+		opener.document.userInfo.id.value='';
+	});
+});
+
+
 	
 </script>
-
 </head>
-<body>
+<body onload="upIdRs()">
 
 	<div id="wrap">
 		<br> <b><font size="4" color="gray">아이디 중복체크</font></b>
 		<hr size="1" width="460">
 		<br>
 		<div id="chk">
-			<form action="memberIdCheckAction.me">
-				<input type="text" name="id" id="id"> <input type="submit"
-					value="중복확인"><br>
+			<form action="memberIdCheckAction.me" name="openInfo">
+				<input type="text" name="id" id="id" value=""> <input type="submit"
+					value="중복확인" class="clickBtn"><br>
 				<c:if test="${result eq false && !empty param.id}">
 					<h3>${param.id }는사용 가능합니다.</h3>
 					<br>
