@@ -9,7 +9,54 @@
 <link rel="stylesheet" href="css/form.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
+function checkValue()
+{
+    var form = document.modifyInfo;
+    var pw = $("#passwd").val();
+    var num = pw.search(/[0-9]/g);
+    var eng = pw.search(/[a-z]/ig);
+    var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+    
+    if(!form.id.value){
+        alert("아이디를 입력하세요.");
+        return false;
+    }
+    
+    if(!form.passwd.value){
+        alert("비밀번호를 입력하세요.");
+        return false;
+    }
+    if(pw.length<8 || pw.length>15){
+    	alert('비밀번호는 8이상~15이하 이내로 입력해주세요');
+    	return false;
+    }else if(num<0 ||eng<0 ||spe<0){
+    	alert('영문,숫자,특수 문자 조합하여 입력해주세요.');
+    	return false;
+    }
+   
+    
+    if(!form.name.value){
+        alert("이름을 입력하세요.");
+        return false;
+    }
+    
+    if(!form.age.value){
+    	alert("나이를 입력하세요.");
+    	return false;
+    }
+    
+    if(!form.addr.value){
+        alert("주소를 입력하세요.");
+        return false;
+    }
+    
+    if(!form.email.value){
+        alert("메일 주소를 입력하세요.");
+        return false;
+    }
+    
 
+}
 </script>
 </head>
 <body>
@@ -17,15 +64,15 @@
 
 
 <section>
-<form action="./memberModifyAction.me" method="post" onclick="">
+<form action="./memberModifyAction.me" method="post"  name="modifyInfo" onsubmit="return checkValue()">
 <table>
 	<tr>
 		<td>아이디 :</td>
-		<td><input type="text" id="id" name="id" maxlength="13" readonly="readonly" value="${member.id }">*수정불가</td>
+		<td><input type="text" id="id" name="id" maxlength="13" readonly="readonly" value="${member.id }"><span class="ad_h4 light_com">*수정불가</span></td>
 	</tr>
 	<tr>
 		<td>비밀 번호 :</td>
-		<td><input type="text" id="passwd" name="passwd" required="required" value="${member.passwd }"></td>
+		<td><input type="text" id="passwd" name="passwd" required="required" value="${member.passwd }"><span class="ad_h4 light_com">*암호화 지우고 입력하시면 됩니다.</span></td>
 	</tr>
 	<tr>
 		<td>이름 :</td>

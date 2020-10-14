@@ -20,6 +20,7 @@ public class CpuViewAction implements Action {
 		request.setAttribute("cpu", cpu);
 		
 		ActionForward forward = new ActionForward("cpuView.jsp", false);
+		
 		return forward;
 	}
 	

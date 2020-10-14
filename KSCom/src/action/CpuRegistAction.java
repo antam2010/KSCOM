@@ -44,6 +44,7 @@ public class CpuRegistAction implements Action {
 		
 		if(isRegistSuccess){
 			forward = new ActionForward("cpuList.do", true);
+			
 		}else{
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();

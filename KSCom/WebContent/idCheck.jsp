@@ -33,6 +33,8 @@ function upIdRs() {
 	var id2=opener.document.getElementById("id").value;
 	$('#id').val(id2);
 	
+	
+	
 }
 
 $(function () {

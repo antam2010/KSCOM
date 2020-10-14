@@ -33,9 +33,7 @@ $(function () {
 			$("form[name='loginform']").submit();
 			
 		}
-	});
-	
-	
+	});		
 	
 	$('#login2').click(function () {
 		
@@ -82,5 +80,9 @@ $(function () {
 </table>
 </form>
 </section>
+<br><br><br><br><hr>
+<footer>
+<jsp:include page="footer.jsp"></jsp:include>
+</footer>
 </body>
 </html>

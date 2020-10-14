@@ -105,7 +105,7 @@ location.href="loginForm.jsp";
    </tr>
    
     <tr>
-      <td class = "td_left">ㅏ 
+      <td class = "td_left">
          <label for = "content">제품 정보 : </label>
       </td>
       <td class = "td_right">

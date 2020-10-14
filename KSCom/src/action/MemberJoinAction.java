@@ -23,7 +23,7 @@ public class MemberJoinAction implements Action_member{
 	   		member.setEmail(request.getParameter("email"));
 	   		request.setAttribute("idMs", request.getParameter("id"));
 	   		request.setAttribute("nameMs", request.getParameter("name"));
-	   			   		
+	   		System.out.println(request.getParameter("passwd"));
 	   		
 	   		MemberJoinService memberJoinService = new MemberJoinService();
 	   		joinResult=memberJoinService.joinMember(member);

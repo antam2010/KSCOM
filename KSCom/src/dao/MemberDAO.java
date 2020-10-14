@@ -33,7 +33,7 @@ public class MemberDAO {
 	
 	public String selectLoginId(Member member){
 		String loginId = null;
-		String sql="SELECT id FROM User WHERE ID=? AND Passwd=?";
+		String sql="SELECT id FROM User WHERE ID=? AND Passwd=password(?)";
 		
 		try{
 			pstmt=con.prepareStatement(sql);
@@ -56,7 +56,7 @@ public class MemberDAO {
 
 	
 	public int insertMember(Member member){
-		String sql="INSERT INTO User VALUES (?,?,?,?,?,?,?)";
+		String sql="INSERT INTO User VALUES (?,(password(?)),?,?,?,?,?)";
 		int insertCount=0;
 		
 		try{
@@ -177,7 +177,7 @@ public class MemberDAO {
 		return x;
 	}
 	public int updateMember(Member member) {
-		String sql="UPDATE User SET passwd=?,name=?,age=?,gender=?,addr=?,email=? where id=?";
+		String sql="UPDATE User SET passwd=password(?),name=?,age=?,gender=?,addr=?,email=? where id=?";
 		int updateCount=0;
 		
 		try{

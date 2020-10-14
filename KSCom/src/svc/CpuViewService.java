@@ -22,5 +22,6 @@ public class CpuViewService {
 		close(con);
 		return cpu;
 	}
+	
 
 }

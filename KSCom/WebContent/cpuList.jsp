@@ -40,7 +40,8 @@
 			상품명:${cpu.name}<br>
 			가격:${cpu.price}<br>
 			조회수:${cpu.readcount }<br>
-			
+			<input type="hidden" name="popCnt">
+			<input type="hidden" name="popName">
 		</td>
 		<c:if test="${((status.index+1) mod 4)==0 }"> <!-- 4개마다 줄바꿈 -->
 	</tr>
@@ -49,7 +50,6 @@
 		</c:forEach>
 	</tr>
 </table>
-
 
 </c:if>
 <c:if test="${cpuList==null }">

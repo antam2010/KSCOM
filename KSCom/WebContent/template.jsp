@@ -35,10 +35,8 @@ $(function (){
 		
 		var chk2=$.trim($('input[type=text]').val());
 		var trueRs= $("input[name='resultNameDB']").val();
-		if(!chk2){
-			alert('빈 칸 없이 작성해 주세요');
-			return false;
-		}else if(trueRs == 'notRs'){
+		
+		 if(trueRs == 'notRs'){
 			alert('제품 명이 중복 됩니다.');
 			return false;
 		}else if(trueRs == 'notChk'){
@@ -58,12 +56,10 @@ $(function (){
 		
 	});
 	$('.writeSubGpu').click(function () {
-		var chk2=$.trim($('input[type=text]').val());
+		
 		var trueRs= $("input[name='resultNameDB']").val();
-		if(!chk2){
-			alert('빈 칸 없이 작성해 주세요');
-			return false;
-		}else if(trueRs == 'notRs'){
+		
+		if(trueRs == 'notRs'){
 			alert('제품 명이 중복 됩니다.');
 			return false;
 		}else if(trueRs == 'notChk'){
@@ -84,12 +80,10 @@ $(function (){
 		
 	});
 	$('.writeSubCom_case').click(function () {
-		var chk2=$.trim($('input[type=text]').val());
+		
 		var trueRs= $("input[name='resultNameDB']").val();
-		if(!chk2){
-			alert('빈 칸 없이 작성해 주세요');
-			return false;
-		}else if(trueRs == 'notRs'){
+		
+		if(trueRs == 'notRs'){
 			alert('제품 명이 중복 됩니다.');
 			return false;
 		}else if(trueRs == 'notChk'){
@@ -107,12 +101,10 @@ $(function (){
 		
 	});
 	$('.writeSubRam').click(function () {
-		var chk2=$.trim($('input[type=text]').val());
+		
 		var trueRs= $("input[name='resultNameDB']").val();
-		if(!chk2){
-			alert('빈 칸 없이 작성해 주세요');
-			return false;
-		}else if(trueRs == 'notRs'){
+		
+		if(trueRs == 'notRs'){
 			alert('제품 명이 중복 됩니다.');
 			return false;
 		}else if(trueRs == 'notChk'){
@@ -130,12 +122,10 @@ $(function (){
 		
 	});
 	$('.writeSubMain').click(function () {
-		var chk2=$.trim($('input[type=text]').val());
+		
 		var trueRs= $("input[name='resultNameDB']").val();
-		if(!chk2){
-			alert('빈 칸 없이 작성해 주세요');
-			return false;
-		}else if(trueRs == 'notRs'){
+		
+		if(trueRs == 'notRs'){
 			alert('제품 명이 중복 됩니다.');
 			return false;
 		}else if(trueRs == 'notChk'){
@@ -198,6 +188,28 @@ function itemsCheck(){
     
 }
 
+
+// function popTest() {
+// 	document.getElementByName('popSearch').value;
+// }
+
+// $(function () {
+// 	$("input[name='popButton']").click(function () {
+// 		var realName=$("input[name='popSearch']").val();
+// 		 $.ajax({
+// 		        url : "popularSearchAction.do?name="+realName,
+// 		        type : 'POST',
+// 		        success : function(data){
+// 		        		if(data =="suc2"){
+// 		        		alert('아아');
+// 		        	}else{
+// 		        		alert('가가');
+// 		        	}
+// 		        }
+// 		    });
+		
+// 	});
+// });
 </script>
 <title>템플릿</title>
 <link rel="stylesheet" href="css/form.css">
@@ -206,6 +218,7 @@ function itemsCheck(){
 <body>
 
 <header>
+	
 	
 	<ul>
 		<li><a href="ad_AddListSuccess.do"><span style="color: yellow; font-size: 1.2em;">콩순이 컴퓨터 </span><br>
@@ -219,6 +232,8 @@ function itemsCheck(){
 		<li><a href="ad_AddListSuccess.do">제품보러가기</a></li>
 		<li><a href ="memberLogoutAction.me">로그아웃</a></li>
 		<li><div class="white_h4" >[${id }]님 환영합니다</div></li>
+		<li><input type="text" class="right_text" value="" placeholder="검색 창">
+			<a href="javascript:;"><img src="images/search.jpg" class="img20"></a></li>
 		</div>
 		</c:when>
 		
@@ -227,6 +242,10 @@ function itemsCheck(){
 		<li><a href ="loginForm.jsp">로그인</a></li>
 		<li><a href="cpuCartList.do">장바구니</a></li>
 		<li><a href="ad_AddListSuccess.do">제품보러가기</a></li>
+		<li><input type="text" class="right_text" value="" name="popSearch" placeholder="검색 창">
+			<input type="button" name="popButton" value="버튼">
+		</li>
+		
 		</div>
 		</c:when>
 		
@@ -236,19 +255,21 @@ function itemsCheck(){
 		<li><a href="cpuCartList.do">장바구니</a></li>
 		<li><a href="ad_AddListSuccess.do">제품보러가기</a></li>
 		<li><div class="white_h4">[${ id }] 님환영합니다</div></li>
+		<li><input type="text" class="right_text" value="" placeholder="검색 창">
+			<a href="javascript:;"><img src="images/search.jpg" class="img20"></a></li>
+		
 		</div>
 		</c:otherwise>
 		</c:choose>
 		
+		
+		
 	</ul>
 	
 
-
-
-
-
-
 </header>
+
+
 
 </body>
 </html>

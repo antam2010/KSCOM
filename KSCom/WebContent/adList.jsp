@@ -50,41 +50,27 @@
     		
 //     		램
     		if(brand.indexOf('삼성')!=-1 || brand.indexOf('GelL')!=-1 || brand.indexOf('G.SKILL')!=-1 || brand.indexOf('대원cts')!=-1 || brand.indexOf('아스크텍')!=-1){
-    			$(function() {
-    				$(".changeA").attr("href","ramView.do?id="+proId);
-    				
-    				
-    			});
+    				$(".changeA").attr("href","ramView.do?id="+proId);	
     		//cpu
     		}else if(brand.indexOf('인텔')!=-1 || brand.indexOf('amd')!=-1 || brand.indexOf('기타')!=-1){
-    			$(function(){
-    				$(".changeA").attr("href","cpuView.do?id="+proId);
-    				
-    			});
+    				$(".changeA").attr("href","cpuView.do?id="+proId);	
     		//mainboard
     		}else if(brand.indexOf('MSI')!=-1|| brand.indexOf('ASUS')!=-1 || brand.indexOf('애즈락')!=-1 ||
     				 brand.indexOf('기가바이트')!=-1 || brand.indexOf('바이오스타')!=-1){
-    			$(function(){
+    			
     				$(".changeA").attr("href","mainboardView.do?id="+proId);
-    				
-    				
-    				
-    			});
+    		
     		//GPU	
     		}else if(brand.indexOf('이엠텍')!=-1|| brand.indexOf('갤럭시')!=-1 || brand.indexOf('조탁')!=-1 ||
     				 brand.indexOf('MSI_GPU')!=-1 || brand.indexOf('GIGABYTE')!=-1 || brand.indexOf('엠텍코리아')!=-1 ||brand.indexOf('ASUS_GPU')!=-1 ){
-    			$(function(){
+    			
     				$(".changeA").attr("href","gpuView.do?id="+proId);
     				
-    				
-    			});
     		//컴케이스
     		}else if(brand.indexOf('앱코')!=-1|| brand.indexOf('아이군주')!=-1 || brand.indexOf('마이크로닉스')!=-1 ||
     				 brand.indexOf('COX')!=-1 || brand.indexOf('잘만')!=-1 ){
-    			$(function(){
+    			
     				$(".changeA").attr("href","com_caseView.do?id="+proId);
-    				
-    			});
     		
     		}else{
     			alert('잘못된 경로');
@@ -105,38 +91,32 @@
     	
 //     		램
     		if(brand.indexOf('삼성')!=-1 || brand.indexOf('GelL')!=-1 || brand.indexOf('G.SKILL')!=-1 || brand.indexOf('대원cts')!=-1 || brand.indexOf('아스크텍')!=-1){
-    			$(function() {
+    			
     				$(".changeB").attr("href","ramView.do?id="+proId);
-    				
-    			});
+    			
     		//cpu
     		}else if(brand.indexOf('인텔')!=-1 || brand.indexOf('amd')!=-1 || brand.indexOf('기타')!=-1){
-    			$(function(){
+    			
     				$(".changeB").attr("href","cpuView.do?id="+proId);
-    				
-    			});
+    			
     		//mainboard
     		}else if(brand.indexOf('MSI')!=-1|| brand.indexOf('ASUS')!=-1 || brand.indexOf('애즈락')!=-1 ||
     				 brand.indexOf('기가바이트')!=-1 || brand.indexOf('바이오스타')!=-1){
-    			$(function(){
+    			
     				$(".changeB").attr("href","mainboardView.do?id="+proId);
-    				
-    			});
+    			
     		//GPU	
     		}else if(brand.indexOf('이엠텍')!=-1|| brand.indexOf('갤럭시')!=-1 || brand.indexOf('조탁')!=-1 ||
     				 brand.indexOf('MSI_GPU')!=-1 || brand.indexOf('GIGABYTE')!=-1 || brand.indexOf('엠텍코리아')!=-1 ||brand.indexOf('ASUS_GPU')!=-1 ){
-    			$(function(){
+    			
     				$(".changeB").attr("href","gpuView.do?id="+proId);
-    				
-    			});
+    			
     		//컴케이스
     		}else if(brand.indexOf('앱코')!=-1|| brand.indexOf('아이군주')!=-1 || brand.indexOf('마이크로닉스')!=-1 ||
     				 brand.indexOf('COX')!=-1 || brand.indexOf('잘만')!=-1 ){
-    			$(function(){
+    			
     				$(".changeB").attr("href","com_caseView.do?id="+proId);
-    				
-    			});
-    		
+    			
     		}else{
     			alert('잘못된 경로');
     			location.href="ad_AddListSuccess.do";
@@ -159,38 +139,32 @@
 
 //    		램
     	if(brand.indexOf('삼성')!=-1 || brand.indexOf('GelL')!=-1 || brand.indexOf('G.SKILL')!=-1 || brand.indexOf('대원cts')!=-1 || brand.indexOf('아스크텍')!=-1){
-    		$(function() {
+    		
     			$(".changeC").attr("href","ramView.do?id="+proId);
-    			
-    		});
+    		
     	//cpu
     	}else if(brand.indexOf('인텔')!=-1 || brand.indexOf('amd')!=-1 || brand.indexOf('기타')!=-1){
-    		$(function(){
+    		
     			$(".changeC").attr("href","cpuView.do?id="+proId);
-    			
-    		});
+    		
     	//mainboard
     	}else if(brand.indexOf('MSI')!=-1|| brand.indexOf('ASUS')!=-1 || brand.indexOf('애즈락')!=-1 ||
     			 brand.indexOf('기가바이트')!=-1 || brand.indexOf('바이오스타')!=-1){
-    		$(function(){
+    		
     			$(".changeC").attr("href","mainboardView.do?id="+proId);
-    			
-    		});
+    		
     	//GPU	
     	}else if(brand.indexOf('이엠텍')!=-1|| brand.indexOf('갤럭시')!=-1 || brand.indexOf('조탁')!=-1 ||
     			 brand.indexOf('MSI_GPU')!=-1 || brand.indexOf('GIGABYTE')!=-1 || brand.indexOf('엠텍코리아')!=-1 ||brand.indexOf('ASUS_GPU')!=-1 ){
-    		$(function(){
+    		
     			$(".changeC").attr("href","gpuView.do?id="+proId);
-    			
-    		});
+    		
     	//컴케이스
     	}else if(brand.indexOf('앱코')!=-1|| brand.indexOf('아이군주')!=-1 || brand.indexOf('마이크로닉스')!=-1 ||
     			 brand.indexOf('COX')!=-1 || brand.indexOf('잘만')!=-1 ){
-    		$(function(){
+    		
     			$(".changeC").attr("href","com_caseView.do?id="+proId);
-    			
-    		});
-    	
+    		
     	}else{
     		alert('잘못된 경로');
     		location.href="ad_AddListSuccess.do";
@@ -203,48 +177,37 @@
     	
     $('.changeD').click(function () {
     	
-    	
     	var brand= $('#list8').val();
     	var proId=$('#list7').val();
     	
-    	
-
-    	
-
 //    		램
     	if(brand.indexOf('삼성')!=-1 || brand.indexOf('GelL')!=-1 || brand.indexOf('G.SKILL')!=-1 || brand.indexOf('대원cts')!=-1 || brand.indexOf('아스크텍')!=-1){
-    		$(function() {
+    		
     			$(".changeD").attr("href","ramView.do?id="+proId);
-    			
-    		});
+    		
     	//cpu
     	}else if(brand.indexOf('인텔')!=-1 || brand.indexOf('amd')!=-1 || brand.indexOf('기타')!=-1){
-    		$(function(){
+    		
     			$(".changeD").attr("href","cpuView.do?id="+proId);
-    			
-    		});
+    		
     	//mainboard
     	}else if(brand.indexOf('MSI')!=-1|| brand.indexOf('ASUS')!=-1 || brand.indexOf('애즈락')!=-1 ||
     			 brand.indexOf('기가바이트')!=-1 || brand.indexOf('바이오스타')!=-1){
-    		$(function(){
+    		
     			$(".changeD").attr("href","mainboardView.do?id="+proId);
-    			
-    		});
+    		
     	//GPU	
     	}else if(brand.indexOf('이엠텍')!=-1|| brand.indexOf('갤럭시')!=-1 || brand.indexOf('조탁')!=-1 ||
     			 brand.indexOf('MSI_GPU')!=-1 || brand.indexOf('GIGABYTE')!=-1 || brand.indexOf('엠텍코리아')!=-1 ||brand.indexOf('ASUS_GPU')!=-1 ){
-    		$(function(){
+    		
     			$(".changeD").attr("href","gpuView.do?id="+proId);
-    			
-    		});
+    		
     	//컴케이스
     	}else if(brand.indexOf('앱코')!=-1|| brand.indexOf('아이군주')!=-1 || brand.indexOf('마이크로닉스')!=-1 ||
     			 brand.indexOf('COX')!=-1 || brand.indexOf('잘만')!=-1 ){
-    		$(function(){
+    		
     			$(".changeD").attr("href","com_caseView.do?id="+proId);
-    			
-    		});
-    	
+    		
     	}else{
     		alert('잘못된 경로');
     		location.href="ad_AddListSuccess.do";
@@ -266,20 +229,7 @@
 <style>
     
    
-    #prevBtn{
-/*         position:absolute; */
-		position:relative;
-		padding-right:130px;
-        left:0;
-        bottom: 160px;
-    }
-    #nextBtn{
-/*         position:absolute; */
-		position:relative;
-        right:0px;
-       	padding-left:160px;
-        bottom: 160px;
-    }
+   
     .center{
     	text-align: center;
     }

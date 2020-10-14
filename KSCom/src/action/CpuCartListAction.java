@@ -24,7 +24,7 @@ public class CpuCartListAction implements Action {
 			money = cartList.get(i).getPrice()*cartList.get(i).getQty();
 			totalMoney += money;
 		}
-		}
+		}	
 	}catch (Exception e) {
 		System.out.println("씨피유카트리스트엑션부분"+e);
 		
