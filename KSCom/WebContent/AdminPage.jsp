@@ -15,6 +15,7 @@
 <button class="dropbtn">회원 관리</button>
 	<div class="dropdown-content">
 		<a href="memberListAction.me">회원 리스트</a>
+		<a href="javascript:;">회원 주문 목록</a>
 	</div>
 </div>
 <div class="dropdown">

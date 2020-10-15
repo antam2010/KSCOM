@@ -46,7 +46,7 @@ img{
 		</tr>
 		<tr>
 			<td>
-			<input type="button" value="시작하기" onclick="location.href='ad_AddListSuccess.do';">
+			<a href="loginForm.jsp">로그인 하러가기</a>
 			</td>
 		</tr>
 			

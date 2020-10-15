@@ -254,7 +254,7 @@ function itemsCheck(){
 		<li><a href ="memberLogoutAction.me">로그아웃</a></li>
 		<li><a href="cpuCartList.do">장바구니</a></li>
 		<li><a href="ad_AddListSuccess.do">제품보러가기</a></li>
-		<li><div class="white_h4">[${ id }] 님환영합니다</div></li>
+		<li><div class="white_h4"><a href="memberModifyFormAction.me?id=${id }">[${ id }]</a> 님환영합니다</div></li>
 		<li><input type="text" class="right_text" value="" placeholder="검색 창">
 			<a href="javascript:;"><img src="images/search.jpg" class="img20"></a></li>
 		

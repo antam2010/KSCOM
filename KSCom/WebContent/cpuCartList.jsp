@@ -117,7 +117,7 @@
 <section>
 
    <h2>장바구니 목록</h2>
-	<form >
+	<form action="#" >
       <table id="tb1">
     	
         <tr class = "tr_top">
@@ -495,6 +495,7 @@
          
          <td style="text-align:center;">
        	<input type="submit" id="buttonChk" value="장바구니 비우기" formaction="allCheck.me" >
+      	<input type="submit" value="구매하기">
        	
       </tr>
       

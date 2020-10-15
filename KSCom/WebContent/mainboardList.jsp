@@ -18,7 +18,7 @@
 
 <section>
 <c:if test="${mainboardList != null}">
-<h2>mainboard 정보</h2>	
+<h2>Mainboard List</h2>	
  
 <table>
 	<tr>

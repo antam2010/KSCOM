@@ -72,7 +72,7 @@ function checkValue()
 	</tr>
 	<tr>
 		<td>비밀 번호 :</td>
-		<td><input type="text" id="passwd" name="passwd" required="required" value="${member.passwd }"><span class="ad_h4 light_com">*암호화 지우고 입력하시면 됩니다.</span></td>
+		<td><input type="text" id="passwd" name="passwd" required="required" value=""></td>
 	</tr>
 	<tr>
 		<td>이름 :</td>

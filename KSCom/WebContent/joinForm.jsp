@@ -34,7 +34,8 @@ function checkValue()
     var num = pw.search(/[0-9]/g);
     var eng = pw.search(/[a-z]/ig);
     var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-    
+   
+
     if(!form.id.value){
         alert("아이디를 입력하세요.");
         return false;
@@ -89,13 +90,7 @@ function checkValue()
 
 
 // 아이디 중복체크 화면open
-function openIdChk(){
 
-	
-    window.open("idCheck.jsp?",
-            "chkForm", "width=500, height=300 ");  
-    
-}
 
 function pValue() {
 	document.getElementById("id").value=opener.document.userInfo.id.value;
@@ -107,6 +102,22 @@ function inputIdChk(){
 }
 
 
+function idCheck2() {
+	 var idReg = /^[a-z]+[a-z0-9]{5,11}$/g;
+	    
+	    
+	    if(!idReg.test( $("input[name=id]").val() ) ) {
+	        alert("아이디는 영문자로 시작하는 6~12자 영문자 또는 숫자이어야 합니다.");
+	        
+	        return false;
+	    }else{
+	    	$(function openIdChk() {
+	    		window.open("idCheck.jsp?",
+	    	            "chkForm", "width=500, height=300 ");  
+	    	    
+			});
+	    }
+}
 
 
 
@@ -128,7 +139,7 @@ function inputIdChk(){
 		<td>아이디 :</td>
 		<td>
 		<input type="text" name="id" id ="id"  maxlength="14" onkeydown="inputIdChk()" />
-		<input type="button" value="중복확인" onclick="openIdChk()">
+		<input type="button" value="중복확인" onclick="idCheck2()">
 		<input type="hidden" name="idDuplication" value="idUncheck">
 		</td>
 	</tr>
@@ -174,6 +185,7 @@ function inputIdChk(){
 
 </section>
 <footer>
+<br><br><br><br><hr>
 <jsp:include page="footer.jsp"></jsp:include>
 </footer>
 </body>

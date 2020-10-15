@@ -18,7 +18,7 @@
 <section>
 
 <c:if test="${gpuList != null}">
-<h2>gpu 정보</h2>	
+<h2>GPU List</h2>	
  
 <table>
 	<tr>

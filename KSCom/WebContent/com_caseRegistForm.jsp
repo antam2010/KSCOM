@@ -92,7 +92,7 @@ location.href="loginForm.jsp";
       </td>
    </tr> <tr>
       <td class = "td_left">
-         <label for = "power_standard">쿨링 팬: </label>
+         <label for = "board_standard">쿨링 팬: </label>
       </td>
       <td class = "td_right">
          <select id="board_standard" name="board_standard"> 

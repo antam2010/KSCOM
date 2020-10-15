@@ -27,7 +27,7 @@
 <section>
 
 <c:if test="${cpuList != null}">
-<h2>cpu 정보</h2>	
+<h2>CPU List</h2>	
 
 
 <table>
@@ -51,13 +51,14 @@
 	</tr>
 </table>
 
+	<div class="center_text"></div>
 </c:if>
 <c:if test="${cpuList==null }">
 	<div class="div_empty">
 	<h3>cpu리스트가 존재하지 않습니다.</h3>
 	</div>
 </c:if>
-
+	<div class="center_text">[1]</div>
 </section>
 
 

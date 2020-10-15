@@ -18,7 +18,7 @@
 
 <section>
 <c:if test="${ramList != null}">
-<h2>ram 정보</h2>	
+<h2>RAM List</h2>	
  
 <table>
 	<tr>

@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/form.css">
-<title>comCase 리스트</title>
+<title>Case List</title>
 
 </head>
 <body>
@@ -20,7 +20,7 @@
 <section>
 
 <c:if test="${com_caseList != null}">
-<h2>com_case 정보</h2>	
+<h2>Case List</h2>	
 
  
 <table>
