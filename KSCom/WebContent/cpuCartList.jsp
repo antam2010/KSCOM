@@ -59,7 +59,9 @@
 			$(this).val(name2);
 		});
 		
-			
+		
+		
+		
 
 	});
 
@@ -132,6 +134,7 @@
         
 <!-- 여기서 부터 값 들어가는 부분 -->
 <!-- CPU 값 들어가는 폼 -->
+
 <c:if test="${cartList ne null && cartList.size()>0 }">
 		<tr>
 			<td colspan="7"><h2>CPU</h2></td>

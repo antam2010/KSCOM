@@ -72,7 +72,7 @@ function checkValue()
 	</tr>
 	<tr>
 		<td>비밀 번호 :</td>
-		<td><input type="text" id="passwd" name="passwd" required="required" value=""></td>
+		<td><input type="password" id="passwd" name="passwd" required="required" value=""></td>
 	</tr>
 	<tr>
 		<td>이름 :</td>

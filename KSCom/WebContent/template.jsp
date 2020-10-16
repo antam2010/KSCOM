@@ -29,6 +29,33 @@ $(function (){
 	
 	   
 	});
+	
+	$('.buttonCss').css({'background-color':'lightpink',
+		'color':'white','border':'none','font-size':'1em'
+	});
+	$('.buttonCss').mouseover(function () {
+		$(this).css('color','red');
+	});
+	$('.buttonCss').mouseleave(function () {
+		$(this).css('color','white');
+	});
+	
+	$('#memberDel').click(function () {
+		var conf=confirm('정말 삭제하시겠습니까?');
+		if(conf){
+			del_var=$('#memberDel_val').val();
+			var confRs=prompt('해당 삭제 아이디를 입력해 주세요:');
+			
+			if(confRs==del_var){
+				return true;
+			}else {
+				alert('아이디가 틀렸습니다!');
+				return false;
+			}
+		}else{
+			return false;
+		}
+	});
 		
 	//regist 등록폼에 form action 값 전달하기
 	$('.writeSubCpu').click(function () {
@@ -154,6 +181,13 @@ $(function (){
 		pager: true
 	});
 	
+	$('buttonCss').click(function () {
+		('#.userSearch').val();
+	});
+	
+	
+	
+	
 	
 });
 
@@ -164,7 +198,7 @@ function itemsCheck(){
         url : "items.do?name="+nameStr,
         type : 'POST',
         success : function(data){
-        	var trimPlz=$("input[name='name']").val();
+        	var trimPlz=$("input[name='name']").val(); //만약 빈값이면 처리하는 변수
         	if(data =="suc" && trimPlz==''){
         	 $('#resultName').css('color' , '#d11507');
            	 $('#resultName').text("빈 값 넣지 마시오.");

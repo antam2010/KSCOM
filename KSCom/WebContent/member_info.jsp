@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
-<jsp:include page="template.jsp"></jsp:include>
-<nav></nav>
+
+<jsp:include page="AdminPage.jsp"></jsp:include>
 <section>
 <table>
 	<tr>

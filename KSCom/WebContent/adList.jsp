@@ -242,6 +242,7 @@
 			<c:set var="ad2" value="${adList[1] }"/>
 			<c:set var="ad3" value="${adList[2] }"/>
 			<c:set var="ad4" value="${adList[3] }"/>
+<%-- 			<c:forEach var="ad" value="adList"></c:forEach> --%>
 			<c:if test="${ad.product_id ne null }">			
            <li>
            	    <input type="hidden"  value="${ad.brand }" id="list2" name="list2">

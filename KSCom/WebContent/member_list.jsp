@@ -10,15 +10,20 @@
 <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
-<jsp:include page="template.jsp"></jsp:include>
+<jsp:include page="AdminPage.jsp"></jsp:include>
 
 <section>
+
+	
 <table>
 	<tr>
-		<td colspan=2><h1>회원 목록</h1></td>
+		<td><h1>회원 목록</h1></td>
+		<td><input type="text" id="userSearch" placeholder="아이디 검색">&nbsp;&nbsp;&nbsp;<input type="button" class="buttonCss"  value="검색"></td>
 	</tr>
+
 	<c:forEach var = "member" items = "${memberList}">
 	<tr>
+		<c:if test="${member.id ne 'admin' }">
 		<td>
 			<a href="memberViewAction.me?id=${member.id}">
 				${member.id}
@@ -28,16 +33,20 @@
 		<td>
 			<a href="memberModifyFormAction.me?id=${member.id }">수정</a>
 		<td>
-		<c:if test="${member.id ne 'admin' }">
-		<a href="memberDeleteAction.me?id=${member.id}">삭제</a>
-		</c:if>
+		
+		<a href="memberDeleteAction.me?id=${member.id}" id="memberDel">삭제</a>
+		<input type="hidden" id="memberDel_val" value="${member.id }">
 		</td>
+		</c:if>
 	</tr>
 	</c:forEach>
+	<tr><td></td></tr><tr><td></td></tr>
 	<tr>
-		<td><a href="AdminPage.jsp">뒤로가기</a></td>
+		<td><input type="button" class="buttonCss" onclick="location.href='AdminPage.jsp'" value="뒤로가기"></td>
+	</tr>
 		
 </table>
+
 </section>
 
 </body>

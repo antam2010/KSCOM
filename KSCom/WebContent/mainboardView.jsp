@@ -11,6 +11,7 @@
 </head>
 <body>
 <jsp:include page="template.jsp"></jsp:include>
+
 <jsp:include page="nav.jsp"></jsp:include>
 
 <section>

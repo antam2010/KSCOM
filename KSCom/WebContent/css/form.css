@@ -319,6 +319,13 @@ section ul li a {
 section ul li a:hover {
 	color: green;
 }
+section a{
+	text-decoration: none;
+	color: black;
+}
+section a:hover{
+	color:red;
+}
 
 /* 공통 기능 끝 */
 
