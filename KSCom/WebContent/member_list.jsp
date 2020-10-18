@@ -8,17 +8,24 @@
 <meta charset="UTF-8">
 <title>회원관리 시스템 관리자모드(회원 목록 보기)</title>
 <link rel="stylesheet" href="css/form.css">
+<script type="text/javascript">
+$(function () {
+	
+	
+	
+});
+</script>
 </head>
 <body>
 <jsp:include page="AdminPage.jsp"></jsp:include>
 
 <section>
 
-	
+<form action="search.me" method="post">
 <table>
 	<tr>
 		<td><h1>회원 목록</h1></td>
-		<td><input type="text" id="userSearch" placeholder="아이디 검색">&nbsp;&nbsp;&nbsp;<input type="button" class="buttonCss"  value="검색"></td>
+		<td><input type="text" id="userSearch" name="userSearch" placeholder="아이디 검색">&nbsp;&nbsp;&nbsp;<input type="submit" value="검색"></td>
 	</tr>
 
 	<c:forEach var = "member" items = "${memberList}">
@@ -41,12 +48,10 @@
 	</tr>
 	</c:forEach>
 	<tr><td></td></tr><tr><td></td></tr>
-	<tr>
-		<td><input type="button" class="buttonCss" onclick="location.href='AdminPage.jsp'" value="뒤로가기"></td>
-	</tr>
+	
 		
 </table>
-
+</form>
 </section>
 
 </body>

@@ -20,6 +20,7 @@ import action.MemberLoginAction;
 import action.MemberModifyAction;
 import action.MemberModifyFormAction;
 import action.MemberViewAction;
+import action.searchAction;
 import vo.ActionForward_member;
 
 @WebServlet("*.me")
@@ -123,6 +124,15 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 		//회원 수정
 		else if (command.equals("/memberModifyAction.me")) {
 			action = new MemberModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		else if (command.equals("/search.me")) {
+			action = new searchAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

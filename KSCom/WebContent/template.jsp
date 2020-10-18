@@ -49,7 +49,7 @@ $(function (){
 			if(confRs==del_var){
 				return true;
 			}else {
-				alert('아이디가 틀렸습니다!');
+				alert('아이디가 틀렸습니다');
 				return false;
 			}
 		}else{
