@@ -37,9 +37,11 @@
 			<a href="cpuView.do?id=${cpu.id}">
 			<img src="images/${cpu.image}" id="productImage" name="productImage"/>
 			</a><br>
+			
 			상품명:${cpu.name}<br>
 			가격:${cpu.price}<br>
 			조회수:${cpu.readcount }<br>
+		
 			<input type="hidden" name="popCnt">
 			<input type="hidden" name="popName">
 		</td>

@@ -24,6 +24,7 @@ public class searchAction implements Action_member {
 		request.setAttribute("searchList", searchList);
 		forward.setPath("./search.jsp");
 		
+		
 		}else {
 			forward=new ActionForward_member();
 			forward.setRedirect(true);

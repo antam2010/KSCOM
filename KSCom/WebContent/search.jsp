@@ -18,7 +18,11 @@
 		<input type="submit" value="검색"></td>
 	</tr>
 	
-	
+	<c:if test="${empty searchList}">
+	<tr>
+		<td colspan="2" class="div_empty">입력하신 유저를 찾지 못했습니다.</td>
+	</tr>
+	</c:if>
 	<c:forEach var="member" items="${searchList }">
 	<tr>
 		<c:if test="${member.id ne 'admin' }">

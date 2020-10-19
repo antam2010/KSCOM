@@ -80,7 +80,7 @@ $(function () {
 </c:otherwise>
 </c:choose>
 
-<!-- 두번째 아티클 -->
+
 <aside class="board_margin">
 	<div class="ad_h3">주요 IT 뉴스</div>
 	<ul>
@@ -111,19 +111,19 @@ $(function () {
 
 
 <aside>
-<a href="javascript:;"><span id="img_1" class="absolute white_h4 ad_h5">추천PC</span>
+<a class="mobileSize" href="javascript:;"><span id="img_1" class="absolute white_h4 ad_h5">추천PC</span>
 			<img src="images/OverWatch.jpg"></a>
 </aside>
 <aside>
-<a href="javascript:;"><span id="img_2" class="absolute white_h4 ad_h5">추천PC</span>
+<a class="mobileSize" href="javascript:;"><span id="img_2" class="absolute white_h4 ad_h5">추천PC</span>
 			<img src="images/battleGround.jpg"></a>
 </aside>
 <aside>
-<a href="javascript:;"><span id="img_3" class="absolute white_h4 ad_h5">추천PC</span>
+<a class="mobileSize" href="javascript:;"><span id="img_3" class="absolute white_h4 ad_h5">추천PC</span>
 			<img src="images/LOL.jpg"></a>
 </aside>
 <aside>
-<a href="javascript:;"><span id="img_4" class="absolute white_h4 ad_h5">추천PC</span>
+<a class="mobileSize" href="javascript:;"><span id="img_4" class="absolute white_h4 ad_h5">추천PC</span>
 			<img src="images/RSS.jpg"></a>
 </aside>
 
@@ -131,10 +131,10 @@ $(function () {
 </section>
 <section>
 <div class="">인기 쇼핑몰</div>
-	<ul>
-	<li><div class=""><a href="http://www.gmarket.co.kr/index.asp?jaehuid=200002657" target="_blank">
+	<ul >
+	<li><a href="http://www.gmarket.co.kr/index.asp?jaehuid=200002657" target="_blank">
 	<img src="http://img.danawa.com/cmpny_info/images/EE128_logo.gif" class="img_72_32" alt="지마켓" /></a></div></li>
-	<li><div class=""><a href="http://www.hmall.com/front/shNetworkShop.do?NetworkShop=Html&amp;ReferCode=250&amp;Url=http://www.hmall.com/Home.html" target="_blank" >
+	<li><a href="http://www.hmall.com/front/shNetworkShop.do?NetworkShop=Html&amp;ReferCode=250&amp;Url=http://www.hmall.com/Home.html" target="_blank" >
 	<img src="http://img.danawa.com/cmpny_info/images/ED907_logo.gif" class="img_72_32" alt="Hmall" /></a></div></li>
 	<li><a href="http://www.thehyundai.com/front/shNetworkShop.thd?NetworkShop=Html&amp;ReferCode=030&amp;utm_source=danawa&amp;utm_medium=cps&amp;utm_term=danawa&amp;" target="_blank" onMouseDown="javascript:_trkEventLog('15통합메인_쇼핑파트너즈_더현대닷컴');">
 	<img src="http://img.danawa.com/cmpny_info/images/TP90D_logo.gif" class="img_72_32" alt="더현대닷컴" /></a></li>
