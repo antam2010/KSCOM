@@ -60,7 +60,12 @@
 	<h3>cpu리스트가 존재하지 않습니다.</h3>
 	</div>
 </c:if>
-	<div class="center_text">[1]</div>
+	<div class="center_text">[1] [2] [3]</div>
+	
+	
+	
+	
+	
 </section>
 
 

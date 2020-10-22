@@ -59,8 +59,9 @@
 			$(this).val(name2);
 		});
 		
-		
-		
+		$("input[type=submit]").css({'background-color':'white',
+			'color':'black','border':'1px solid gray','font-size':'0.8em'
+		});
 		
 
 	});
