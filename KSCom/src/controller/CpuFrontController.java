@@ -79,13 +79,13 @@ public class CpuFrontController extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		String requestURI = request.getRequestURI();
+		String requestURI = request.getRequestURI(); // 프로젝트 부터인 KSCom/cpuList.do 까지
 		
 		
-		String contextPath = request.getContextPath();
+		String contextPath = request.getContextPath(); //cpuList.do 까지 가져온다
 		
 		
-		String command = requestURI.substring(contextPath.length());
+		String command = requestURI.substring(contextPath.length()); //command 변수에는 /cpuList.do
 		Action action = null;
 		ActionForward forward = null;
 		

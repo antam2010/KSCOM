@@ -20,6 +20,7 @@ import action.MemberLoginAction;
 import action.MemberModifyAction;
 import action.MemberModifyFormAction;
 import action.MemberViewAction;
+import action.UserPagingAction;
 import action.searchAction;
 import vo.ActionForward_member;
 
@@ -133,6 +134,15 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 		}
 		else if (command.equals("/search.me")) {
 			action = new searchAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		else if (command.equals("/userPaging.me")) {
+			action = new UserPagingAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
