@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import vo.Ad;
-
+import vo.Boardbean;
 import vo.Cpu;
 import vo.ItemsName;
 
@@ -275,7 +275,6 @@ public class CpuDAO {
 			if(rs.next()) {
 				x=true;
 				
-				
 			}
 			
 		}catch (SQLException e) {
@@ -289,6 +288,7 @@ public class CpuDAO {
 		
 	}
 
+	
 	
 
 	

@@ -105,7 +105,7 @@ $(function () {
 </section>
 <section>
 <article>
-<div class="center_text">커뮤니티 준비중</div>
+<div class="center_text"><a href="boardList.do">커뮤니티 준비중</a></div>
 <hr><br><br><br><hr><br><br><br><hr><br><br><br><hr><br><br><br><hr><br><br><br>
 </article>
 

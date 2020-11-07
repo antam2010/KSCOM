@@ -11,6 +11,8 @@ import vo.ActionForward;
 import action.Action;
 import action.Ad_AddListFormAction;
 import action.Ad_AddListSuccessAction;
+import action.BoardListAction;
+import action.BoardWriteAction;
 import action.Com_caseCartAddAction;
 import action.Com_caseCartListAction;
 import action.Com_caseCartQtyDownAction;
@@ -547,6 +549,22 @@ public class CpuFrontController extends HttpServlet {
 		}
 		else if(command.equals("/items.do")){
 			action = new ItemsAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/boardList.do")){
+			action = new BoardListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/boardWrite.do")){
+			action = new BoardWriteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

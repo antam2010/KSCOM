@@ -39,6 +39,7 @@ $(function(){
 		 	<li><a href="#" class="ready">HDD</a></li>
 		 	<li><a href="#" class="ready">SSD</a></li>
 		 	<li><a href="#" class="ready">주변기기</a></li>
+		 	<li><a href="boardWriteForm.jsp">게시판 글쓰기 테스트</a></li>
 		 	
 		</ul>
 	</nav>
