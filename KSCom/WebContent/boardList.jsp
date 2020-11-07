@@ -12,8 +12,8 @@
 		<tr>
 			<td>글 번호</td>
 			<td>아이디 </td>
-			<td>제목</td>
-			<td>날짜</td>
+			<td>제 목</td>
+			<td>날 짜</td>
 			<td>조회수</td>
 		</tr>
 		<c:forEach var="list" items="${articleList }">

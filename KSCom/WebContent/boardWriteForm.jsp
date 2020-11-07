@@ -28,7 +28,7 @@
 		<td><input type="text" name="subject" value="" placeholder="글 제목 입력"></td>
 	</tr>
 	<tr>
-		<td>첨부 파일 :</td>
+		<td class="">첨부 파일  :</td>
 		<td><input type="file" name="file" ></td>
 	</tr>
 	<tr>
