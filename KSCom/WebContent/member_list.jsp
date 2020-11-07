@@ -51,6 +51,7 @@ $(function () {
 	
 		
 </table>
+<div class="center_text">[1] [2] [3]</div>
 </form>
 </section>
 

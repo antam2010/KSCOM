@@ -49,17 +49,9 @@
 			<a href="cpuCartAdd.do?id=${cpu.id}">장바구니에담기</a>
 			</c:otherwise>
 			</c:choose>
-		</div>
+		</div>	
 	
 </section>
-<aside>
-<c:if test="${id eq 'admin' }">
-<input type="button" value="비활성화" class="ready"/>
-<!-- db 하나 만들어서 count>0 이면 활성 <0 이면 비활성해서 강제로 <0으로만들자 -->
-</c:if>
 
-
-
-</aside>
 </body>
 </html>

@@ -37,9 +37,11 @@
 			<a href="cpuView.do?id=${cpu.id}">
 			<img src="images/${cpu.image}" id="productImage" name="productImage"/>
 			</a><br>
+			
 			상품명:${cpu.name}<br>
 			가격:${cpu.price}<br>
 			조회수:${cpu.readcount }<br>
+		
 			<input type="hidden" name="popCnt">
 			<input type="hidden" name="popName">
 		</td>
@@ -58,7 +60,12 @@
 	<h3>cpu리스트가 존재하지 않습니다.</h3>
 	</div>
 </c:if>
-	<div class="center_text">[1]</div>
+	<div class="center_text">[1] [2] [3]</div>
+	
+	
+	
+	
+	
 </section>
 
 
