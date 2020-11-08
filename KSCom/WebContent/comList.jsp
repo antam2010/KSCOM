@@ -1,6 +1,9 @@
+<%@page import="vo.PageInfo"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="vo.Boardbean" %>
 
 <!DOCTYPE html>
 <html>
@@ -105,8 +108,21 @@ $(function () {
 </section>
 <section>
 <article>
-<div class="center_text"><a href="boardList.do">커뮤니티 준비중</a></div>
-<hr><br><br><br><hr><br><br><br><hr><br><br><br><hr><br><br><br><hr><br><br><br>
+
+	<table>
+		<tr>
+			<td>글 제목</td>
+			<td>날짜</td>
+			<td>조회수</td>
+		</tr>
+		
+		<c:forEach var="list" items="${boardList }" end="3">
+		<tr>
+			<td>${list.subject }</td>
+			<td>${list.date }</td>
+			<td>${list.readcount }</td>
+		</c:forEach>
+	</table>
 </article>
 
 

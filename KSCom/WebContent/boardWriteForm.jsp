@@ -38,7 +38,7 @@
 </table>
 <div style="text-align: center;">
 <input type="submit" value="전송">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" value="뒤로가기" onclick="history.back()">
+<a href="boardList.do">목록 가기</a>
 </div>
 </form>
 </section>

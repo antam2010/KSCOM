@@ -88,10 +88,10 @@ public class BoardDAO {
 		return listCount;
 	}
 
-	public ArrayList<Boardbean> selectListCount(int page, int limit) {
+	public ArrayList<Boardbean> selectArticleList(int page, int limit) {
 		PreparedStatement pstmt=null;
 		ResultSet rs= null;
-		String sql="SELECT * FROM BOARD ORDER BY BOARD_RE_REF DESC, BOARD_RE_SEQ ASC LIMIT ?,10";
+		String sql="SELECT * FROM BOARD ORDER BY RE_REF DESC, RE_SEQ ASC LIMIT ?,10";
 		ArrayList<Boardbean> articleList = new ArrayList<Boardbean>();
 		Boardbean boardbean= null;
 		int startrow=(page-1)*10;
@@ -119,10 +119,52 @@ public class BoardDAO {
 				}while(rs.next());
 			}
 		}catch (SQLException e) {
-			// TODO: handle exception
+			System.out.println("getboardList"+e);
+		}finally {
+			close(rs);
+			close(pstmt);
 		}
 		return articleList;
 	}
+
+	public ArrayList<Boardbean> selectArticleList() {
+		PreparedStatement pstmt=null;
+		ResultSet rs= null;
+		String sql="SELECT * FROM BOARD ORDER BY DATE DESC";
+		ArrayList<Boardbean> boardList = new ArrayList<Boardbean>();
+		Boardbean boardbean= null;
+		
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				boardList=new ArrayList<Boardbean>();
+				do {
+					boardList.add(new Boardbean(
+							rs.getInt("num"),
+							rs.getString("name"),
+							rs.getString("subject"),
+							rs.getString("content"),
+							rs.getString("file"),
+							rs.getInt("re_ref"),
+							rs.getInt("re_lev"),
+							rs.getInt("re_seq"),
+							rs.getInt("readcount"),
+							rs.getDate("date")
+							));
+				}while(rs.next());
+			}
+		}catch (SQLException e) {
+			System.out.println("getboardList"+e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return boardList;
+	}
+
 	
 	
 }
