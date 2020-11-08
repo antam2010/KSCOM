@@ -108,7 +108,12 @@ $(function () {
 </section>
 <section>
 <article>
-
+	<c:choose>
+	<c:when test="${boardList eq null || empty boardList }">
+	<h3>등록된 게시글이 없습니다.</h3>
+	</c:when>
+	<c:otherwise>
+	<a href="boardList.do"><h3 align="center">유저 게시판</h3></a>
 	<table>
 		<tr>
 			<td>글 제목</td>
@@ -116,13 +121,15 @@ $(function () {
 			<td>조회수</td>
 		</tr>
 		
-		<c:forEach var="list" items="${boardList }" end="3">
+		<c:forEach var="list" items="${boardList }" end="5">
 		<tr>
 			<td>${list.subject }</td>
-			<td>${list.date }</td>
+			<td>${list.name }</td>
 			<td>${list.readcount }</td>
 		</c:forEach>
 	</table>
+	</c:otherwise>
+	</c:choose>
 </article>
 
 
